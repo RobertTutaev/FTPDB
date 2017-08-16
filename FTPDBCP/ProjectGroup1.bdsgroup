@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Default.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{3D6433E0-6A19-4E1C-995A-1062A8D1252E}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Default.Personality>
+    
+    <Projects>
+      <Projects Name="FTPDBCP.cpl">FTPDBCP.bdsproj</Projects>
+      <Projects Name="ENU\..\FTPDBCP.ENU">ENU\FTPDBCP.bdsproj</Projects>
+      <Projects Name="RUS\..\FTPDBCP.RUS">RUS\FTPDBCP.bdsproj</Projects>
+      <Projects Name="Targets">FTPDBCP.cpl ENU\..\FTPDBCP.ENU RUS\..\FTPDBCP.RUS</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

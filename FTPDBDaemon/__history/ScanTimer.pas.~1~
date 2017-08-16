@@ -1,0 +1,22 @@
+unit ScanTimer;
+
+interface
+
+uses
+  Classes;
+
+type
+  TScanTime = class(TThread)
+  private     
+  protected
+    procedure Execute; override;
+  end;
+
+implementation
+
+procedure TScanTime.Execute;
+begin
+  { Place thread code here }
+end;
+
+end.

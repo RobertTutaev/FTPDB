@@ -1,0 +1,17 @@
+program ttt;
+
+uses
+  Forms,
+  FormFTPDBCP in 'FormFTPDBCP.pas' {FormFTPDBDaemon},
+  FormMail in 'FormMail.pas' {FormEMail};
+
+{$R *.res}
+
+var
+  FormFTPDBCP1: TFormFTPDBDaemon;
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormFTPDBCP1, FormFTPDBCP1);
+  Application.Run;
+end.

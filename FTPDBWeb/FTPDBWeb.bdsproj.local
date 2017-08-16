@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2007.01.18 10:50:44.171.pas,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\Unit1.pas=D:\Мелочь\FTPDB\FTPDBWebClient\Unit1.pas</Transaction>
+    <Transaction>2007.01.18 10:50:44.171.dfm,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\Unit1.dfm=D:\Мелочь\FTPDB\FTPDBWebClient\Unit1.dfm</Transaction>
+    <Transaction>2007.01.18 10:50:48.078.pas,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\UserSessionUnit.pas=D:\Мелочь\FTPDB\FTPDBWebClient\UserSessionUnit.pas</Transaction>
+    <Transaction>2007.01.18 10:50:48.078.dfm,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\UserSessionUnit.dfm=D:\Мелочь\FTPDB\FTPDBWebClient\UserSessionUnit.dfm</Transaction>
+    <Transaction>2007.01.18 10:50:50.906.pas,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\ServerController.pas=D:\Мелочь\FTPDB\FTPDBWebClient\ServerController.pas</Transaction>
+    <Transaction>2007.01.18 10:50:50.906.dfm,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\ServerController.dfm=D:\Мелочь\FTPDB\FTPDBWebClient\ServerController.dfm</Transaction>
+    <Transaction>2007.01.18 10:50:53.250.bdsproj,C:\Documents and Settings\xxx\Мои документы\Borland Studio Projects\FTPDBWebClient.bdsproj=D:\Мелочь\FTPDB\FTPDBWebClient\FTPDBWebClient.bdsproj</Transaction>
+    <Transaction>2007.01.18 13:56:59.500.pas,D:\Мелочь\FTPDB\FTPDBWebClient\Unit3.pas=</Transaction>
+    <Transaction>2007.01.18 13:56:59.500.dfm,D:\Мелочь\FTPDB\FTPDBWebClient\Unit3.dfm=</Transaction>
+    <Transaction>2007.02.14 10:30:17.375.pas,D:\Мелочь\FTPDB\FTPDBWebClient\Unit5.pas=D:\Мелочь\FTPDB\FTPDBWebClient\LibraryWeb.pas</Transaction>
+    <Transaction>2007.03.05 11:19:56.781.pas,D:\Мелочь\FTPDB\FTPDBWebClient\Unit5.pas=</Transaction>
+    <Transaction>2007.03.28 10:16:44.843.pas,D:\Мелочь\FTPDB\FTPDBWebClient\Unit8.pas=D:\Мелочь\FTPDB\FTPDBWebClient\FTPDBWebFunctions.pas</Transaction>
+    <Transaction>2007.04.18 16:31:30.890.bdsproj,D:\Мелочь\FTPDB\FTPDBWebClient\FTPDBWebClient.bdsproj=D:\Мелочь\FTPDB\FTPDBWebClient\FTPDBWeb.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

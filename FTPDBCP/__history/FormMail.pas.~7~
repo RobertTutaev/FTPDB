@@ -1,0 +1,62 @@
+unit FormMail;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, ComCtrls, ExtCtrls;
+
+type
+  TFormEMail = class(TForm)
+    RichEdit1: TRichEdit;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    EditUsEmail: TEdit;
+    EditUsPassword: TEdit;
+    BitBtn1: TBitBtn;
+    procedure OkClick(Sender: TObject);
+    function GetUs(var UsName, UsHost: String): Boolean;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;  
+
+implementation
+
+{$R *.dfm}
+
+function TFormEMail.GetUs(var UsName, UsHost: String): Boolean;
+var
+  UsTemp: String;
+  n: Integer;
+begin
+  Result:=False;
+  UsName:='';
+  UsHost:='';
+  UsTemp:=Trim(EditUsEmail.Text);
+  if length(UsTemp)=0 then Exit;
+
+  Try
+    n:=Pos('@',UsTemp);
+    UsName:=Copy(UsTemp, 1, n);
+    UsHost:=Copy(UsTemp, n+1, length(UsTemp));
+    if Pos('@',UsHost)<>0 then Exit;  
+    Result:=True;
+  except
+    Result:=False;
+  End;
+end;
+
+procedure TFormEMail.OkClick(Sender: TObject);
+var UsName, UsHost: String;
+begin
+  if GetUs(UsName, UsHost) then
+    ShowMessage(UsName+' '+UsHost);
+  //Hide;
+end;
+
+
+
+end.

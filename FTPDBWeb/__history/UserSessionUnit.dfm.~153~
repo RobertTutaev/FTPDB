@@ -1,0 +1,296 @@
+object IWUserSession: TIWUserSession
+  OldCreateOrder = False
+  Height = 657
+  Width = 583
+  object IBDatabase1: TIBDatabase
+    Connected = True
+    DatabaseName = 'D:\'#1052#1077#1083#1086#1095#1100'\FTPDB\FTPDBDaemon\FTPDB.GDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey'
+      'lc_ctype=WIN1251')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    AfterConnect = IBDatabase1AfterConnect
+    BeforeConnect = IBDatabase1BeforeConnect
+    Left = 24
+    Top = 16
+  end
+  object IBTransaction1: TIBTransaction
+    DefaultDatabase = IBDatabase1
+    DefaultAction = TARollback
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 88
+    Top = 16
+  end
+  object IBQueryFiles: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    AfterClose = IBQueryFilesAfterClose
+    AfterOpen = IBQueryFilesAfterOpen
+    BeforeOpen = IBQueryFilesBeforeOpen
+    SQL.Strings = (
+      'select '
+      '  v_all as "'#1055#1086#1083#1085#1099#1081' '#1087#1091#1090#1100'",'
+      '  v_path as "'#1055#1091#1090#1100'", v_size as "'#1056#1072#1079#1084#1077#1088', '#1050#1041'", v_date as '
+      
+        '  "'#1044#1072#1090#1072'", v_time as "'#1042#1088#1077#1084#1103'", v_name as "'#1060#1072#1081#1083'" from GETFILES('#39'192' +
+        '.168.11.3'#39', '#39'met_uszn'#39', '#39'60-4803'#39')')
+    Left = 157
+    Top = 65
+  end
+  object IBQueryLog: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    AfterOpen = IBQueryLogAfterOpen
+    BeforeOpen = IBQueryLogBeforeOpen
+    Left = 157
+    Top = 113
+  end
+  object DataSourceFiles: TDataSource
+    DataSet = IBQueryFiles
+    Left = 279
+    Top = 64
+  end
+  object IBTableHost: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'HOST'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PASSIVE'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'PORT'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'TRANSFERTYPE'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY47'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'RDB$FOREIGN62'
+        Fields = 'PASSIVE'
+      end
+      item
+        Name = 'RDB$FOREIGN63'
+        Fields = 'TRANSFERTYPE'
+      end>
+    StoreDefs = True
+    TableName = 'FTP_HOST'
+    Left = 157
+    Top = 16
+  end
+  object DataSourceHost: TDataSource
+    DataSet = IBTableHost
+    Left = 279
+    Top = 15
+  end
+  object DataSourceLog: TDataSource
+    DataSet = IBQueryLog
+    Left = 279
+    Top = 112
+  end
+  object IdFTPDBScan1: TIdFTPDBScan
+    AutoLogin = True
+    ProxySettings.ProxyType = fpcmNone
+    ProxySettings.Port = 0
+    IBDataSet = IBQueryTemp
+    IdUser = 0
+    Left = 279
+    Top = 160
+  end
+  object IBQueryTemp: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    Left = 157
+    Top = 161
+  end
+  object IBTableOptions: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    FieldDefs = <
+      item
+        Name = 'LOGIN'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PASS'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'LAI'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'DAI'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'SRTO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'STO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'LRL'
+        DataType = ftInteger
+      end
+      item
+        Name = 'PORT'
+        DataType = ftInteger
+      end
+      item
+        Name = 'RSN'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$FOREIGN12'
+        Fields = 'LAI'
+      end
+      item
+        Name = 'RDB$FOREIGN19'
+        Fields = 'RSN'
+      end
+      item
+        Name = 'RDB$FOREIGN13'
+        Fields = 'DAI'
+      end>
+    StoreDefs = True
+    TableName = 'OPTIONS'
+    Left = 157
+    Top = 248
+  end
+  object DataSourceOptions: TDataSource
+    DataSet = IBTableOptions
+    Left = 276
+    Top = 247
+  end
+  object DataSourceFTP_LOGIN: TDataSource
+    DataSet = IBTableFTP_LOGIN
+    Left = 520
+    Top = 368
+  end
+  object DataSourceFTP_DIRS: TDataSource
+    DataSet = IBTableFTP_DIRS
+    Left = 520
+    Top = 416
+  end
+  object DataSourceFTP_HOST: TDataSource
+    DataSet = IBTableFTP_HOST
+    Left = 516
+    Top = 320
+  end
+  object DataSourceS_TRANSFERTYPE: TDataSource
+    DataSet = SQLTableS_TRANSFERTYPE
+    Left = 520
+    Top = 482
+  end
+  object DataSourceS_PROXYTYPE: TDataSource
+    DataSet = SQLTableS_PROXYTYPE
+    Left = 520
+    Top = 530
+  end
+  object IBTableFTP_HOST: TSQLTable
+    Active = True
+    MaxBlobSize = -1
+    SQLConnection = SQLConnection1
+    TableName = 'FTP_HOST'
+    Left = 448
+    Top = 320
+  end
+  object SQLConnection1: TSQLConnection
+    ConnectionName = 'IBConnection'
+    DriverName = 'Interbase'
+    GetDriverFunc = 'getSQLDriverINTERBASE'
+    LibraryName = 'dbxint30.dll'
+    LoginPrompt = False
+    Params.Strings = (
+      'DriverName=Interbase'
+      'Database=D:\'#1052#1077#1083#1086#1095#1100'\FTPDB\FTPDBDaemon\FTPDB.GDB'
+      'RoleName=RoleName'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'ServerCharSet='
+      'SQLDialect=3'
+      'ErrorResourceFile='
+      'LocaleCode=0000'
+      'BlobSize=-1'
+      'CommitRetain=False'
+      'WaitOnLocks=True'
+      'Interbase TransIsolation=ReadCommited'
+      'Trim Char=False')
+    VendorLib = 'gds32.dll'
+    Connected = True
+    Left = 384
+    Top = 320
+  end
+  object IBTableFTP_LOGIN: TSQLTable
+    Active = True
+    IndexFieldNames = 'HOST'
+    MasterFields = 'KOD'
+    MasterSource = DataSourceFTP_HOST
+    MaxBlobSize = -1
+    SQLConnection = SQLConnection1
+    TableName = 'FTP_LOGIN'
+    Left = 448
+    Top = 368
+  end
+  object IBTableFTP_DIRS: TSQLTable
+    Active = True
+    IndexFieldNames = 'LOGIN'
+    MasterFields = 'KOD'
+    MasterSource = DataSourceFTP_LOGIN
+    MaxBlobSize = -1
+    SQLConnection = SQLConnection1
+    TableName = 'FTP_DIRS'
+    Left = 448
+    Top = 416
+  end
+  object SQLTableS_TRANSFERTYPE: TSQLTable
+    Active = True
+    IndexFieldNames = 'KOD'
+    MasterFields = 'TRANSFERTYPE'
+    MasterSource = DataSourceFTP_HOST
+    MaxBlobSize = -1
+    SQLConnection = SQLConnection1
+    TableName = 'S_TRANSFERTYPE'
+    Left = 448
+    Top = 480
+  end
+  object SQLTableS_PROXYTYPE: TSQLTable
+    Active = True
+    IndexFieldNames = 'KOD'
+    MasterFields = 'PPROXYTYPE'
+    MasterSource = DataSourceFTP_LOGIN
+    MaxBlobSize = -1
+    SQLConnection = SQLConnection1
+    TableName = 'S_PROXYTYPE'
+    Left = 448
+    Top = 528
+  end
+end

@@ -1,0 +1,291 @@
+unit IdFTPFunctions;
+
+interface                    
+
+uses Registry, Windows, Variants, HDDInfo;
+
+type
+  TOpt=record
+    Lgn:     String;
+    Psswrd:  String;
+    Hst:     String;
+    Pth:     String;
+    tpPr:    String;
+    tmOut:   String;
+    tmDelta: String;
+    tmSleep: String;
+    StType:  String;
+    StType2: String;
+  end;
+
+type
+  TRegMail=record
+    f1: string;
+    f2: string;
+    f3: string;
+    Dt: TDateTime;
+    firm: string;
+    Subject: string;
+    FHost: string;
+    FName: string;
+    UsHost: string;
+    UsName: string;
+    UsPassword: string;
+    UsPortSMTP: Integer;
+    Key: string;
+    IsRegister: Boolean;
+  end;
+
+function GetValue(VarOfField: Variant):String;
+
+Procedure LoadOptions(Var Opt: TOpt);
+Procedure SaveOptions(Const Opt: TOpt);
+
+Procedure LoadRegMail(Var RegMail: TRegMail);
+Procedure SaveRegMail(Const RegMail: TRegMail);
+
+Procedure LoadReg(Var RegMail: TRegMail);
+Procedure SaveReg(Const RegMail: TRegMail);
+
+function GetTemp: string;
+function GetWindows: string;
+function GetSystem: string;
+
+implementation
+
+uses Crypt, SysUtils;
+
+function GetValue(VarOfField: Variant):String;
+begin
+  Result:='';
+  if VarIsNull(VarOfField) then Exit;
+
+  try Result:=VarOfField;
+  except Result:=''; end;
+end;
+
+Procedure LoadOptions(Var Opt: TOpt);
+var
+  AValue   : TRegistry;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDB\Options\', True);
+    try
+      with Opt do
+      begin
+        Lgn:=    CoDecModify(ReadString('01'),True);
+        Psswrd:= CoDecModify(ReadString('02'),True);
+        Hst:=    CoDecModify(ReadString('03'),True);
+        Pth:=    CoDecModify(ReadString('04'),True);
+        tpPr:=   CoDecModify(ReadString('05'),True);
+        tmOut:=  CoDecModify(ReadString('06'),True);
+        tmDelta:=CoDecModify(ReadString('07'),True);
+        tmSleep:=CoDecModify(ReadString('08'),True);
+        StType:= CoDecModify(ReadString('09'),True);
+        StType2:=CoDecModify(ReadString('10'),True);
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+procedure SaveOptions(Const Opt: TOpt);
+var
+  AValue   : TRegistry;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDB\Options\', True);
+    try
+      with Opt do
+      begin
+        WriteString('01', CoDecModify(Lgn,False));
+        WriteString('02', CoDecModify(Psswrd,False));
+        WriteString('03', CoDecModify(Hst,False));
+        WriteString('04', CoDecModify(Pth,False));
+        WriteString('05', CoDecModify(tpPr,False));
+        WriteString('06', CoDecModify(tmOut,False));
+        WriteString('07', CoDecModify(tmDelta,False));
+        WriteString('08', CoDecModify(tmSleep,False));
+        WriteString('09', CoDecModify(StType,False));
+        WriteString('10', CoDecModify(StType2,False));
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+Procedure LoadRegMail(Var RegMail: TRegMail);
+var
+  AValue   : TRegistry; 
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDB\Registration\', True);
+    try
+      with RegMail do
+      begin
+        f1:=CoDecModify(ReadString('01'),True);
+        f2:=CoDecModify(ReadString('02'),True);
+        f3:=CoDecModify(ReadString('03'),True);
+        Dt:=StrToDateDef(CoDecModify(ReadString('04'),True), Now);
+        firm:=CoDecModify(ReadString('05'),True);
+        Subject:=CoDecModify(ReadString('06'),True);
+        FHost:=CoDecModify(ReadString('07'),True);
+        FName:=CoDecModify(ReadString('08'),True);
+        UsHost:=CoDecModify(ReadString('09'),True);
+        UsName:=CoDecModify(ReadString('10'),True);
+        UsPassword:=CoDecModify(ReadString('11'),True);
+        UsPortSMTP:=StrToIntDef(CoDecModify(ReadString('12'),True), 25);
+        LoadReg(RegMail);
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+Procedure SaveRegMail(Const RegMail: TRegMail);
+var
+  AValue   : TRegistry;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDB\Registration\', True);
+    try
+      with RegMail do
+      begin
+        WriteString('01', CoDecModify(f1,False));
+        WriteString('02', CoDecModify(f2,False));
+        WriteString('03', CoDecModify(f3,False));
+        WriteString('04', CoDecModify(DateToStr(Dt),False));
+        WriteString('05', CoDecModify(firm,False));
+        WriteString('06', CoDecModify(Subject,False));
+        WriteString('07', CoDecModify(FHost,False));
+        WriteString('08', CoDecModify(FName,False));
+        WriteString('09', CoDecModify(UsHost,False));
+        WriteString('10', CoDecModify(UsName,False));
+        WriteString('11', CoDecModify(UsPassword,False));
+        WriteString('12', CoDecModify(IntToStr(UsPortSMTP),False));
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+Procedure LoadReg(Var RegMail: TRegMail);
+var
+  AValue : TRegistry;
+  Buf: Pointer;
+  i, CntB: Integer;
+
+  function IsR(Key: String): Boolean;
+  var v: String;
+  begin
+    try
+      v:=AllD(Key);
+      if v=GetKeySNDA then Result:=True else Result:=False;
+    except
+      Result:=False;
+    end;
+  end;
+
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDB\Key\', True);
+    try
+      with RegMail do
+      begin
+        try
+          CntB:=ReadInteger('Count');
+        except
+          CntB:=0;
+        end;
+
+        Key:='';
+        if CntB>0 then
+        begin
+          GetMem(Buf, CntB);
+          ReadBinaryData('Value', Buf^, CntB);
+          for i:=0 to CntB-1 do
+          begin
+            Key:=Key+PAnsiChar(Buf)[i];
+          end;
+        end;
+        IsRegister:=IsR(Key);
+      end;
+    finally
+      FreeMem(Buf);
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+Procedure SaveReg(Const RegMail: TRegMail);
+var
+  AValue   : TRegistry;
+  Buf: Array of Byte;
+  i, CntB: Integer;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDB\Key\', True);
+    try
+      with RegMail do
+      begin
+        WriteInteger('Count', length(key));
+        SetLength(Buf, length(key));
+        for i:=0 to length(key)-1 do Buf[i]:=Byte(Key[i]);
+        WriteBinaryData('Value', Buf, length(key));
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+function GetTemp: string;
+var
+  Buffer: array[0..1023] of Char;
+begin
+  SetString(Result, Buffer, GetTempPath(Sizeof(Buffer) - 1, Buffer));
+end;
+
+function GetWindows: string;
+var
+  Buffer: array[0..1023] of Char;
+begin
+  SetString(Result, Buffer, GetWindowsDirectory(Buffer, Sizeof(Buffer) - 1));
+end;
+
+function GetSystem: string;
+var
+  Buffer: array[0..1023] of Char;
+begin
+  SetString(Result, Buffer, GetSystemDirectory(Buffer, Sizeof(Buffer) - 1));
+end;
+
+end.

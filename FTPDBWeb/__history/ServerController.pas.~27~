@@ -1,0 +1,74 @@
+unit ServerController;
+
+interface
+
+uses
+  SysUtils, Classes, IWServerControllerBase, IWBaseForm, HTTPApp,
+  UserSessionUnit, IWApplication, IWAppForm, Unit7;
+
+type
+  TIWServerController = class(TIWServerControllerBase)
+    procedure IWServerControllerBaseNewSession(ASession: TIWApplication;
+      var VMainForm: TIWBaseForm);
+    procedure IWServerControllerBaseCreate(Sender: TObject);
+    procedure IWServerControllerBaseCloseSession(ASession: TIWApplication);
+  private
+  public
+    IsReg: Boolean;
+    count_sessions: Integer;
+  end;
+
+  function UserSession: TIWUserSession;
+  function IWServerController: TIWServerController;
+
+implementation
+
+{$R *.dfm}
+
+uses
+  IWInit, IWGlobal, DB;
+
+function IWServerController: TIWServerController;
+begin
+  Result := TIWServerController(GServerController);
+end;
+
+function UserSession: TIWUserSession;
+begin
+  Result := TIWUserSession(WebApplication.Data);
+end;
+
+procedure TIWServerController.IWServerControllerBaseCloseSession(
+  ASession: TIWApplication);
+begin
+  count_sessions:=count_sessions-1;
+end;
+
+procedure TIWServerController.IWServerControllerBaseCreate(Sender: TObject);
+var DMO: TDataModuleOptions;
+begin
+  count_sessions:=0;
+
+  Try
+    DMO:=TDataModuleOptions.Create(DMO);
+    Try SessionTimeout:=DMO.IBTableOptions.FieldValues['STO'] except end;
+    Try ServerResizeTimeout:=DMO.IBTableOptions.FieldValues['SRTO'] except end;
+    Try Port:=DMO.IBTableOptions.FieldValues['PORT'] except end;
+    Try RestrictSubnet:=Boolean(DMO.IBTableOptions.FieldValues['RSN']-1) except end;
+  finally
+    DMO.Free
+  end;
+end;
+
+procedure TIWServerController.IWServerControllerBaseNewSession(
+  ASession: TIWApplication; var VMainForm: TIWBaseForm);
+begin
+  ASession.Data:=TIWUserSession.Create(nil);
+  count_sessions:=count_sessions+1;
+end;
+
+initialization
+  TIWServerController.SetServerControllerClass;
+
+end.
+

@@ -1,0 +1,65 @@
+хмм.. причем здесь дайлбоксы.. Хотя хз..) Возможно я тебя не так понял.. И нафик несколько раз ходить по кругу, чтобы узнать размер, дату и имя файла? Аа.. ты меня как раз об этом спрашиваешь.. Всё, понял.. Вопщем делаю примерно вот так: 
+
+IdAllFTPListParsers.hpp
+uses IdFTPListParserWindowsNT;
+
+VAR 
+FTPLI: TIdFTPListItem; 
+
+FTP.List({любой стринглист, для формальности}); 
+FOR i:=0 to FTP.DirectoryListing.Count-1 DO // 
+BEGIN 
+FTPLI := FTP.DirectoryListing[i]; //перебираем все вложения и присваиваем объекту FTPLI 
+... FTPLI.FileName; {имя файла/папки} 
+... FTPLI.Size; {размер} 
+... FTPLI.Data; {дата создания} 
+... FTPLI.ItemType {тип: папка, файл} 
+... и еще куча всяких свойств..  
+END;
+=====================================================================================================================
+для корректной работы сервиса надо создать новый поток и
+в нем исполнять основное действие сервиса.
+То есть:
+TMyThread=class (TThread)
+Public
+Procedure Execute; override;
+End;
+//В TMyThread.execute вставляешь рабочий код
+//В нем пиши (чтоб исполнялось периодически):
+// If Terminated Then exit;
+TService1=class(TService)
+...
+Procedure ServiceStart(SEnder: TService; Var Started: Boolean);
+Procedure ServicePause(SEnder : TService; Var Paused : Boolean);
+Procedure ServiceContinue(SEnder: TService;
+Var Continued: Boolean);
+Procedure ServiceStop(SEnder: TService; Var Stopped: Boolean);
+End;
+MyThread:TMyThread;
+Procedure TService1.ServiceStart(SEnder: TService; Var Started: Boolean);
+Begin
+MyThread := TMyThread.Create(True);
+MyThread.Priority:=tpNormal;
+MyThread.Resume;
+Started := True;
+End;
+Procedure TService1.ServicePause(SEnder: TService; Var Paused: Boolean);
+Begin
+MyThread.SuspEnd;
+Paused:=true;
+End;
+Procedure TService1.ServiceStop(SEnder: TService; Var Stopped: Boolean);
+Begin
+MyThread.Terminate;
+Stopped:=true;
+End;
+Procedure TService1.ServiceContinue(SEnder: TService;
+Var Continued: Boolean);
+Begin
+MyThread.Resume;
+Continued:=true;
+End;
+Короче суть в том, что ты помещаешь исполняемый код в TMyThread.Execute,
+то есть в отдельный поток, который запускается, останавливается из основоного.
+Таким образом? можно добиться реагирования на системные запросы.
+Главное не забудь постоянно опрашивать флаг terminated в методе Execute.

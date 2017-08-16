@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">W32ResourceDLL.Personality</Option>
+      <Option Name="ProjectType">ResourceDLL</Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{2F564832-7FBB-4DC2-8CF2-ACF61126623E}</Option>
+    </Option>
+  </PersonalityInfo>
+  <W32ResourceDLL.Personality>
+    <Source>
+      <Source Name="MainSource">D:\Мелочь\FTPDB\FTPDBWebClient\RUS\FTPDBWebClient.dpr</Source>
+    </Source>
+    <Options>
+      <Options Name="BaseLang">1049</Options>
+      <Options Name="TargetName">..\FTPDBWebClient.RUS</Options>
+      <Options Name="Company"></Options>
+      <Options Name="Configuration"></Options>
+      <Options Name="Copyright"></Options>
+      <Options Name="Description"></Options>
+      <Options Name="Trademark"></Options>
+      <Options Name="Product"></Options>
+      <Options Name="ProductVersion"></Options>
+      <Options Name="Title"></Options>
+      <Options Name="FileVersion"></Options>
+      <Options Name="Evidence"></Options>
+      <Options Name="KeyFile"></Options>
+      <Options Name="KeyName"></Options>
+    </Options>
+    <FileList>
+      <File FileName="ServerController.dfm" ContainerId="W32Form" ModuleName="ServerController.dfm"/>
+      <File FileName="Unit1.dfm" ContainerId="W32Form" ModuleName="Unit1.dfm"/>
+      <File FileName="Unit2.dfm" ContainerId="W32Form" ModuleName="Unit2.dfm"/>
+      <File FileName="Unit4.dfm" ContainerId="W32Form" ModuleName="Unit4.dfm"/>
+      <File FileName="Unit5.dfm" ContainerId="W32Form" ModuleName="Unit5.dfm"/>
+      <File FileName="Unit6.dfm" ContainerId="W32Form" ModuleName="Unit6.dfm"/>
+      <File FileName="UserSessionUnit.dfm" ContainerId="W32Form" ModuleName="UserSessionUnit.dfm"/>
+      <File FileName="FTPDBWebClient_DRC.rc" ContainerId="W32RC" ModuleName="FTPDBWebClient_DRC.rc"/>
+    </FileList>
+  </W32ResourceDLL.Personality>
+</BorlandProject>

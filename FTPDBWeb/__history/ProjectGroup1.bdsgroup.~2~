@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Default.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{65396997-E7E7-4AD0-8AFB-B792FE09202F}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Default.Personality>
+    
+    <Projects>
+      <Projects Name="FTPDBWebClient.exe">FTPDBWebClient.bdsproj</Projects>
+      <Projects Name="DocBase.exe">H:\DocBase\DocBase.bdsproj</Projects>
+      <Projects Name="Targets">FTPDBWebClient.exe DocBase.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

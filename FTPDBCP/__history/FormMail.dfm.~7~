@@ -1,0 +1,78 @@
+object FormEMail: TFormEMail
+  Left = 0
+  Top = 0
+  BorderStyle = bsToolWindow
+  Caption = #1042#1072#1096' '#1087#1086#1095#1090#1086#1074#1099#1081' '#1103#1097#1080#1082
+  ClientHeight = 198
+  ClientWidth = 331
+  Color = clSkyBlue
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 28
+    Top = 139
+    Width = 37
+    Height = 13
+    Caption = #1055#1072#1088#1086#1083#1100
+  end
+  object Label2: TLabel
+    Left = 28
+    Top = 112
+    Width = 24
+    Height = 13
+    Caption = 'Email'
+  end
+  object SpeedButtonOk: TSpeedButton
+    Left = 98
+    Top = 163
+    Width = 63
+    Height = 22
+    Caption = #1054#1082
+    Flat = True
+    OnClick = SpeedButtonOkClick
+  end
+  object RichEdit1: TRichEdit
+    Left = 0
+    Top = 0
+    Width = 331
+    Height = 98
+    Align = alTop
+    Lines.Strings = (
+      #1044#1083#1103' '#1074#1086#1079#1084#1086#1078#1085#1086#1089#1090#1080' '#1088#1072#1073#1086#1090#1099' '#1089' '#1074#1072#1096#1080#1084' '#1087#1086#1095#1090#1086#1074#1099#1084' '#1103#1097#1080#1082#1086#1084' '
+      #1085#1077#1086#1073#1093#1086#1076#1080#1084#1086':'
+      ''
+      '1. '#1063#1090#1086#1073#1099' '#1087#1086#1095#1090#1086#1074#1099#1081' '#1089#1077#1088#1074#1077#1088', '#1085#1072' '#1082#1086#1090#1086#1088#1086#1084' '#1079#1072#1074#1077#1076#1077#1085' '#1074#1072#1096' '
+      #1087#1086#1095#1090#1086#1074#1099#1081' '#1103#1097#1080#1082', '#1073#1099#1083' '#1074#1080#1076#1077#1085' '#1074' '#1089#1077#1090#1080' '#1089' '#1076#1072#1085#1085#1086#1075#1086' '#1082#1086#1084#1087#1100#1102#1090#1077#1088#1072
+      ''
+      '2. '#1053#1072' '#1087#1086#1095#1090#1086#1074#1086#1084' '#1089#1077#1088#1074#1077#1088#1077' '#1080' '#1085#1072' '#1076#1072#1085#1085#1086#1084' '#1082#1086#1084#1087#1100#1102#1090#1077#1088#1077' '#1073#1099#1083' '
+      #1086#1090#1082#1088#1099#1090' '#1087#1086#1088#1090' '#1089' '#1085#1086#1084#1077#1088#1086#1084' 25 ('#1074' '#1089#1086#1086#1090#1074#1077#1090#1089#1074#1080#1080' '#1089' '#1087#1086#1095#1090#1086#1074#1099#1084' '
+      #1089#1090#1072#1085#1076#1072#1088#1090#1086#1084' SNTP)')
+    ParentColor = True
+    ReadOnly = True
+    ScrollBars = ssBoth
+    TabOrder = 0
+  end
+  object EditUsEmail: TEdit
+    Left = 98
+    Top = 109
+    Width = 151
+    Height = 21
+    TabOrder = 1
+  end
+  object EditUsPassword: TEdit
+    Left = 98
+    Top = 136
+    Width = 151
+    Height = 21
+    PasswordChar = '*'
+    TabOrder = 2
+  end
+end

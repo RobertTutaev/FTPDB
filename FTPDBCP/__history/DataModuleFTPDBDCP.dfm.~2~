@@ -1,0 +1,9 @@
+object DataModuleFTPDBDaemon: TDataModuleFTPDBDaemon
+  OldCreateOrder = False
+  Height = 226
+  Width = 400
+  object IBDatabase1: TIBDatabase
+    Left = 6
+    Top = 10
+  end
+end

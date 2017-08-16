@@ -1,0 +1,49 @@
+unit DataModuleFTPDBDCP;
+
+interface
+
+uses
+  SysUtils, Classes, DB, IBDatabase, IBQuery, IBCustomDataSet, IBTable,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdExplicitTLSClientServerBase, IdFTP, IdFTPDBScan, IdFTPScan;
+
+type
+  TDataModuleFTPDBDaemon = class(TDataModule)
+    IBDatabase1: TIBDatabase;
+    IdFTPDBScan1: TIdFTPDBScan;
+    IBTable3: TIBTable;
+    DataSource3: TDataSource;
+    IBTable4: TIBTable;
+    DataSource4: TDataSource;
+    DataSource5: TDataSource;
+    DataSource6: TDataSource;
+    IBTable5: TIBTable;
+    IBTable6: TIBTable;
+    IBTable7: TIBTable;
+    DataSource7: TDataSource;
+    IBTable8: TIBTable;
+    DataSource8: TDataSource;
+    IBQueryGet: TIBQuery;
+    IBTransaction2: TIBTransaction;
+    procedure IBDatabase1AfterConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModuleFTPDBDaemon: TDataModuleFTPDBDaemon;
+
+implementation
+
+{$R *.dfm}
+
+procedure TDataModuleFTPDBDaemon.IBDatabase1AfterConnect(Sender: TObject);
+var i: Integer;
+begin
+  for i:=0 to IBDatabase1.DataSetCount-1 do
+    try IBDatabase1.DataSets[i].Active:=True except end;
+end;
+
+end.

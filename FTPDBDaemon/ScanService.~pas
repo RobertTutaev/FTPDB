@@ -1,0 +1,84 @@
+unit ScanService;
+
+interface
+
+uses
+   Windows, SvcMgr, Scan, SysUtils, IDFTPFunctions;
+
+type
+  TFTPDBDaemonService = class(TService)
+    procedure ServicePause(Sender: TService; var Paused: Boolean);
+    procedure ServiceStart(Sender: TService; var Started: Boolean);
+    procedure ServiceContinue(Sender: TService; var Continued: Boolean);
+    procedure ServiceStop(Sender: TService; var Stopped: Boolean);
+    procedure ServiceAfterInstall(Sender: TService);  
+  private
+    { Private declarations }
+    Scan1: TScan;
+  public
+    function GetServiceController: TServiceController; override;
+    { Public declarations }
+  end;
+
+var
+  FTPDBDaemonService: TFTPDBDaemonService;
+
+implementation
+
+{$R *.DFM}
+
+procedure ServiceController(CtrlCode: DWord); stdcall;
+begin
+  FTPDBDaemonService.Controller(CtrlCode);
+end;
+
+function TFTPDBDaemonService.GetServiceController: TServiceController;
+begin
+  Result:=ServiceController;
+end; 
+
+procedure TFTPDBDaemonService.ServicePause(Sender: TService; var Paused: Boolean);
+begin
+  Scan1.Suspend;
+  Paused:=Scan1.Suspended;
+end;
+
+procedure TFTPDBDaemonService.ServiceStart(Sender: TService; var Started: Boolean);
+var Opt: TOpt;
+begin
+  LoadOptions(Opt);
+  Scan1:=TScan.Create(Opt);
+end;
+
+procedure TFTPDBDaemonService.ServiceContinue(Sender: TService;
+  var Continued: Boolean);
+begin
+  Scan1.Resume;
+  Continued:=not Scan1.Suspended;
+end;
+
+procedure TFTPDBDaemonService.ServiceStop(Sender: TService;
+  var Stopped: Boolean);
+begin
+  if Scan1.Suspended then Scan1.Resume;
+  Scan1.Terminate;
+end;
+
+procedure TFTPDBDaemonService.ServiceAfterInstall(Sender: TService);
+var Opt: TOpt;
+begin
+  with Opt do
+  begin
+    Lgn:=    'sysdba';
+    Psswrd:= 'masterkey';
+    Hst:=    'localhost';
+    Pth:=    GetCurrentDir+'\FTPDB.GDB';
+    tpPr:=   '2';
+    tmOut:=  '-1';
+    tmDelta:='40';
+    tmSleep:='1000'
+  end;
+  SaveOptions(Opt);
+end;
+
+end.

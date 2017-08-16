@@ -1,0 +1,47 @@
+unit Unit5;
+
+interface
+
+uses
+  Classes, ShellApi;
+
+type
+  TOpenThread = class(TThread)
+  private
+    { Private declarations }
+    AURL: String;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(Const URL: String);
+  end;
+
+implementation
+
+{ Important: Methods and properties of objects in visual components can only be
+  used in a method called using Synchronize, for example,
+
+      Synchronize(UpdateCaption);
+
+  and UpdateCaption could look like,
+
+    procedure TOpenThread.UpdateCaption;
+    begin
+      Form1.Caption := 'Updated in a thread';
+    end; }
+
+{ TOpenThread }
+
+constructor TOpenThread.Create(const URL: String);
+begin 
+  AURL:=URL;
+  FreeOnTerminate:=True;
+  Resume;
+end;
+
+procedure TOpenThread.Execute;
+begin
+  ShellExecute(Self.Handle,'open',pChar(AURL),NIL,NIL,0);
+end;
+
+end.

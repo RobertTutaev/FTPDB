@@ -1,0 +1,37 @@
+unit FormVKey;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TFormKey = class(TForm)
+    Panel1: TPanel;
+    MemoKey: TMemo;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    BitBtnCancel: TBitBtn;
+    BitBtnOk: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormKey: TFormKey;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormKey.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  RMail.Key:=InputBox(Mess111, Mess112, RMail.Key);
+  SaveRMail(Sender);
+end;
+
+end.

@@ -1,0 +1,144 @@
+unit Unit1;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, IWCompLabel,
+  IWCompButton, Controls, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl,
+  IWControl, IWCompEdit, IWCompRectangle, IWHTMLControls,
+  IWVCLBaseContainer, IWContainer, IWHTMLContainer, IWRegion,
+  IWDBStdCtrls, UserSessionUnit, ServerController, Unit2, Unit5, IWCompListbox, Forms,
+  IWExtCtrls, IWCompCheckbox;
+
+type
+  TIWFormLogin = class(TIWAppForm)
+    IWRegion1: TIWRegion;
+    IWEditUser: TIWEdit;
+    IWEditPassword: TIWEdit;
+    IWLabel1: TIWLabel;
+    IWLabel2: TIWLabel;
+    IWDBLookupComboBoxHost: TIWDBLookupComboBox;
+    IWLabel4: TIWLabel;
+    IWRegion2: TIWRegion;
+    IWComboBoxNomer: TIWComboBox;
+    IWLinkSave: TIWLink;
+    IWLabel3: TIWLabel;
+    IWEditPort: TIWEdit;
+    IWLinkAdmin: TIWLink;
+    IWImageButtonEnter: TIWImageButton;
+    IWCheckBoxPassive: TIWCheckBox;
+    procedure IWAppFormCreate(Sender: TObject);
+    procedure CookiesLoad(Sender: TObject);
+    procedure Start(Sender: TObject);
+    procedure CookiesSave(Sender: TObject);
+    procedure IWLinkAdminClick(Sender: TObject);
+
+    function CheckPassive: String;
+  public
+    FormMain: TIWFormMain;
+    FormAdmin: TIWFormAdmin;
+  end;
+
+Const
+  Mess11='Некорректные данные!';
+
+implementation
+
+uses IWBaseForm, HTTPApp, LibraryWeb;
+
+{$R *.dfm}
+
+procedure TIWFormLogin.IWAppFormCreate(Sender: TObject);
+begin
+  FormMain:=TIWFormMain.Create(WebApplication);
+  FormAdmin:=TIWFormAdmin.Create(WebApplication);
+  Try    IWComboBoxNomer.ItemIndex:=StrToInt(WebApplication.Request.CookieFields.Values['NomerFTP'])
+  Except IWComboBoxNomer.ItemIndex:=0; end;
+  CookiesLoad(Sender);
+end;
+
+procedure TIWFormLogin.IWLinkAdminClick(Sender: TObject);
+begin
+  FormAdmin.Show;
+end;
+
+procedure TIWFormLogin.Start(Sender: TObject);
+begin
+  CookiesSet(WebApplication,'NomerFTP',IntToStr(IWComboBoxNomer.ItemIndex));
+  With UserSession.Us do
+  begin
+    Host:=IWDBLookupComboBoxHost.KeyValue;
+    User:=LowerCase(IWEditUser.Text);
+    Password:=LowerCase(IWEditPassword.Text);
+    Port:=IWEditPort.Text;
+    Passive:=CheckPassive;
+  end;
+
+  with FormMain do
+  begin
+
+    if UserSession.GETPASSWORD then
+    begin
+      try
+        IWComboBoxSort.ItemIndex:=StrToInt(WebApplication.Request.CookieFields.Values['Sort']);
+        IWComboBoxRowLimit.ItemIndex:=StrToInt(WebApplication.Request.CookieFields.Values['RowLimit']);
+
+        IWRadioGroup1.ItemIndex:=StrToInt(WebApplication.Request.CookieFields.Values['FilterDate0']);
+        IWEdit11.Text:=GetTextC(WebApplication.Request.CookieFields.Values['FilterDate1']);
+        IWEdit12.Text:=GetTextC(WebApplication.Request.CookieFields.Values['FilterDate2']);
+
+        IWRadioGroup2.ItemIndex:=StrToInt(WebApplication.Request.CookieFields.Values['FilterSize0']);
+        IWEdit21.Text:=GetTextC(WebApplication.Request.CookieFields.Values['FilterSize1']);
+        IWEdit22.Text:=GetTextC(WebApplication.Request.CookieFields.Values['FilterSize2']);
+
+        IWRadioGroup3.ItemIndex:=StrToInt(WebApplication.Request.CookieFields.Values['FilterName0']);
+        IWEdit31.Text:=GetTextC(WebApplication.Request.CookieFields.Values['FilterName1']);
+      except
+      end;
+
+      UserSession.IBQueryFiles.Active:=False;
+      UserSession.IBQueryFiles.Active:=True;
+      Show;
+    end else
+      WebApplication.ShowMessage(Mess11);
+  end;
+end;
+
+function TIWFormLogin.CheckPassive: String;
+begin
+  Case IWCheckBoxPassive.Checked of
+  True:  Result:='2';
+  False: Result:='1';
+  End;
+end;
+
+procedure TIWFormLogin.CookiesLoad(Sender: TObject);
+var n: String;
+begin
+  n:=IntToStr(IWComboBoxNomer.ItemIndex);
+  Try
+    IWCheckBoxPassive.Checked:=False;
+    if WebApplication.Request.CookieFields.Values['Passive'+n]='2'
+    then IWCheckBoxPassive.Checked:=True; Except end;
+  Try IWEditPort.Text:=GetTextC(WebApplication.Request.CookieFields.Values['Port'+n]);Except end;
+  Try IWDBLookupComboBoxHost.KeyValue:=WebApplication.Request.CookieFields.Values['Host'+n];Except end;
+  Try IWEditUser.Text:=GetTextC(WebApplication.Request.CookieFields.Values['User'+n]);Except end;
+  Try IWEditPassword.Text:=GetTextC(WebApplication.Request.CookieFields.Values['Password'+n]);Except end;
+  If IWEditPort.Text='' then IWEditPort.Text:='21';
+end;
+
+procedure TIWFormLogin.CookiesSave(Sender: TObject);
+var n: String;
+begin
+  n:=IntToStr(IWComboBoxNomer.ItemIndex);
+  CookiesSet(WebApplication,'Passive'+n,CheckPassive);
+  CookiesSet(WebApplication,'Port'+n,GetText(IWEditPort.Text));
+  CookiesSet(WebApplication,'Host'+n,IWDBLookupComboBoxHost.KeyValue);
+  CookiesSet(WebApplication,'User'+n,GetText(LowerCase(IWEditUser.Text)));
+  CookiesSet(WebApplication,'Password'+n,GetText(LowerCase(IWEditPassword.Text)));
+end;
+
+initialization
+  TIWFormLogin.SetAsMainForm;
+
+end.

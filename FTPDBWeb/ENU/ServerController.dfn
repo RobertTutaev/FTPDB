@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="D:\Мелочь\FTPDB\FTPDBWebClient\ServerController.dfm" source-language="ru-RU" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="D:\Мелочь\FTPDB\FTPDBWebClient\ServerController.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">39197.4859490741</prop>
+        <prop prop-type="OrigDateTime">39196.5996064815</prop>
+        <prop prop-type="XlatDateTime">39196.5996064815</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">41</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:IWServerController.OldCreateOrder" resname="O:IWServerController.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.OnCreate" resname="O:IWServerController.OnCreate">
+        <source>IWServerControllerBaseCreate</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.AuthBeforeNewSession" resname="O:IWServerController.AuthBeforeNewSession">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.AllowSubFolders" resname="O:IWServerController.AllowSubFolders">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.AppName" resname="O:IWServerController.AppName">
+        <source>'FTDBWebClient'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.CharSet" resname="O:IWServerController.CharSet">
+        <source>'Windows-1251'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.CacheExpiry" resname="O:IWServerController.CacheExpiry">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ComInitialization" resname="O:IWServerController.ComInitialization">
+        <source>ciNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Compression.Enabled" resname="O:IWServerController.Compression.Enabled">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Compression.Level" resname="O:IWServerController.Compression.Level">
+        <source>6</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">9</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Description" resname="O:IWServerController.Description">
+        <source>'FTPDBWeb (IntraWeb)'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">10</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.DebugHTML" resname="O:IWServerController.DebugHTML">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">11</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Log" resname="O:IWServerController.Log">
+        <source>loFile</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">12</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.EnableImageToolbar" resname="O:IWServerController.EnableImageToolbar">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">13</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ExceptionDisplayMode" resname="O:IWServerController.ExceptionDisplayMode">
+        <source>smNewWindow</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">14</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ExecCmd" resname="O:IWServerController.ExecCmd">
+        <source>'EXEC'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">15</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.HistoryEnabled" resname="O:IWServerController.HistoryEnabled">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">16</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.InternalFilesURL" resname="O:IWServerController.InternalFilesURL">
+        <source>'/'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">17</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Browser32Behaviour.Netscape4As32" resname="O:IWServerController.Browser32Behaviour.Netscape4As32">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">18</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Browser32Behaviour.Netscape6As32" resname="O:IWServerController.Browser32Behaviour.Netscape6As32">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">19</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Browser32Behaviour.IExplorer4As32" resname="O:IWServerController.Browser32Behaviour.IExplorer4As32">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">20</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.PageTransitions" resname="O:IWServerController.PageTransitions">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">21</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Port" resname="O:IWServerController.Port">
+        <source>8889</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">22</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ReEntryOptions.AutoCreateSession" resname="O:IWServerController.ReEntryOptions.AutoCreateSession">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">23</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.RestrictIPs" resname="O:IWServerController.RestrictIPs">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">24</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.RestrictSubnet" resname="O:IWServerController.RestrictSubnet">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">25</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.RedirectMsgDelay" resname="O:IWServerController.RedirectMsgDelay">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">26</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ServerResizeTimeout" resname="O:IWServerController.ServerResizeTimeout">
+        <source>5</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">27</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.SessionTrackingMethod" resname="O:IWServerController.SessionTrackingMethod">
+        <source>tmURL</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">28</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ShowResyncWarning" resname="O:IWServerController.ShowResyncWarning">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859492477</prop><prop prop-type="Status">0</prop><prop prop-type="Order">29</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.SessionTimeout" resname="O:IWServerController.SessionTimeout">
+        <source>5</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">30</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.SupportedBrowsers" resname="O:IWServerController.SupportedBrowsers">
+        <source>[brIE, brNetscape7, brOpera, brSafari, brNetscape6]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">31</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.SSLOptions.NonSSLRequest" resname="O:IWServerController.SSLOptions.NonSSLRequest">
+        <source>nsAccept</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">32</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.SSLOptions.Port" resname="O:IWServerController.SSLOptions.Port">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">33</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.ThreadPoolSize" resname="O:IWServerController.ThreadPoolSize">
+        <source>32</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">34</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.UnknownBrowserAction" resname="O:IWServerController.UnknownBrowserAction">
+        <source>ubReject</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">35</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.UseInternalFiles" resname="O:IWServerController.UseInternalFiles">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">36</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Version" resname="O:IWServerController.Version">
+        <source>'8.0.1'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">37</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.OnNewSession" resname="O:IWServerController.OnNewSession">
+        <source>IWServerControllerBaseNewSession</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">38</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Height" resname="O:IWServerController.Height">
+        <source>310</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">39</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWServerController.Width" resname="O:IWServerController.Width">
+        <source>342</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4859494329</prop><prop prop-type="Status">0</prop><prop prop-type="Order">40</prop><prop prop-type="Type">TIWServerController</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

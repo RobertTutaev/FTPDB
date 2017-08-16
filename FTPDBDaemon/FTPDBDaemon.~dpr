@@ -1,0 +1,15 @@
+program FTPDBDaemon;
+
+uses
+  SvcMgr,
+  ScanService in 'ScanService.pas' {FTPDBDaemonService: TService},
+  Scan in 'Scan.pas',
+  IdFTPDBScan in 'FTP\IdFTPDBScan.pas';
+
+{$R *.RES}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFTPDBDaemonService, FTPDBDaemonService);
+  Application.Run;
+end.

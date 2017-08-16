@@ -1,0 +1,196 @@
+unit IdFTPFunctions;
+
+interface                    
+
+uses Registry, Windows, IdFTPDBScan, StdCtrls;
+
+Const
+  Key='иЌтирЌет н≈ту н»каћу - Error in your mind!';
+  CountEdit=9;
+
+type
+  TArrEdit = array[0..2, 0..CountEdit] of TEdit;
+
+type
+  TOpt=record
+    Lgn:     String;
+    Psswrd:  String;
+    Hst:     String;
+    Pth:     String;
+    tpPr:    String;
+    tmOut:   String;
+    tmDelta: String;
+    tmSleep: String;
+  end;   
+
+function CoDec2(Value, key: string; decode: boolean): String;     
+function CoDecModify(Value: string; Decode: boolean): String;
+function GenKey: String;
+
+Procedure LoadOptions(Var Opt: TOpt);
+Procedure SaveOptions(Const Opt: TOpt);
+
+Procedure LoadOptionsClient(Var Arr: TArrEdit);
+Procedure SaveOptionsClient(Var Arr: TArrEdit);
+
+implementation
+
+uses Math, SysUtils;
+
+function CoDec2(Value, key: string; decode: boolean): String;
+var
+  i, PasswordLength: integer;
+  sign             : shortint;
+  text             : string;
+begin
+  text:=value;
+  PasswordLength := length(key);
+  if PasswordLength = 0 then Exit;
+  if decode
+    then sign := -1
+    else sign := 1;
+
+  for i := 1 to Length(text) do
+    text[i]:=chr(ord(text[i])+sign*ord(key[i mod PasswordLength+1]));
+  Result:=text;
+end;
+
+function CoDecModify(Value: string; Decode: boolean): String; overload;
+var
+  i, max: Integer;
+  Temp  : String;
+Const
+  Term=#255#255;
+  TermZero='_';
+begin
+  if Decode then
+  begin
+    Temp:=CoDec2(Value, Key, Decode);
+    Result:=Copy(Temp, Length(TermZero)+1, Pos(Term, Temp)-1-Length(TermZero));
+  end else
+  begin
+    max:=RandomRange(5, 100);
+    for i:=1 to max do Temp:=Temp+Trim(Chr(Random(254)));
+    Result:=CoDec2(TermZero+Value+Term+Temp, Key, Decode)
+  end;
+end;
+
+function GenKey: String;
+var
+  Temp  : String;
+  i, max: Integer;
+begin
+  max:=RandomRange(10, 200);
+  for i:=1 to max do Temp:=Temp+Chr(Random(255));
+  Result:=Temp;
+end;
+
+Procedure LoadOptions(Var Opt: TOpt);
+var
+  AValue   : TRegistry;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDBDaemon\Options\', True);
+    try
+      with Opt do
+      begin
+        Lgn:=    CoDecModify(ReadString('01'),True);
+        Psswrd:= CoDecModify(ReadString('02'),True);
+        Hst:=    CoDecModify(ReadString('03'),True);
+        Pth:=    CoDecModify(ReadString('04'),True);
+        tpPr:=   CoDecModify(ReadString('05'),True);
+        tmOut:=  CoDecModify(ReadString('06'),True);
+        tmDelta:=CoDecModify(ReadString('07'),True);
+        tmSleep:=CoDecModify(ReadString('08'),True);
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+procedure SaveOptions(Const Opt: TOpt);
+var
+  AValue   : TRegistry;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDBDaemon\Options\', True);
+    try
+      with Opt do
+      begin
+        WriteString('01', CoDecModify(Lgn,False));
+        WriteString('02', CoDecModify(Psswrd,False));
+        WriteString('03', CoDecModify(Hst,False));
+        WriteString('04', CoDecModify(Pth,False));
+        WriteString('05', CoDecModify(tpPr,False));
+        WriteString('06', CoDecModify(tmOut,False));
+        WriteString('07', CoDecModify(tmDelta,False));
+        WriteString('08', CoDecModify(tmSleep,False));
+      end;
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+procedure SaveOptionsClient(var Arr: TArrEdit);
+var
+  AValue: TRegistry;
+  I     : Integer;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+
+    OpenKey('\Software\FTPDBClient\Options\00\', True);
+    try for i:=0 to CountEdit do WriteString(IntToStr(i), CoDecModify(Arr[0, i].Text, False));
+    finally CloseKey; end;
+
+    OpenKey('\Software\FTPDBClient\Options\01\', True);
+    try for i:=0 to CountEdit do WriteString(IntToStr(i), CoDecModify(Arr[1, i].Text, False));
+    finally CloseKey; end;
+
+    OpenKey('\Software\FTPDBClient\Options\02\', True);
+    try for i:=0 to CountEdit do WriteString(IntToStr(i), CoDecModify(Arr[2, i].Text, False));
+    finally CloseKey; end;
+
+    Free;
+  end;
+end;
+
+Procedure LoadOptionsClient(var Arr: TArrEdit);
+var
+  AValue: TRegistry;
+  I     : Integer;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+
+    OpenKey('\Software\FTPDBClient\Options\00\', True);
+    try for i:=0 to CountEdit do Arr[0, i].Text:=CoDecModify(ReadString(IntToStr(i)),True);
+    finally CloseKey; end;
+
+    OpenKey('\Software\FTPDBClient\Options\01\', True);
+    try for i:=0 to CountEdit do Arr[1, i].Text:=CoDecModify(ReadString(IntToStr(i)),True);
+    finally CloseKey; end;
+
+    OpenKey('\Software\FTPDBClient\Options\02\', True);
+    try for i:=0 to CountEdit do Arr[2, i].Text:=CoDecModify(ReadString(IntToStr(i)),True);
+    finally CloseKey; end;
+
+    Free;
+  end
+end;
+
+end.

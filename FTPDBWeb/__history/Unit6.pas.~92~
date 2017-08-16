@@ -1,0 +1,224 @@
+unit Unit6;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWHTMLControls,
+  Controls, Forms, IWVCLBaseContainer, IWContainer, IWRegion,
+  IWCompButton, ServerController, IWCompCheckbox, IWCompEdit, IWCompLabel,
+  IWDBStdCtrls, IWHTMLContainer, IWGrids, IWDBGrids, IWCompListbox,
+  IWCompTabControl, IWExtCtrls;
+
+type
+  TIWFormOptions = class(TIWAppForm)
+    IWRegion1: TIWRegion;
+    IWLink1: TIWLink;
+    IWRegion2: TIWRegion;
+    IWButton1: TIWButton;
+    IWDBEditWebLOGIN: TIWDBEdit;
+    IWDBEditWebPASS: TIWDBEdit;
+    IWDBCheckBoxLAI: TIWDBCheckBox;
+    IWDBCheckBoxDAI: TIWDBCheckBox;
+    IWDBEditSRTO: TIWDBEdit;
+    IWDBEditSTO: TIWDBEdit;
+    IWLabel1: TIWLabel;
+    IWLabel2: TIWLabel;
+    IWLabel5: TIWLabel;
+    IWLabel6: TIWLabel;
+    IWDBEditLRL: TIWDBEdit;
+    IWLabel3: TIWLabel;
+    IWDBEditWebPORT: TIWDBEdit;
+    IWLabel4: TIWLabel;
+    IWLabel7: TIWLabel;
+    IWDBCheckBoxRSN: TIWDBCheckBox;
+    IWRegion3: TIWRegion;
+    IWLabel8: TIWLabel;
+    IWRegion6: TIWRegion;
+    IWLabel9: TIWLabel;
+    IWRegion10: TIWRegion;
+    IWButton2: TIWButton;
+    IWTabControl1: TIWTabControl;
+    IWTabControl1Page0: TIWTabPage;
+    IWTabControl1Page1: TIWTabPage;
+    IWTabControl1Page2: TIWTabPage;
+    IWRegion4: TIWRegion;
+    IWDBGrid1: TIWDBGrid;
+    IWRegion7: TIWRegion;
+    IWDBEditHost: TIWDBEdit;
+    IWDBEditPort: TIWDBEdit;
+    IWDBCheckBoxPassive: TIWDBCheckBox;
+    IWDBLookupComboBoxTRANSFERTYPE: TIWDBLookupComboBox;
+    IWLabel11: TIWLabel;
+    IWLabel12: TIWLabel;
+    IWLabel13: TIWLabel;
+    IWRegion5: TIWRegion;
+    IWDBGrid2: TIWDBGrid;
+    IWRegion8: TIWRegion;
+    IWDBEditLOGIN: TIWDBEdit;
+    IWDBEditPASS: TIWDBEdit;
+    IWDBCheckBoxACT: TIWDBCheckBox;
+    IWLabel14: TIWLabel;
+    IWLabel15: TIWLabel;
+    IWRegion9: TIWRegion;
+    IWDBEditPHOST: TIWDBEdit;
+    IWDBEditPPASS: TIWDBEdit;
+    IWDBEdit5: TIWDBEdit;
+    IWDBEditPLOGIN: TIWDBEdit;
+    IWDBEditREADTIMEOUT: TIWDBEdit;
+    IWDBLookupComboBox1: TIWDBLookupComboBox;
+    IWLabel16: TIWLabel;
+    IWLabel17: TIWLabel;
+    IWLabel18: TIWLabel;
+    IWLabel19: TIWLabel;
+    IWLabel20: TIWLabel;
+    IWLabel21: TIWLabel;
+    IWRegion11: TIWRegion;
+    IWDBGrid3: TIWDBGrid;
+    IWRegion12: TIWRegion;
+    IWDBEditAALL: TIWDBEdit;
+    IWLabel23: TIWLabel;
+    IWRegion13: TIWRegion;
+    IWImageFile1: TIWImageFile;
+    IWLinkScan: TIWLink;
+    IWDBLabelHKod: TIWDBLabel;
+    IWLabel10: TIWLabel;
+    IWDBLabel1: TIWDBLabel;
+    IWLabel22: TIWLabel;
+    IWDBLabel2: TIWDBLabel;
+    IWLabel24: TIWLabel;
+    IWButton3: TIWButton;
+    procedure IWLink1Click(Sender: TObject);
+    procedure IWButton1Click(Sender: TObject);
+    procedure IWButton2Click(Sender: TObject);
+    procedure IWDBNavigator2Next(Sender: TObject);
+    procedure IWButton3Click(Sender: TObject);
+    procedure IWDBGrid1Columns0Click(ASender: TObject; const AValue: string);
+    procedure IWDBGrid2Columns0Click(ASender: TObject; const AValue: string);
+    procedure IWLinkScanClick(Sender: TObject);
+    procedure IWDBNavigator2Insert(Sender: TObject);
+    procedure IWDBNavigator3Insert(Sender: TObject);
+    procedure IWButton4Click(Sender: TObject);
+    procedure IWDBGrid3Columns0Click(ASender: TObject; const AValue: string);
+  public
+  end;
+
+implementation
+
+uses IWBaseForm, DB, UserSessionUnit;
+
+{$R *.dfm}
+
+procedure TIWFormOptions.IWButton1Click(Sender: TObject);
+begin
+  Try
+    UserSession.IBTableOptions.Edit;
+    UserSession.IBTableOptions.Post;
+    UserSession.IBTransaction1.CommitRetaining;
+  Except
+    try
+      UserSession.IBTableOptions.Active:=False;
+      UserSession.IBTableOptions.Active:=True;
+    finally
+    end;
+  End;
+end;
+
+procedure TIWFormOptions.IWButton2Click(Sender: TObject);
+begin
+  Try UserSession.IBTransaction1.CommitRetaining Except End;
+end;
+
+procedure TIWFormOptions.IWButton3Click(Sender: TObject);
+begin
+  UserSession.IBTableFTP_LOGIN.Next;
+end;
+
+procedure TIWFormOptions.IWButton4Click(Sender: TObject);
+begin    
+  UserSession.IBTableFTP_DIRS.Insert;
+  //UserSession.IBTableFTP_DIRS.Locate('KOD', AValue, []);
+end;
+
+procedure TIWFormOptions.IWDBGrid1Columns0Click(ASender: TObject;
+  const AValue: string);
+begin
+  UserSession.IBTableFTP_HOST.Locate('KOD', AValue, []);
+  //UserSession.IBTableFTP_HOST.Edit;
+end;
+
+procedure TIWFormOptions.IWDBGrid2Columns0Click(ASender: TObject;
+  const AValue: string);
+begin
+  UserSession.IBTableFTP_LOGIN.Cancel;
+  UserSession.IBTableFTP_LOGIN.Locate('KOD', AValue, []);
+end;
+
+procedure TIWFormOptions.IWDBGrid3Columns0Click(ASender: TObject;
+  const AValue: string);
+begin
+  UserSession.IBTableFTP_DIRS.Locate('KOD', AValue, []);
+end;
+
+procedure TIWFormOptions.IWDBNavigator2Insert(Sender: TObject);
+begin
+   with UserSession.IBTableFTP_LOGIN do
+   begin
+     Post;
+     Locate('KOD', FieldValues['kod'], []);
+   end;
+end;
+
+procedure TIWFormOptions.IWDBNavigator2Next(Sender: TObject);
+begin
+  UserSession.IBTableFTP_LOGIN.Close;
+  UserSession.IBTableFTP_LOGIN.Open;
+  UserSession.IBTableFTP_LOGIN.Next;
+end;
+
+procedure TIWFormOptions.IWDBNavigator3Insert(Sender: TObject);
+begin
+  UserSession.IBTableFTP_DIRS.Locate('kod', UserSession.IBTableFTP_DIRS.FieldValues['kod'], []);
+end;
+
+procedure TIWFormOptions.IWLink1Click(Sender: TObject);
+begin
+  With UserSession do
+  begin
+    IBTableS_TRANSFERTYPE.Active:=True;
+    IBTableS_PROXYTYPE.Active:=True;
+    IBTableOptions.Active:=False;
+    IBTableFTP_HOST.Active:=True;
+  end;
+  Hide;
+end;
+
+procedure TIWFormOptions.IWLinkScanClick(Sender: TObject);
+begin
+  with UserSession do
+  begin
+    if IBDatabase1.Connected=False then
+    begin
+      WebApplication.ShowMessage('Отсутствует подключение к БД!');
+      Exit;
+    end;
+
+    with IdFTPDBScan1 do
+    begin
+      Disconnect;
+      try
+        IdUser:=IBTableFTP_LOGIN.FieldValues['kod'];
+        LoadOptions;
+        Connect;
+      except
+        WebApplication.ShowMessage('Не удалось подключиться к FTP-серверу!');
+        Exit;
+      end;
+      Scan;
+      SetDirectoriesToIB;
+      Disconnect;
+    end;
+  end;
+end;
+
+end.

@@ -1,0 +1,34 @@
+unit FormMail;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, ComCtrls, ExtCtrls;
+
+type
+  TFormEMail = class(TForm)
+    RichEdit1: TRichEdit;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    EditUsEmail: TEdit;
+    EditUsPassword: TEdit;
+    BitBtn1: TBitBtn;
+    procedure OkClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;  
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormEMail.OkClick(Sender: TObject);
+begin
+  Hide;
+end;
+
+end.

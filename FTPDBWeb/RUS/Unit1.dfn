@@ -1,0 +1,1833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="D:\Мелочь\FTPDB\FTPDBWebClient\Unit1.dfm" source-language="ru-RU" target-language="ru-RU" datatype="delphiform" tool="ETM v10.0" ts="D:\Мелочь\FTPDB\FTPDBWebClient\Unit1.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">39197.48625</prop>
+        <prop prop-type="OrigDateTime">39197.4445833333</prop>
+        <prop prop-type="XlatDateTime">39197.4445833333</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">363</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:IWFormLogin.Left" resname="O:IWFormLogin.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862523495</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.Top" resname="O:IWFormLogin.Top">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862523495</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.Width" resname="O:IWFormLogin.Width">
+        <source>569</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862523495</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.Height" resname="O:IWFormLogin.Height">
+        <source>443</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862523495</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.ConnectionMode" resname="O:IWFormLogin.ConnectionMode">
+        <source>cmAny</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862523495</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.SupportedBrowsers" resname="O:IWFormLogin.SupportedBrowsers">
+        <source>[brUnknown, brIE, brNetscape7, brOpera, brSafari, brIE4, brNetscape6]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.OnCreate" resname="O:IWFormLogin.OnCreate">
+        <source>IWAppFormCreate</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.AllowPageAccess" resname="O:IWFormLogin.AllowPageAccess">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.BrowserSecurityCheck" resname="O:IWFormLogin.BrowserSecurityCheck">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.Background.Fixed" resname="O:IWFormLogin.Background.Fixed">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">9</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.HandleTabs" resname="O:IWFormLogin.HandleTabs">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">10</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.LeftToRight" resname="O:IWFormLogin.LeftToRight">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">11</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.LockUntilLoaded" resname="O:IWFormLogin.LockUntilLoaded">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">12</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.LockOnSubmit" resname="O:IWFormLogin.LockOnSubmit">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">13</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.ShowHint" resname="O:IWFormLogin.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">14</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.XPTheme" resname="O:IWFormLogin.XPTheme">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">15</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.UpdateMode" resname="O:IWFormLogin.UpdateMode">
+        <source>umPartial</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">16</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.DesignLeft" resname="O:IWFormLogin.DesignLeft">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">17</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.DesignTop" resname="O:IWFormLogin.DesignTop">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">18</prop><prop prop-type="Type">TIWFormLogin</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Left" resname="O:IWFormLogin.O:IWLinkAdmin.Left">
+        <source>225</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">19</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Top" resname="O:IWFormLogin.O:IWLinkAdmin.Top">
+        <source>28</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">20</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Width" resname="O:IWFormLogin.O:IWLinkAdmin.Width">
+        <source>128</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">21</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Height" resname="O:IWFormLogin.O:IWLinkAdmin.Height">
+        <source>29</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">22</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Cursor" resname="O:IWFormLogin.O:IWLinkAdmin.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">23</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Hint" resname="O:IWFormLogin.O:IWLinkAdmin.Hint">
+        <source>'Администрирование'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">24</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.IW50Hint" resname="O:IWFormLogin.O:IWLinkAdmin.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">25</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.ParentShowHint" resname="O:IWFormLogin.O:IWLinkAdmin.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">26</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.ShowHint" resname="O:IWFormLogin.O:IWLinkAdmin.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">27</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.ZIndex" resname="O:IWFormLogin.O:IWLinkAdmin.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">28</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.RenderSize" resname="O:IWFormLogin.O:IWLinkAdmin.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">29</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Alignment" resname="O:IWFormLogin.O:IWLinkAdmin.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">30</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Color" resname="O:IWFormLogin.O:IWLinkAdmin.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">31</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Font.Color" resname="O:IWFormLogin.O:IWLinkAdmin.Font.Color">
+        <source>clWebNAVY</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">32</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Font.Size" resname="O:IWFormLogin.O:IWLinkAdmin.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">33</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Font.Style" resname="O:IWFormLogin.O:IWLinkAdmin.Font.Style">
+        <source>[fsItalic, fsUnderline]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">34</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.ScriptEvents" resname="O:IWFormLogin.O:IWLinkAdmin.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">35</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.DoSubmitValidation" resname="O:IWFormLogin.O:IWLinkAdmin.DoSubmitValidation">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862525232</prop><prop prop-type="Status">0</prop><prop prop-type="Order">36</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.FriendlyName" resname="O:IWFormLogin.O:IWLinkAdmin.FriendlyName">
+        <source>'IWLinkAdmin'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">37</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.OnClick" resname="O:IWFormLogin.O:IWLinkAdmin.OnClick">
+        <source>IWLinkAdminClick</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">38</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.TabOrder" resname="O:IWFormLogin.O:IWLinkAdmin.TabOrder">
+        <source>6</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">39</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.RawText" resname="O:IWFormLogin.O:IWLinkAdmin.RawText">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">40</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWLinkAdmin.Caption" resname="O:IWFormLogin.O:IWLinkAdmin.Caption">
+        <source>'Администрирование'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">41</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Left" resname="O:IWFormLogin.O:IWRegion1.Left">
+        <source>56</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">42</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Top" resname="O:IWFormLogin.O:IWRegion1.Top">
+        <source>48</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">43</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Width" resname="O:IWFormLogin.O:IWRegion1.Width">
+        <source>297</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">44</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Height" resname="O:IWFormLogin.O:IWRegion1.Height">
+        <source>241</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">45</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Cursor" resname="O:IWFormLogin.O:IWRegion1.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">46</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.BorderOptions.NumericWidth" resname="O:IWFormLogin.O:IWRegion1.BorderOptions.NumericWidth">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">47</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.BorderOptions.BorderWidth" resname="O:IWFormLogin.O:IWRegion1.BorderOptions.BorderWidth">
+        <source>cbwNumeric</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">48</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.BorderOptions.Style" resname="O:IWFormLogin.O:IWRegion1.BorderOptions.Style">
+        <source>cbsSolid</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">49</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.BorderOptions.Color" resname="O:IWFormLogin.O:IWRegion1.BorderOptions.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">50</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Color" resname="O:IWFormLogin.O:IWRegion1.Color">
+        <source>clWebWHITESMOKE</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">51</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">52</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.ShowHint" resname="O:IWFormLogin.O:IWRegion1.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">53</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.ZIndex" resname="O:IWFormLogin.O:IWRegion1.ZIndex">
+        <source>1000</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">54</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.Splitter" resname="O:IWFormLogin.O:IWRegion1.Splitter">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">55</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">56</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Top">
+        <source>143</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">57</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Width">
+        <source>145</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">58</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">59</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">60</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">61</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">62</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">63</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">64</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862527083</prop><prop prop-type="Status">0</prop><prop prop-type="Order">65</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">66</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">67</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.FocusColor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.FocusColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">68</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">69</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Editable" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Editable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">70</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.NonEditableAsLabel" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.NonEditableAsLabel">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">71</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">72</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">73</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">74</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.FriendlyName">
+        <source>'IWEditUser'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">75</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.MaxLength" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.MaxLength">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">76</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ReadOnly" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ReadOnly">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">77</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Required" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.Required">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">78</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">79</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">80</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditUser.PasswordPrompt" resname="O:IWFormLogin.O:IWRegion1.O:IWEditUser.PasswordPrompt">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">81</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">82</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Top">
+        <source>170</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">83</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Width">
+        <source>145</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">84</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">85</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">86</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">87</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">88</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">89</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">90</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">91</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">92</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">93</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.FocusColor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.FocusColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">94</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862528935</prop><prop prop-type="Status">0</prop><prop prop-type="Order">95</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Editable" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Editable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">96</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.NonEditableAsLabel" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.NonEditableAsLabel">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">97</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">98</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">99</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">100</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.FriendlyName">
+        <source>'IWEditPassword'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">101</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.MaxLength" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.MaxLength">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ReadOnly" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ReadOnly">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">103</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Required" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.Required">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">104</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">105</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">106</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.PasswordPrompt" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPassword.PasswordPrompt">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">107</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Left">
+        <source>24</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">108</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Top">
+        <source>143</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">109</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Width">
+        <source>91</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">110</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Height">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">111</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">112</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">113</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">114</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">115</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">116</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.RenderSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">117</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">118</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">119</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">120</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">121</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">122</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.NoWrap" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.NoWrap">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">123</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ConvertSpaces" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.ConvertSpaces">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862530671</prop><prop prop-type="Status">0</prop><prop prop-type="Order">124</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.FriendlyName">
+        <source>'IWLabel1'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">125</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Caption" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.Caption">
+        <source>'Пользователь'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">126</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel1.RawText" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel1.RawText">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">127</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Left">
+        <source>24</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">128</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Top">
+        <source>171</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">129</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Width">
+        <source>47</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">130</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Height">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">131</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">132</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">133</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">134</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">135</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">136</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.RenderSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">137</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">138</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">139</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">140</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">141</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">142</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.NoWrap" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.NoWrap">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">143</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ConvertSpaces" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.ConvertSpaces">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">144</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.FriendlyName">
+        <source>'IWLabel2'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">145</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Caption" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.Caption">
+        <source>'Пароль'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">146</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel2.RawText" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel2.RawText">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">147</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">148</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Top">
+        <source>116</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">149</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Width">
+        <source>145</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">150</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">151</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862532523</prop><prop prop-type="Status">0</prop><prop prop-type="Order">152</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">153</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">154</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">155</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">156</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">157</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">158</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">159</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">160</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">161</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.FocusColor" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.FocusColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">162</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.AutoHideOnMenuActivation" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.AutoHideOnMenuActivation">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">163</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ItemsHaveValues" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ItemsHaveValues">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">164</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.NoSelectionText" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.NoSelectionText">
+        <source>'...'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">165</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Required" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Required">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">166</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.RequireSelection" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.RequireSelection">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">167</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">168</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.UseSize" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.UseSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">169</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Style">
+        <source>stNormal</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">170</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ButtonColor" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ButtonColor">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">171</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">172</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Editable" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.Editable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">173</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.NonEditableAsLabel" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.NonEditableAsLabel">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">174</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.TabOrder">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">175</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.AutoEditable" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.AutoEditable">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">176</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.FriendlyName">
+        <source>'IWDBLookupComboBoxHost'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862534259</prop><prop prop-type="Status">0</prop><prop prop-type="Order">177</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.KeyField" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.KeyField">
+        <source>'HOST'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">178</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ListField" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ListField">
+        <source>'HOST'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">179</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ListSource" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.ListSource">
+        <source>IWUserSession.DataSourceHost</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">180</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.DisableWhenEmpty" resname="O:IWFormLogin.O:IWRegion1.O:IWDBLookupComboBoxHost.DisableWhenEmpty">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">181</prop><prop prop-type="Type">TIWDBLookupComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Left">
+        <source>24</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">182</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Top">
+        <source>116</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">183</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Width">
+        <source>74</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">184</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Height">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">185</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">186</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">187</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">188</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">189</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">190</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.RenderSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">191</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">192</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">193</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">194</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">195</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">196</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.NoWrap" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.NoWrap">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">197</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ConvertSpaces" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.ConvertSpaces">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">198</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.FriendlyName">
+        <source>'IWLabel4'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">199</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Caption" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.Caption">
+        <source>'FTP-сервер'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">200</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel4.RawText" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel4.RawText">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">201</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">202</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Top">
+        <source>57</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">203</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Width">
+        <source>52</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">204</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862536111</prop><prop prop-type="Status">0</prop><prop prop-type="Order">205</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">206</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">207</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">208</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">209</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">210</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.RenderSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">211</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">212</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">213</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Font.Color">
+        <source>clWebBLUE</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">214</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Font.Size">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">215</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">216</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.NoWrap" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.NoWrap">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">217</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ConvertSpaces" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.ConvertSpaces">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">218</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.FriendlyName">
+        <source>'IWLabel4'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">219</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Caption" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.Caption">
+        <source>'Порт (21)'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">220</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWLabel3.RawText" resname="O:IWFormLogin.O:IWRegion1.O:IWLabel3.RawText">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">221</prop><prop prop-type="Type">TIWLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">222</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Top">
+        <source>76</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">223</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Width">
+        <source>42</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">224</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">225</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">226</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">227</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">228</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">229</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">230</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">231</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">232</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">233</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.FocusColor" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.FocusColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">234</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862537963</prop><prop prop-type="Status">0</prop><prop prop-type="Order">235</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Editable" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Editable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">236</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.NonEditableAsLabel" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.NonEditableAsLabel">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">237</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Font.Color">
+        <source>clWebBLUE</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">238</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Font.Size">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">239</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">240</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.FriendlyName">
+        <source>'IWEditUser'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">241</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.MaxLength" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.MaxLength">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">242</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ReadOnly" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ReadOnly">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">243</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Required" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Required">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">244</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">245</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.TabOrder">
+        <source>5</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">246</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.PasswordPrompt" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.PasswordPrompt">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">247</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Text" resname="O:IWFormLogin.O:IWRegion1.O:IWEditPort.Text">
+        <source>'21'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">248</prop><prop prop-type="Type">TIWEdit</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">249</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Top">
+        <source>204</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">250</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Width">
+        <source>100</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">251</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">252</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">253</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Hint">
+        <source>'Вход'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">254</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">255</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">256</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">257</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">258</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.RenderSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">259</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.BorderOptions.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.BorderOptions.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">260</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.BorderOptions.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.BorderOptions.Width">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">261</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">262</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862539699</prop><prop prop-type="Status">0</prop><prop prop-type="Order">263</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.TabOrder">
+        <source>-1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">264</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.UseSize" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.UseSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">265</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.OnClick" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.OnClick">
+        <source>Start</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">266</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Cacheable" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.Cacheable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">267</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.FriendlyName">
+        <source>'IWImageButtonEnter'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">268</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ImageFile.Filename" resname="O:IWFormLogin.O:IWRegion1.O:IWImageButtonEnter.ImageFile.Filename">
+        <source>'D:\Мелочь\FTPDB\FTPDBWebClient\Files\btnConnect.bmp'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">269</prop><prop prop-type="Type">TIWImageButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Left">
+        <source>169</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">270</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Top">
+        <source>76</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">271</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Width">
+        <source>116</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">272</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">273</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">274</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">275</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">276</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">277</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">278</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.RenderSize">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">279</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Caption" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Caption">
+        <source>'Пассивный FTP'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">280</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Editable" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Editable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">281</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Font.Color">
+        <source>clWebBLUE</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">282</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">283</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">284</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">285</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">286</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Style">
+        <source>stNormal</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">287</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.TabOrder">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">288</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Checked" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.Checked">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">289</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWCheckBoxPassive.FriendlyName">
+        <source>'IWCheckBoxPassive'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">290</prop><prop prop-type="Type">TIWCheckBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Left">
+        <source>120</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">291</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Top">
+        <source>15</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862541551</prop><prop prop-type="Status">0</prop><prop prop-type="Order">292</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Width">
+        <source>145</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">293</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Height">
+        <source>29</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">294</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">295</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.NumericWidth" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.NumericWidth">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">296</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.BorderWidth" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.BorderWidth">
+        <source>cbwNumeric</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">297</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.Style">
+        <source>cbsSolid</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">298</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.BorderOptions.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">299</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">300</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">301</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">302</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.ZIndex">
+        <source>1000</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">303</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Splitter" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.Splitter">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">304</prop><prop prop-type="Type">TIWRegion</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Left">
+        <source>4</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">305</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Top">
+        <source>4</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">306</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Width">
+        <source>41</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">307</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">308</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">309</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">310</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">311</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">312</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">313</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">314</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.BGColor" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.BGColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">315</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Font.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">316</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">317</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">318</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.FocusColor" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.FocusColor">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">319</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.AutoHideOnMenuActivation" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.AutoHideOnMenuActivation">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862543403</prop><prop prop-type="Status">0</prop><prop prop-type="Order">320</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ItemsHaveValues" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ItemsHaveValues">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">321</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.NoSelectionText" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.NoSelectionText">
+        <source>'...'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">322</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Required" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Required">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">323</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.RequireSelection" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.RequireSelection">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">324</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">325</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.OnChange" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.OnChange">
+        <source>CookiesLoad</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">326</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.UseSize" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.UseSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">327</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Style">
+        <source>stNormal</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">328</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ButtonColor" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ButtonColor">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">329</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.DoSubmitValidation">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">330</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Editable" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Editable">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">331</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.NonEditableAsLabel" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.NonEditableAsLabel">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">332</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.TabOrder">
+        <source>3</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">333</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ItemIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.ItemIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">334</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Items.Strings[0]" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Items.Strings[0]">
+        <source>'1'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">335</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">(</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Items.Strings[1]" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Items.Strings[1]">
+        <source>'2'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">336</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Items.Strings[2]" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Items.Strings[2]">
+        <source>'3'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">337</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">)</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Sorted" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.Sorted">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">338</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWComboBoxNomer.FriendlyName">
+        <source>'IWComboBoxNomer'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">339</prop><prop prop-type="Type">TIWComboBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Left" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Left">
+        <source>64</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">340</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Top" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Top">
+        <source>6</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">341</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Width" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Width">
+        <source>65</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">342</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Height" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Height">
+        <source>17</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">343</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Cursor" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Cursor">
+        <source>crAuto</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">344</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Hint">
+        <source>'Сохранить настройки под текущим номером'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">345</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.IW50Hint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.IW50Hint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">346</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ParentShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ParentShowHint">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">347</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ShowHint" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ShowHint">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862545139</prop><prop prop-type="Status">0</prop><prop prop-type="Order">348</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ZIndex" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ZIndex">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">349</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.RenderSize" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.RenderSize">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">350</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Alignment" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Alignment">
+        <source>taLeftJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">351</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Color">
+        <source>clNone</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">352</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Font.Color" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Font.Color">
+        <source>clWebGREEN</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">353</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Font.Size" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Font.Size">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">354</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Font.Style" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Font.Style">
+        <source>[fsUnderline]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">355</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ScriptEvents" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.ScriptEvents">
+        <source>&lt;&gt;</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">356</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.DoSubmitValidation" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.DoSubmitValidation">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">357</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.FriendlyName" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.FriendlyName">
+        <source>'IWLinkSave'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">358</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.OnClick" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.OnClick">
+        <source>CookiesSave</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">359</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.TabOrder" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.TabOrder">
+        <source>4</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">360</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.RawText" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.RawText">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">361</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Caption" resname="O:IWFormLogin.O:IWRegion1.O:IWRegion2.O:IWLinkSave.Caption">
+        <source>'Сохранить'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39197.4862546991</prop><prop prop-type="Status">0</prop><prop prop-type="Order">362</prop><prop prop-type="Type">TIWLink</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

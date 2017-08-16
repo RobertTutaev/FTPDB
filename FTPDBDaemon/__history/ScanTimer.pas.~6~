@@ -1,0 +1,48 @@
+unit ScanTimer;
+
+interface
+
+uses
+  Classes, Windows, Messages, DateUtils, SysUtils;
+
+const
+  MESSAGE_TIMER=WM_USER+100;
+  CONST_TM_SECONDS=5;
+  CONST_TM_DELTA=200;
+
+type
+  TScanTimer = class(TThread)
+  private
+    Id: Cardinal;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(Const IdThr: Cardinal);
+  end;
+
+implementation
+
+constructor TScanTimer.Create(Const IdThr: Cardinal);
+begin
+  inherited Create(True);
+  Id:=IdThr;
+  Priority:=tpLowest;
+  FreeOnTerminate:=True;
+end;
+
+procedure TScanTimer.Execute;
+var StTm: TDateTime;
+begin
+  While True do
+  begin
+    StTm:=IncSecond(Now,CONST_TM_SECONDS);
+    while Now<StTm do
+    begin
+      Sleep(CONST_TM_DELTA);
+      if Terminated then Exit;
+    end;
+    PostThreadMessage(Id, MESSAGE_TIMER, 0, ThreadID);
+  end;
+end;
+
+end.

@@ -1,0 +1,47 @@
+package SubsPackage;
+
+{$R *.res}
+{$R 'Subs2.dcr'}
+{$R 'Subs.dcr'}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $4000000}
+{$DESCRIPTION 'Borland User Components'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  bdertl,
+  ibxpress,
+  dsnap,
+  vcldb,
+  vcljpg;
+
+contains
+  Subs in 'Subs.pas',
+  winsock2 in 'winsock2.pas',
+  Subs3 in 'Subs3.pas',
+  Subs2 in 'Subs2.pas',
+  uDBImages in 'uDBImages.pas';
+
+end.

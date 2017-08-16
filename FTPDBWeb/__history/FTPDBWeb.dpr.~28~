@@ -1,0 +1,62 @@
+program FTPDBWeb;
+
+uses
+  IWInitService, SysUtils, IdFTPFunctions, ServiceManager,
+  Unit1 in 'Unit1.pas' {IWFormLogin: TIWAppForm},
+  ServerController in 'ServerController.pas' {IWServerController: TIWServerControllerBase},
+  UserSessionUnit in 'UserSessionUnit.pas' {IWUserSession: TIWUserSessionBase},
+  Unit2 in 'Unit2.pas' {IWFormMain: TIWAppForm},
+  Unit4 in 'Unit4.pas' {IWFormLog: TIWAppForm},
+  LibraryWeb in 'LibraryWeb.pas',
+  Unit5 in 'Unit5.pas' {IWFormAdmin: TIWAppForm},
+  Unit6 in 'Unit6.pas' {IWFormOptions: TIWAppForm},
+  FTPDBWebFunctions in 'FTPDBWebFunctions.pas';
+
+{$R *.res}
+
+var
+  Opt: TOpt;
+  i: Integer;
+  SM: TServiceManager;
+
+begin
+  for i:=0 to ParamCount-1 do
+    if LowerCase(paramstr(1))='/start' then
+    begin
+      try
+        SM:=TServiceManager.Create;
+        if SM.Connect then
+          if SM.OpenServiceConnection('FTPDBWeb') then
+            SM.StartService;
+      finally
+        SM.Free;
+      end;
+      Exit;
+    end;
+
+
+  for i:=0 to ParamCount-1 do
+    if LowerCase(paramstr(1))='/stop' then
+    begin
+      try
+        SM:=TServiceManager.Create;
+        if SM.Connect then
+          if SM.OpenServiceConnection('FTPDBWeb') then
+            SM.StopService;
+      finally
+        SM.Free;
+      end;
+      Exit;
+    end;
+
+  for i:=0 to ParamCount-1 do
+    if(LowerCase(paramstr(1))='/install')or
+      (LowerCase(paramstr(1))='/uninstall')then
+    begin
+      IWRun;
+      Exit;
+    end;
+
+  LoadOptions(Opt);
+  if Opt.StType2='0' then IWRun;
+end.

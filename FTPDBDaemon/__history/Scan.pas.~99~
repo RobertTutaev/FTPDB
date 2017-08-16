@@ -1,0 +1,308 @@
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J-,K-,L+,M-,N+,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE OFF}
+{$WARN UNSAFE_CODE OFF}
+{$WARN UNSAFE_CAST OFF}
+unit Scan;
+
+interface
+
+uses
+  Classes, IBQuery, IBDataBase, Dialogs, Windows, DateUtils,
+  IdFTPDBScan, Messages, IdFTPFunctions;
+
+const
+  MESSAGE_SCAN=WM_USER+200;
+  MESSAGE_SCAN_END=WM_USER+201;
+  MESSAGE_SCAN_DESTROY=WM_USER+202;
+  CONST_TIME_SLEEP_SCAN=200;
+
+type
+  TScan = class(TThread)
+  private
+    { Private declarations }
+    Id             : Cardinal;
+    Nomer          : Cardinal;
+    IdUserKod      : String;
+    Info           : TInfo;
+    InfoOld        : String;
+    DltTmOut       : Integer;
+    DltTm          : Integer;
+    DltTmSlp       : Integer;
+    fIBQ           : TIBQuery;
+    fIBTransaction : TIBTransaction;
+    fIBDatabase    : TIBDatabase;
+    fIdFTPDBScan   : TIdFTPDBScan;
+    procedure Log;
+  protected
+    procedure Execute; override; 
+  public
+    constructor Create(Const Opt: TOpt; Const Kod, IdThr, N: Cardinal);
+    destructor Destroy; override;
+  end;
+
+Const
+  DeltaConst1=300;
+  DeltaConst2=30;
+  DeltaConst3=1000;
+
+implementation
+
+uses SysUtils, ScanService, IdTCPClient, IdFTP, IdTCPConnection;
+
+constructor TScan.Create(Const Opt: TOpt; Const Kod, IdThr, N: Cardinal);
+var Pr: Integer;
+begin
+  inherited Create(False);
+  fIBQ:=TIBQuery.Create(fIBQ);
+  fIBTransaction:=TIBTransaction.Create(fIBTransaction);
+  fIBDatabase:=TIBDatabase.Create(fIBDatabase);
+  fIdFTPDBScan:=TIdFTPDBScan.Create(fIdFTPDBScan);
+
+  fIBDatabase.DefaultTransaction:=fIBTransaction;
+  fIBTransaction.DefaultDatabase:=fIBDatabase;
+  fIBQ.Database:=fIBDatabase;
+  fIdFTPDBScan.IBDataSet:=fIBQ;
+
+  fIBTransaction.Params.Clear;
+  fIBTransaction.Params.Add('read_committed');
+  fIBTransaction.Params.Add('rec_version');
+  fIBTransaction.Params.Add('nowait');
+
+  with fIBDatabase do
+  begin
+    Connected:=False;
+    Params.Clear;
+    Params.Add('user_name='+Opt.Lgn);
+    Params.Add('password='+Opt.Psswrd);
+    Params.Add('lc_ctype=WIN1251');
+    DatabaseName:=Opt.Hst+ ':'+Opt.Pth;
+    LoginPrompt:=False;
+  end;
+
+  IdUserKod:='{IDUser:'+IntToStr(Kod)+'}';
+  fIdFTPDBScan.IdUser:=Kod;  
+
+  try DltTmOut:=StrToInt(Opt.tmOut)
+  except
+    on Exception do
+    with Info do
+    begin
+      DltTmOut:=DeltaConst1;
+      Text:=IdUserKod+Exception(ExceptObject).Message;
+      EventType:=EVENTLOG_WARNING_TYPE;
+      Category:=1;
+      ID:=fIdFTPDBScan.IdUser;
+      Log;
+    end;
+  end;
+  fIdFTPDBScan.ConnectTimeout:=DltTmOut;
+
+  try DltTm:=StrToInt(Opt.tmDelta);
+  except
+    on Exception do
+    with Info do
+    begin
+      DltTm:=DeltaConst2;
+      Text:=IdUserKod+Exception(ExceptObject).Message;
+      EventType:=EVENTLOG_WARNING_TYPE;
+      Category:=1;
+      ID:=fIdFTPDBScan.IdUser;
+      Log;
+    end;
+  end;
+
+  try DltTmSlp:=StrToInt(Opt.tmSleep);
+  except
+    on Exception do
+    with Info do
+    begin
+      DltTm:=DeltaConst3;
+      Text:=IdUserKod+Exception(ExceptObject).Message;
+      EventType:=EVENTLOG_WARNING_TYPE;
+      Category:=1;
+      ID:=fIdFTPDBScan.IdUser;
+      Log;
+    end;
+  end;
+
+  Pr:=3;
+  try Pr:=StrToInt(Opt.tpPr);
+  except
+    on Exception do
+    with Info do
+    begin
+      Text:=IdUserKod+Exception(ExceptObject).Message;
+      EventType:=EVENTLOG_WARNING_TYPE;
+      Category:=1;
+      ID:=fIdFTPDBScan.IdUser;
+      Log;
+    end;
+  end;
+  case Pr of
+  0: Priority:=tpIdle;
+  1: Priority:=tpLowest;
+  2: Priority:=tpLower;
+  3: Priority:=tpNormal;
+  4: Priority:=tpHigher;
+  5: Priority:=tpHighest;
+  6: Priority:=tpTimeCritical;
+  end;
+
+  Id:=IdThr;
+  Nomer:=N;
+  InfoOld:='';
+  FreeOnTerminate:=True;
+end;
+
+destructor TScan.Destroy;
+begin
+  PostThreadMessage(Id, MESSAGE_SCAN_DESTROY, ThreadID, Nomer);
+
+  if fIdFTPDBScan.Connected then fIdFTPDBScan.Disconnect;
+  fIBQ.Active:=False;
+  fIBDatabase.Connected:=False;
+
+  FreeAndNil(fIBQ);
+  FreeAndNil(fIBTransaction);
+  FreeAndNil(fIBDatabase);
+  FreeAndNil(fIdFTPDBScan);
+
+  inherited Destroy;
+end;
+
+procedure TScan.Log;
+begin
+{$ifdef debug}
+  Outputdebugstring(pansiChar(Info.Text));
+{$else}
+  if Info.Text=InfoOld then Exit;
+  FTPDBDaemonService.LogMessage(Info.Text, Info.EventType, Info.Category, Info.ID);
+  InfoOld:=Info.Text;
+{$endif}
+end;
+
+procedure TScan.Execute;
+var   StTm: TDateTime;
+label loop;
+begin
+loop:
+  try
+
+    While fIBDatabase.TestConnected=False do
+      try
+        Sleep(DltTmSlp);
+        if Terminated then Exit;
+        fIBDatabase.Connected:=True;
+      except
+        on Exception do
+        with Info do
+        begin
+          Text:=IdUserKod+Exception(ExceptObject).Message;
+          EventType:=EVENTLOG_ERROR_TYPE;
+          Category:=2;
+          ID:=fIdFTPDBScan.IdUser;
+          Synchronize(Log);
+          PostThreadMessage(Id, MESSAGE_SCAN, ThreadID, Nomer);
+        end;
+      end;
+
+    with fIdFTPDBScan do
+    begin
+      fIBTransaction.Active:=True;
+      LoadOptions;
+      fIBTransaction.Active:=False;
+      Connect;
+
+      Scan;
+      While ScanLoop do
+      begin
+        PostThreadMessage(Id, MESSAGE_SCAN, ThreadID, Nomer);
+        if Terminated then Exit;
+      end;
+
+      fIBTransaction.Active:=True;
+      SetFilesToIB;
+      fIBTransaction.Active:=False;
+      Quit;
+    end;
+
+    PostThreadMessage(Id, MESSAGE_SCAN_END, ThreadID, Nomer);
+
+  except
+    on Exception do
+    begin
+      try if fIdFTPDBScan.Connected then fIdFTPDBScan.Disconnect except end;
+      try if Assigned(fIdFTPDBScan.Socket) then fIdFTPDBScan.Socket.Close except end;
+      try if fIBTransaction.Active then fIBTransaction.Rollback except end;
+
+      with Info do
+      begin
+        Text:=IdUserKod+Exception(ExceptObject).Message;
+        EventType:=EVENTLOG_ERROR_TYPE;
+        Category:=3;
+        ID:=fIdFTPDBScan.IdUser;
+      end;
+      try Synchronize(Log) except end;
+    end;
+  end;
+
+  StTm:=IncSecond(Now,DltTm);
+  while Now<StTm do
+  begin
+    Sleep(CONST_TIME_SLEEP_SCAN);
+    if Terminated then Exit;
+  end;
+  goto loop;
+end;
+
+
+end.

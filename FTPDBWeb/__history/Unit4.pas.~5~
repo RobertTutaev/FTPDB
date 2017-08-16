@@ -1,0 +1,33 @@
+unit Unit4;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, UserSessionUnit,
+  IWCompButton, Controls, Forms, IWVCLBaseContainer, IWContainer,
+  IWHTMLContainer, IWRegion, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl,
+  IWControl, IWGrids, IWDBGrids, ServerController;
+
+type
+  TIWForm4 = class(TIWAppForm)
+    IWDBGrid1: TIWDBGrid;
+    IWRegion1: TIWRegion;
+    IWButton1: TIWButton;
+    procedure IWButton1Click(Sender: TObject);
+  public
+  end;
+
+implementation
+
+uses Unit2;
+
+{$R *.dfm}
+
+
+procedure TIWForm4.IWButton1Click(Sender: TObject);
+begin
+  Hide;
+  UserSession.IBQuerylog.Active:=False;  
+end;
+
+end.

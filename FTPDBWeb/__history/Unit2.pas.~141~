@@ -1,0 +1,246 @@
+unit Unit2;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, DateUtils,
+  IWVCLBaseControl, IWCompLabel, IWCompListbox, Controls,
+  IWVCLBaseContainer, IWContainer, IWHTMLContainer, IWRegion,
+  IWBaseControl, IWDBGrids, IWGrids, IWControl, Forms, IWBaseHTMLControl, ServerController,
+  IWCompButton, Graphics, IWExtCtrls, Unit4, IWDBStdCtrls, ShellApi,
+  IWHTMLControls, IWCompRadioButton, IWCompCalendar, IWCompEdit, IWCompText, Unit5;
+
+type
+  TIWForm2 = class(TIWAppForm)
+    IWRegion2: TIWRegion;
+    IWRegion3: TIWRegion;
+    IWImage1: TIWImage;
+    IWRegion1: TIWRegion;
+    IWComboBoxSort: TIWComboBox;
+    IWLabel1: TIWLabel;
+    IWRegion5: TIWRegion;
+    IWRegion4: TIWRegion;
+    IWDBNavigator1: TIWDBNavigator;
+    IWDBGridFiles: TIWDBGrid;
+    IWLink2: TIWLink;
+    IWRegion7: TIWRegion;
+    IWLabel2: TIWLabel;
+    IWEdit11: TIWEdit;
+    IWEdit12: TIWEdit;
+    IWLabel11: TIWLabel;
+    IWLabel12: TIWLabel;
+    IWRegion8: TIWRegion;
+    IWRegion9: TIWRegion;
+    IWLabel3: TIWLabel;
+    IWEdit21: TIWEdit;
+    IWEdit22: TIWEdit;
+    IWLabel4: TIWLabel;
+    IWLabel5: TIWLabel;
+    IWLabel6: TIWLabel;
+    IWEdit31: TIWEdit;
+    IWButton2: TIWButton;
+    IWRegion6: TIWRegion;
+    IWLink1: TIWLink;
+    IWRadioGroup1: TIWRadioGroup;
+    IWRadioGroup2: TIWRadioGroup;
+    IWRadioGroup3: TIWRadioGroup;
+    IWLabel7: TIWLabel;
+    IWLabel8: TIWLabel;
+    IWLabelFilesCount: TIWLabel;
+    IWText1: TIWText;
+    IWComboBoxRowLimit: TIWComboBox;
+    IWLabel10: TIWLabel;
+    procedure SetQueryFiles(Sender: TObject);
+    procedure LogClick(Sender: TObject);
+    procedure IWDBNavigator1Next(Sender: TObject);
+    procedure IWDBNavigator1Prior(Sender: TObject);
+    procedure IWAppFormCreate(Sender: TObject);
+    procedure IWDBGridFilesColumns0Click(ASender: TObject;
+      const AValue: string);
+  public
+    function GetFilters: String;
+    function GetRowLimit: Integer;
+    procedure CookiesSet(Sender: TObject; Const VName, VValue: String);
+  end;
+
+var
+  FormLog: TIWForm4;
+
+implementation
+
+uses IBQuery, DB, IWBaseForm, LibraryWeb, HTTPApp;
+
+{$R *.dfm}
+
+procedure TIWForm2.LogClick(Sender: TObject);
+begin
+  FormLog.Show;
+  UserSession.IBQuerylog.Active:=False;
+  UserSession.IBQuerylog.Active:=True;
+end;
+
+procedure TIWForm2.SetQueryFiles(Sender: TObject);
+begin
+  //CookiesDeleteAll(Sender);
+
+  //Сортировка
+  CookiesSet(Sender,'Sort',IntToStr(IWComboBoxSort.ItemIndex));
+  CookiesSet(Sender,'RowLimit',IntToStr(IWComboBoxRowLimit.ItemIndex));
+
+  //Фильтр - Дата
+  CookiesSet(Sender,'FilterDate0',IntToStr(IWRadioGroup1.ItemIndex));
+  CookiesSet(Sender,'FilterDate1',GetText(IWEdit11.Text));
+  CookiesSet(Sender,'FilterDate2',GetText(IWEdit12.Text));
+
+  //Фильтр - Размер
+  CookiesSet(Sender,'FilterSize0',IntToStr(IWRadioGroup2.ItemIndex));
+  CookiesSet(Sender,'FilterSize1',GetText(IWEdit21.Text));
+  CookiesSet(Sender,'FilterSize2',GetText(IWEdit22.Text));
+
+  //Фильтр - Название
+  CookiesSet(Sender,'FilterName0',IntToStr(IWRadioGroup3.ItemIndex));
+  CookiesSet(Sender,'FilterName1',GetText(IWEdit31.Text));
+
+  UserSession.IBQueryFiles.Active:=False;
+  UserSession.IBQueryFiles.Active:=True;
+end;
+
+procedure TIWForm2.IWAppFormCreate(Sender: TObject);
+begin
+  FormLog:=TIWForm4.Create(WebApplication);
+end;
+
+procedure TIWForm2.IWDBGridFilesColumns0Click(ASender: TObject;
+  const AValue: string);
+Var URL: String;
+    P: TOpenThread;
+begin
+   URL:='ftp://'+UserSession.Us.Host+AValue;
+   try
+     //WebApplication.NewWindow(Url, 'ftp');
+     //WebApplication.ShowMessage(WebApplication.ActiveMasterTemplate);
+     //ShellExecute(1,'open',pChar(URL),NIL,NIL,0);
+     P:=TOpenThread.Create(URL);
+   finally
+   end;
+end;
+
+procedure TIWForm2.IWDBNavigator1Next(Sender: TObject);
+begin
+  Try
+    IWDBGridFiles.DataSource.DataSet.RecNo:=IWDBGridFiles.DataSource.DataSet.RecNo+IWDBGridFiles.RowLimit-1;
+  finally
+  End;
+end;
+
+procedure TIWForm2.IWDBNavigator1Prior(Sender: TObject);
+begin
+  Try
+    IWDBGridFiles.DataSource.DataSet.RecNo:=IWDBGridFiles.DataSource.DataSet.RecNo-IWDBGridFiles.RowLimit+1;
+  finally
+  End;
+end;
+
+function TIWForm2.GetRowLimit: Integer;
+begin
+  Result:=0;
+  case IWComboBoxRowLimit.ItemIndex of
+  0: Result:=50;
+  1: Result:=100;
+  2: Result:=200;
+  3: Result:=300;
+  4: Result:=500;
+  5: Result:=1000;
+  6: Result:=2000;
+  7: Result:=5000;
+  8: Result:=0;
+  end;
+end;
+
+procedure TIWForm2.CookiesSet(Sender: TObject; const VName, VValue: String);
+
+  {function  CookiesGetID(Sender: TObject; Const VName: String): Integer;
+  var i: Integer;
+  begin
+    Result:=-1;
+    With WebApplication.Request do
+    for i:=0 to CookieFields.Count-1 do
+      if Pos(VName, CookieFields[i])<>0 then
+      begin
+        Result:=i;
+        Break;
+      end;
+  end;}
+
+begin
+  with WebApplication.Response.Cookies.Add do
+  begin
+    Name:=VName;
+    Value:=VValue;
+    Secure:=False;
+    Expires:=Now+365;
+  end
+end;
+
+function TIWForm2.GetFilters: String;
+Var TempValue: String;
+begin
+  Result:='';
+
+  //Фильтр - Дата
+  Case IWRadioGroup1.ItemIndex of
+  0: TempValue:='';
+  1: TempValue:='(v_date='''+DateToStr(Now)+''')';
+  2: TempValue:='(v_date<='''+DateToStr(Now)+''')and(v_date>'''+DateToStr(IncDay(Now,-7))+''')';
+  3: begin
+       try
+         StrToDate(IWEdit11.Text);
+         StrToDate(IWEdit12.Text);
+         TempValue:='(v_date>='''+IWEdit11.Text+''')and(v_date<='''+IWEdit12.Text+''')';
+       except
+         WebApplication.ShowMessage('Ошибка ввода в дипазоне дат!'+#13#10+'Bыбраны все записи!');
+       end;
+     end;
+  End;
+  if(Result<>'')and(TempValue<>'')then
+    Result:=Result+'and'+TempValue else
+    Result:=Result+TempValue;
+
+  //Фильтр - Размер
+  Case IWRadioGroup2.ItemIndex of
+  0: TempValue:='';
+  1: TempValue:='(v_size<=100)';
+  2: TempValue:='(v_size<=1024)';
+  3: TempValue:='(v_size>1024)';
+  4: begin
+       try
+         StrToInt(IWEdit21.Text);
+         StrToInt(IWEdit22.Text);
+         TempValue:='(v_size>='''+IWEdit21.Text+''')and(v_size<='''+IWEdit22.Text+''')';
+       except
+         WebApplication.ShowMessage('Ошибка ввода в дипазоне размеров!'+#13#10+'Bыбраны все записи!');
+       end;
+     end;
+  End;
+  if(Result<>'')and(TempValue<>'')then
+    Result:=Result+'and'+TempValue else
+    Result:=Result+TempValue;
+
+  //Фильтр - Название
+  Case IWRadioGroup3.ItemIndex of
+  0: TempValue:='';
+  1: if Trim(IWEdit31.Text)='' then
+       WebApplication.ShowMessage('Ошибка ввода в названии файла!'+#13#10+'Bыбраны все записи!')else
+       TempValue:='(locase(v_name) like ('''+GetTextSQL(IWEdit31.Text)+'''))';
+  End;
+  if(Result<>'')and(TempValue<>'')then
+    Result:=Result+'and'+TempValue else
+    Result:=Result+TempValue;
+
+  if(Result<>'')then Result:=' where'+Result;
+end;
+
+
+
+
+end.

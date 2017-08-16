@@ -1,0 +1,327 @@
+unit FormFTPDBDCP;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  ComCtrls, StdCtrls, Mask, ExtCtrls, Buttons, Dialogs, Grids, ValEdit,
+  DB, IBDatabase, ServiceManager, WinSvc, DBCtrls, IdFTPFunctions;
+
+type
+  TValueListArray = array[1..3] of String;
+
+type
+  TFormFTPDBDaemon = class(TForm)
+    OpenDialog1: TOpenDialog;
+    Timer1: TTimer;
+    Panel1: TPanel;
+    BitBtnCancel: TBitBtn;
+    BitBtnApply: TBitBtn;
+    BitBtnSave: TBitBtn;
+    BitBtnReload: TBitBtn;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    Image1: TImage;
+    LabelStatus: TLabel;
+    PanelDPLogin: TPanel;
+    GroupBox2: TGroupBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    EditLgn: TEdit;
+    EditPsswrd: TEdit;
+    PanelService: TPanel;
+    GroupBox3: TGroupBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Labe5: TLabel;
+    ComboBoxTpPr: TComboBox;
+    ValueListEditorTm: TValueListEditor;
+    ComboBoxStatus: TComboBox;
+    ComboBoxStartType: TComboBox;
+    PanelDBPath: TPanel;
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    SpeedButtonFind: TSpeedButton;
+    Label2: TLabel;
+    EditPth: TEdit;
+    EditHst: TEdit;
+    CheckBoxCTest: TCheckBox;
+    TabSheet2: TTabSheet;
+    procedure SpeedButtonFindClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormSave(Sender: TObject);
+    procedure FormLoad(Sender: TObject);
+    procedure ConnectTest(Sender: TObject);
+    procedure ValueListEditorTmValidate(Sender: TObject; ACol,
+      ARow: Integer; const KeyName, KeyValue: String);
+    procedure BitBtnSaveClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure ComboBoxStatusSelect(Sender: TObject);
+    procedure BitBtnApplyClick(Sender: TObject);
+    procedure SpeedButtonAddClick(Sender: TObject);
+    procedure StartRollback(Sender: TObject);
+    procedure BitBtnReloadClick(Sender: TObject);
+  private
+    { Private declarations }
+    SM            : TServiceManager;
+    Opt           : TOpt;
+    ValueListArray: TValueListArray;
+  public
+    { Public declarations }
+  end;
+
+implementation
+
+uses DataModuleFTPDBDCP;
+
+{$R *.dfm}
+
+procedure TFormFTPDBDaemon.SpeedButtonAddClick(Sender: TObject);
+var
+  kod: Integer;
+  Txt: String;
+begin
+  Txt:=InputBox('Добавление нового FTP-сервера', 'IP сервера:', '');
+  if Txt='' then Exit;
+
+  with  DataModuleFTPDBDaemon.IBQueryGet do
+  begin
+    Active:=False;
+    SQL.Clear;
+    SQL.Text:='select kod from gethost('''+Txt+''')';
+    Active:=True;
+    kod:=FieldValues['kod'];
+    Active:=False;
+  end;
+
+  with DataModuleFTPDBDaemon.DataSource3.DataSet do
+  begin
+    Active:=False;
+    Active:=True;
+    Locate('kod',kod, []);
+  end;
+end;
+
+procedure TFormFTPDBDaemon.SpeedButtonFindClick(Sender: TObject);
+begin
+  OpenDialog1.InitialDir:=EditPth.Text;
+  if OpenDialog1.Execute then EditPth.Text:=OpenDialog1.FileName;
+end;
+
+procedure TFormFTPDBDaemon.FormCreate(Sender: TObject);
+var v: Integer;
+begin
+  SM:=TServiceManager.Create;
+  V:=0;
+  if SM.Connect then
+    if SM.OpenServiceConnection('FTPDBDaemonService') then v:=-1;
+  if V=0 then ShowMessage('Не удалось подключится к сервису!');
+
+  EditPsswrd.PasswordChar:='*';
+
+  with PageControl1 do
+  begin
+    TabIndex:=0;
+    Pages[1].Enabled:=False;
+    Pages[2].Enabled:=False;
+  end;
+
+  FormLoad(Sender);
+end;
+
+procedure TFormFTPDBDaemon.FormLoad(Sender: TObject);
+var v: Integer;
+begin
+  ValueListArray[1]:='-1';
+  ValueListArray[2]:='40';
+  ValueListArray[3]:='1000';
+
+  LoadOptions(Opt);
+  
+  with Opt do
+  begin
+    EditLgn.Text:=Lgn;
+    EditPsswrd.Text:=Psswrd;
+    try ComboBoxTpPr.ItemIndex:=StrToInt(tpPr)
+    except ShowMessage('Ошибка чтения приоритета!'); end;
+
+    with ValueListEditorTm do
+    begin
+      If tryStrToInt(tmOut, v)
+      then Cells[1,1]:=tmOut;
+
+      If tryStrToInt(tmDelta, v)
+      then Cells[1,2]:=tmDelta;
+
+      If tryStrToInt(tmSleep, v)
+      then Cells[1,3]:=tmSleep;
+
+      Timer1Timer(Sender);
+    end;
+
+    EditHst.Text:=Hst;
+    EditPth.Text:=Pth;
+
+    try ComboBoxStartType.ItemIndex:=StrToInt(StType)
+    except ShowMessage('Ошибка чтения вида запуска!'); end;
+  end;
+end;
+
+procedure TFormFTPDBDaemon.FormSave(Sender: TObject);
+begin
+  with Opt do
+  begin
+    Lgn:=EditLgn.Text;
+    Psswrd:=EditPsswrd.Text;
+    tpPr:=IntToStr(ComboBoxTpPr.ItemIndex);
+    with ValueListEditorTm do
+    begin
+      tmOut:=Cells[1,1];
+      tmDelta:=Cells[1,2];
+      tmSleep:=Cells[1,3];
+    end;  
+    Hst:=EditHst.Text;
+    Pth:=EditPth.Text;
+    StType:=IntToStr(ComboBoxStartType.ItemIndex);
+  end;
+
+  SaveOptions(Opt);
+end;
+
+procedure TFormFTPDBDaemon.ConnectTest(Sender: TObject);
+begin
+  with DataModuleFTPDBDaemon.IBDatabase1 do
+  begin
+    Connected:=False;
+    Params.Clear;
+    Params.Add('user_name='+EditLgn.Text);
+    Params.Add('password='+EditPsswrd.Text);
+    Params.Add('lc_ctype=WIN1251');
+    DatabaseName:=EditHst.Text+ ':'+EditPth.Text;
+    LoginPrompt:=False;
+
+    try
+      Connected:=True;
+      ShowMessage('Подключение прошло успешно!');
+    except
+      ShowMessage('Подключение не удалось!');
+    end;
+    Connected:=False;
+  end;
+end;
+
+procedure TFormFTPDBDaemon.ValueListEditorTmValidate(Sender: TObject; ACol,
+  ARow: Integer; const KeyName, KeyValue: String);
+
+var V   : Integer;
+    Vld : Boolean;
+begin
+  Vld:=TryStrToInt(KeyValue,V);
+  if Vld then
+  begin
+    if(ARow=1)and(v<-1)then
+      ShowMessage('Ошибка ввода!'+#10#13+
+                  '(число не должно быть меньше -1)');
+    if((ARow=2)or(ARow=3))and(v<0)then
+      ShowMessage('Ошибка ввода!'+#10#13+
+                  '(число не должно быть меньше 0)');
+  end else
+  begin
+    ShowMessage('Ошибка ввода!'+#10#13+
+                '(не число, не целое, большое целое)');
+  end;
+  if(Vld=True)and not(((ARow=1)and(v<-1))or(((ARow=2)or(ARow=3))and(v<0)))
+  then ValueListArray[ARow]:=KeyValue
+  else ValueListEditorTm.Cells[ACol, ARow]:=ValueListArray[ARow];
+end;
+
+procedure TFormFTPDBDaemon.FormDestroy(Sender: TObject);
+begin
+  DataModuleFTPDBDaemon.IBDatabase1.Connected:=False;
+  SM.Free;
+end;
+
+procedure TFormFTPDBDaemon.Timer1Timer(Sender: TObject);
+begin
+  LabelStatus.Caption:='';
+  Case SM.GetStatus of
+  SERVICE_STOPPED:          LabelStatus.Caption:='Сосотояние:   Остановлен';
+  SERVICE_START_PENDING:    LabelStatus.Caption:='Сосотояние:   Пуск (незаконченный)';
+  SERVICE_STOP_PENDING:     LabelStatus.Caption:='Сосотояние:   Остановка не законченная';
+  SERVICE_RUNNING:          LabelStatus.Caption:='Сосотояние:   Работает';
+  SERVICE_CONTINUE_PENDING: LabelStatus.Caption:='Сосотояние:   Возобновление (незаконченное)';
+  SERVICE_PAUSE_PENDING:    LabelStatus.Caption:='Сосотояние:   Приостановка (незаконченная)';
+  SERVICE_PAUSED:           LabelStatus.Caption:='Сосотояние:   Приостановка';
+  end;
+end;
+
+procedure TFormFTPDBDaemon.ComboBoxStatusSelect(Sender: TObject);
+begin
+  Case ComboBoxStatus.ItemIndex of
+  0: SM.StartService;
+  1: SM.StopService;
+  2: SM.PauseService;
+  3: SM.ContinueService;
+  4: begin
+       SM.StopService;
+       Timer1Timer(Sender);
+       while(SM.GetStatus<>SERVICE_STOPPED)and
+            (SM.GetStatus in [SERVICE_START_PENDING,
+                              SERVICE_STOP_PENDING,
+                              SERVICE_RUNNING,
+                              SERVICE_CONTINUE_PENDING,
+                              SERVICE_PAUSE_PENDING,
+                              SERVICE_PAUSED])do;
+       SM.StartService;
+     end;  
+  end;
+end;
+
+
+procedure TFormFTPDBDaemon.BitBtnSaveClick(Sender: TObject);
+begin
+  FormSave(Sender); 
+  StartCommit(Sender);
+end;
+
+procedure TFormFTPDBDaemon.BitBtnReloadClick(Sender: TObject);
+begin
+  FormLoad(Sender);
+  StartRollback(Sender);
+end;
+
+procedure TFormFTPDBDaemon.StartRollback(Sender: TObject);
+var k1, k2: Integer;
+begin
+  with DataModuleFTPDBDaemon do
+  begin
+    if IBDatabase1.Connected=False then Exit;
+
+    k1:=IBTable3.FieldValues['kod'];
+    if DBEdit2LOGIN.text<>''
+    then k2:=IBTable8.FieldValues['kod']
+    else k2:=0;
+
+    IBTransaction2.Rollback;
+
+    IBTable3.Active:=True;
+    IBTable4.Active:=True;
+    IBTable5.Active:=True;
+    IBTable6.Active:=True;
+    IBTable7.Active:=True;
+    IBTable8.Active:=True;
+    IBTable3.Locate('kod',k1, []);
+    IBTable8.Locate('kod',k2, []);
+  end;
+end;
+
+procedure TFormFTPDBDaemon.BitBtnApplyClick(Sender: TObject);
+begin
+  FormSave(Sender);
+  StartCommit(Sender);
+  ComboBoxStatus.ItemIndex:=4;
+  ComboBoxStatusSelect(Sender);
+end;
+
+end.

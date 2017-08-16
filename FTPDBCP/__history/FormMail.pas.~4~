@@ -1,0 +1,33 @@
+unit FormMail;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, ComCtrls;
+
+type
+  TFormEMail = class(TForm)
+    RichEdit1: TRichEdit;
+    EditUsEmail: TEdit;
+    EditUsPassword: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    SpeedButtonOk: TSpeedButton;
+    procedure SpeedButtonOkClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;  
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormEMail.SpeedButtonOkClick(Sender: TObject);
+begin
+  Hide;
+end;
+
+end.

@@ -1,0 +1,13 @@
+program FTPDBDaemonTest;
+
+uses
+  Forms,
+  TestUnit in 'TestUnit.pas' {FTPDBDaemonTestForm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFTPDBDaemonTestForm, FTPDBDaemonTestForm);
+  Application.Run;
+end.

@@ -1,0 +1,326 @@
+unit IdFTPScan;
+
+interface
+
+uses
+  SysUtils, Classes, IdBaseComponent , IdComponent, IdFTP;
+
+resourcestring
+  EChangeDir = 'Error "ChangeDir"';
+
+Type
+  EChangeDirError = class(Exception);
+
+Type
+  TFFile=Record
+    Path: String;
+    Atr:  String;
+    User: Integer;
+    Group:Integer;
+    Size: Integer;
+    DtTm: TDateTime;
+    Name: String;
+   end;
+
+type
+  TIdFTPScan = class(TIdFTP)
+  private
+    { Private declarations }
+    i:           Integer;
+    ErrorCount:  Integer;
+    PathBefore:  String;
+    Prepared:    Boolean;
+    Temp:        TStringList;
+    Dir:         TStringList;
+    Files:       TStringList;
+    DirShadow:   TStringList;
+    FilesShadow: TStringList;
+  protected
+    { Protected declarations }
+    function Atr(Const Txt: String): TFFile;
+    function Atr2(Const All, Txt: String): TFFile;
+    function AtrEmpty: TFFile;
+    procedure ChDir(ADirName: string);
+    procedure Go;
+    procedure Prepare; virtual;
+  public
+    { Public declarations }
+    function  GetFileInfo(N: Integer): TFFile;
+    function  GetDirectoryInfo(N: Integer): TFFile;
+    procedure Scan;
+    procedure ScanAll;
+    function  ScanLoop: Boolean;
+    procedure SetPrepare;
+    destructor Destroy; override;
+  published
+    { Published declarations }
+    property FilesList: TStringList Read Files;
+    property DirectoriesList: TStringList Read Dir;
+  end;
+
+procedure Register;
+
+Const
+  Atr_ln=10;
+  User_st=12; User_ln=3;
+  Group_st=21;Group_ln=3;
+  Size_st=31; Size_ln=11;
+  DtTm_st=43; DtTm_ln=12;
+  Name_st=56;
+
+  ErrorCountMax=10000000;
+
+//   Atr        User      Group       Size     DateTime           Name
+//_________|10_______|20_______|30_______|40_______|50_______|60_______|70___
+//123456789012345678901234567890123456789012345678901234567890123456789012345
+//-rw-rw-rw-   1 user     group       39424 Oct 17 10:45 многодетные.DOC
+//drw-rw-rw-   1 user     group           0 Sep 14 17:17 USR
+//-rw-rw-rw-   1 user     group    1527140236 Oct  8 16:50 адреналин .divx
+//drwxr-s---    5 0        105          4096 Feb 25  2006 MAG
+//drwxrws---   77 0        1083         4096 Sep 29 01:36 POST
+
+implementation
+
+uses IdExplicitTLSClientServerBase;
+
+procedure Register;
+begin
+  RegisterComponents('FTP', [TIdFTPScan]);
+end;
+
+{ TIdFTPScan }
+
+procedure TIdFTPScan.SetPrepare;
+begin
+  i:=0;
+  ErrorCount:=0;
+  if Connected then PathBefore:=RetrieveCurrentDir;
+  if Prepared=False then Prepare;
+  Dir.Clear;
+  Files.Clear;
+  DirShadow.Clear;
+  FilesShadow.Clear;
+end;
+
+procedure TIdFTPScan.Prepare;
+begin
+  if Prepared then Exit;
+  Temp:= TStringList.Create;
+  Dir:=  TStringList.Create;
+  Files:=TStringList.Create;
+  DirShadow:=  TStringList.Create;
+  FilesShadow:=TStringList.Create;
+  Prepared:=True;
+end;
+
+destructor TIdFTPScan.Destroy;
+begin
+  Temp.Free;
+  Dir.Free;
+  Files.Free;
+  DirShadow.Free;
+  FilesShadow.Free;
+  inherited;
+end;
+
+function TIdFTPScan.Atr2(const All, Txt: String): TFFile;
+begin
+  Result:=Atr(Txt);
+  Result.Path:=Copy(All, 1, Length(All)-length(Result.Name));
+end;
+
+function TIdFTPScan.Atr(Const Txt: String): TFFile;
+
+  function NowYear: String;
+  begin
+    Result:=FormatDateTime('YYYY', Now);
+  end;
+
+  function GetTime(Const AValue: String): string;
+  begin
+    if Copy(AValue, 3,1)=':'
+    then Result:='.'+NowYear+' '+Trim(AValue)+':00'
+    else Result:='.'+Trim(AValue)+' 00:00:00'
+  end;
+
+  function GetDtTm(Const AValue: String): TDateTime;
+  Const ShortMonthNamesEn: Array[1..2,1..12] of AnsiString =
+    (('jan', 'feb', 'mar', 'apr',
+      'may', 'jun', 'jul', 'aug',
+      'sep', 'oct', 'nov', 'dec'),
+     ('.01', '.02', '.03', '.04',
+      '.05', '.06', '.07', '.08',
+      '.09', '.10', '.11', '.12'));
+  var i: Integer;
+      A,B,C: String;
+  begin
+    A:=Copy(LowerCase(AValue),1,3);
+    B:=Trim(Copy(AValue,5,2));
+    C:=Copy(AValue,8,5);
+    If Length(B)=1 then B:='0'+B;  
+
+    for i:=1 to 12 do
+      if A=ShortMonthNamesEn[1,i] then
+      begin
+        Result:=StrToDateTime(B+ShortMonthNamesEn[2,i]+GetTime(C));
+        Break;
+      end;
+  end;
+
+  function GetInt(Const AValue: String): Integer;
+  begin
+    try    Result:=StrToInt('0'+Trim(AValue));
+    except Result:=-1; end;
+  end;
+
+  function GetSize(Const AValue: String; Var Alfa: integer): Integer;
+  begin
+    Alfa:=0;
+    while Copy(AValue, Size_ln+Alfa+1, 1)<>' ' do Alfa:=Alfa+1;
+
+    try    Result:=Round(StrToInt64(Copy(AValue, 1, Size_ln+Alfa))/1024);
+    except Result:=-1; end;
+  end;
+
+var
+  a: integer;
+begin 
+  Result.Atr:=          Copy(Txt, 1,        Atr_ln);
+  Result.User:=  GetInt(Copy(Txt, User_st,  User_ln));
+  Result.Group:= GetInt(Copy(Txt, Group_st, Group_ln));
+  Result.Size:= GetSize(Copy(Txt, Size_st,  length(Txt)), a);
+  Result.DtTm:= GetDtTm(Copy(Txt, DtTm_st+a,  DtTm_ln));
+  Result.Name:=         Copy(Txt, Name_st+a,  length(Txt));
+end;
+
+function TIdFTPScan.AtrEmpty: TFFile;
+begin
+  Result.Path:= '';
+  Result.Atr:=  '';
+  Result.User:= 0;
+  Result.Group:=0;
+  Result.Size:= 0;
+  Result.DtTm:=StrToDateTime('11.11.1111 00:00:00');
+  Result.Name:= '';
+end;
+
+procedure TIdFTPScan.ChDir(ADirName: string);
+var N: Integer;
+begin
+  N:=Pos('->', ADirName);
+  if N<>0 then
+  begin
+    ChangeDir(Copy(ADirName, 1, N-2));
+    ChangeDir(Copy(ADirName, N+3, Length(ADirName)));
+  end else
+    ChangeDir(ADirName);
+end;
+
+procedure TIdFTPScan.Go;
+var i:               Integer;
+    FFile:           TFFile;
+    CurDir, CurDir2: String;
+begin
+  CurDir:= RetrieveCurrentDir;
+  CurDir2:=CurDir;
+  if Copy(CurDir,length(CurDir),1)<>'/' then CurDir:=CurDir+'/';
+  i:=0;
+
+  while i<Temp.Count do
+  begin
+    FFile:=Atr(Temp.Strings[i]);
+    //Если папка, то
+    If(Copy(Temp.Strings[i],1,1)='d')or(Copy(Temp.Strings[i],1,1)='l')then
+    begin
+      if not((FFile.Name='.')or
+        (FFile.Name='..')or
+        (Temp.Strings[i]=CurDir2))then
+      begin
+        Dir.Append(CurDir+FFile.Name);
+        DirShadow.Append(Temp.Strings[i]);
+      end;
+    end else
+    //Если файл, то
+    begin
+      Files.Append(CurDir+FFile.Name);
+      FilesShadow.Append(Temp.Strings[i]);
+    end;
+    i:=i+1;
+  end;
+  Temp.Clear;
+end;
+
+procedure TIdFTPScan.Scan;
+begin
+  SetPrepare;
+  List(Temp);
+  Go;
+end;
+
+procedure TIdFTPScan.ScanAll;
+begin
+  SetPrepare;
+  List(Temp);
+  Go;
+
+  While i<Dir.Count do
+  begin
+    try
+      ChDir(Dir.Strings[i]);
+      List(Temp);
+      Go;
+      i:=i+1;
+    except
+      Dir.Delete(i);
+      DirShadow.Delete(i);
+      ErrorCount:=ErrorCount+1;
+      If ErrorCount>ErrorCountMax then Raise;
+    end;
+  end;
+
+  try
+    i:=0;
+    ChDir(PathBefore)
+  except
+  end;
+end;
+
+function TIdFTPScan.ScanLoop: Boolean;
+begin
+  if i<Dir.Count then
+  begin
+    try
+      ChDir(Dir.Strings[i]);    
+      List(Temp);
+      Go;
+      i:=i+1;
+    except
+      Dir.Delete(i);
+      DirShadow.Delete(i);
+      ErrorCount:=ErrorCount+1;
+      If ErrorCount>ErrorCountMax then Raise;
+    end;
+    Result:=True;
+  end else
+  begin
+    Result:=False;
+    try
+      i:=0;
+      ChDir(PathBefore)
+    except
+    end;
+  end;
+end;
+
+function TIdFTPScan.GetDirectoryInfo(N: Integer): TFFile;
+begin
+  if(N<0)or(N>DirShadow.Count-1)then Result:=AtrEmpty else Result:=Atr2(Dir.Strings[N], DirShadow.Strings[N]);
+end;
+
+function TIdFTPScan.GetFileInfo(N: Integer): TFFile;
+begin
+  if(N<0)or(N>FilesShadow.Count-1)then Result:=AtrEmpty else Result:=Atr2(Files.Strings[N], FilesShadow.Strings[N]);
+end;
+
+
+end.

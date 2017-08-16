@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <PersonalityInfo>
+    <Option>
+      <Option Name="Personality">Default.Personality</Option>
+      <Option Name="ProjectType"></Option>
+      <Option Name="Version">1.0</Option>
+      <Option Name="GUID">{25055D9B-F08F-414C-91E5-3A74EC235E81}</Option>
+    </Option>
+  </PersonalityInfo>
+  <Default.Personality>
+    
+    <Projects>
+      <Projects Name="FTPDBWebClient.exe">FTPDBWebClient.bdsproj</Projects>
+      <Projects Name="FTP.bpl">..\FTP\FTP.bdsproj</Projects>
+      <Projects Name="Targets">FTPDBWebClient.exe FTP.bpl</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

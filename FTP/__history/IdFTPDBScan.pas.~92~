@@ -1,0 +1,857 @@
+unit IdFTPDBScan;
+
+interface
+
+uses
+  Classes, IdFTPScan, IBQuery, Messages;
+
+type
+  TIdFTPDBScan = class(TIdFTPScan)
+  private
+    { Private declarations }
+    IU:      Integer;
+    IBQ:     TIBQuery;
+
+    L_Files: TStringList;
+    L_Dirs:  TStringList;
+    J:       Integer;
+    Nom_Oper:Integer;
+    FName:   string;
+    AP:      string;
+    LP:      string;
+    RN_old:  Integer;
+    IBQGet1: TIBQuery;
+    IBQGet2: TIBQuery;
+    function GetBLN(AValue :boolean): string;
+    function GetVNN(Const V: Variant): string;
+    procedure SetIBQ(AValue: TIBQuery);
+
+    function _GetFileNameFTP(AD, LD, F: string): string;
+    function _GetFileName(AD, LD, F: string): string;
+    function _GetFileNameDt(FName: string): TDateTime;
+    procedure _DeleteDirLocal(const Dir: string);
+    procedure _GetLocalFiles(const P: string; var LF, LD: TStringList);
+  protected
+    { Protected declarations }
+    function GoSNHR_FileCopy: boolean;
+    function GoSNHR_DirCreate: boolean;
+    function GoSNHR_DirDelete: boolean;
+    function GoSNHR_FileDelete: boolean;
+    procedure Notification(AComponent: TComponent; Operation: TOperation); override;
+  public
+    { Public declarations } 
+    function  SNHRLoop: Boolean;
+    procedure LoadOptions;
+    procedure SaveOptions;
+    procedure SetFilesToIB;
+    procedure SetDirectoriesToIB;
+    function DIRS_AUTO_INSERT: Boolean;
+    function DIRS_IS_INSERT: Boolean;
+    procedure Prepare; override;
+    destructor Destroy; override;
+    procedure GetCr(const ASourceFile, ADestFile: string; const ACanOverwrite: Boolean = False;
+      AResume: Boolean = False);
+    procedure PutCr(const ASourceFile: string; const ADestFile: string = ''; const AAppend: Boolean = False);  
+  published
+    { Published declarations }
+    property IBDataSet: TIBQuery Read IBQ Write SetIBQ;
+    property IdUser: Integer Read IU Write IU;
+  end;
+
+procedure Register;
+
+implementation
+
+uses IBCustomDataSet, IdTCPClient, SysUtils, DB, IdFTP, IdTCPConnection,
+     Variants, IdGlobal, IdFTPCommon, IdFTPFunctions;
+
+Procedure Register;
+Begin
+  RegisterComponents('FTP',[TIdFTPDBScan]);
+End;
+
+{ TIdFTPDBScan }
+
+procedure TIdFTPDBScan.Prepare;
+begin
+  if Prepared then Exit;
+  inherited;
+  L_Files:=TStringList.Create;
+  L_Dirs:=TStringList.Create;
+  IBQ:=TIBQuery.Create(Self);
+  IBQGet1:=TIBQuery.Create(Self);
+  IBQGet2:=TIBQuery.Create(Self);
+end;
+
+destructor TIdFTPDBScan.Destroy;
+begin
+  FreeAndNil(L_Files);
+  FreeAndNil(L_Dirs);
+  if Assigned(IBQ) then FreeAndNil(IBQ);
+  if Assigned(IBQGet1) then FreeAndNil(IBQGet1);
+  if Assigned(IBQGet2) then FreeAndNil(IBQGet2);
+  inherited Destroy;
+end;
+
+procedure TIdFTPDBScan.Notification(AComponent: TComponent;
+  Operation: TOperation);
+begin
+  inherited;
+  if(Operation=opRemove)and(AComponent=IBQ)then IBQ:=nil;
+end;
+
+function TIdFTPDBScan._GetFileNameFTP(AD, LD, F: string): string;
+var
+  i: integer;
+  ft: string;
+begin
+  ft:='';
+  for i:=1 to Length(F) do
+    if F[i]<>'\' then ft:=ft+F[i] else ft:=ft+'/';
+  ft:=Copy(ft, Length(LD)+1, Length(ft));
+
+  Result:=AD+ft;
+end;
+
+function TIdFTPDBScan._GetFileName(AD, LD, F: string): string;
+var
+  i: integer;
+  ft: string;
+begin
+  ft:='';
+  for i:=1 to Length(F) do
+    if F[i]<>'/' then ft:=ft+F[i] else ft:=ft+'\';
+
+  ft:=Copy(ft, Length(AD)+1, Length(ft));
+  Result:=LD+ft
+end;
+
+function TIdFTPDBScan._GetFileNameDt(FName: string): TDateTime;
+var
+  intFileAge: LongInt;
+begin
+  intFileAge:=FileAge(FName);
+  if intFileAge=-1 then
+    Result:=0
+  else
+    Result:=FileDateToDateTime(intFileAge);
+end;
+
+procedure TIdFTPDBScan._DeleteDirLocal(Const Dir: string);
+var     
+  n,m,t,nomer: Integer;
+begin
+  m:=-1;
+  While m<>0 do
+  begin
+    m:=0;
+    for n:=0 to L_Dirs.Count-1 do
+    if Copy(L_Dirs.Strings[n],1,Length(Dir))=Dir then
+    begin
+      t:=Length(L_Dirs.Strings[n]);
+      if t>m then
+      begin
+        m:=t;
+        nomer:=n
+      end;
+    end;
+
+    if m<>0 then
+    begin
+      SysUtils.RemoveDir(L_Dirs.Strings[nomer]);
+      L_Dirs.Delete(nomer);
+    end;
+  end;
+end;
+
+procedure TIdFTPDBScan._GetLocalFiles(const P: string; var LF, LD: TStringList);
+var
+  TempPath: String;
+  LT:       TStringList;
+  S:        TSearchRec;
+begin
+try
+  LF.Clear;
+  LD.Clear;
+  LT:=TStringList.Create;
+  if Copy(p, length(p), 1)='\' then LT.Append(P) else LT.Append(P+'\');
+
+  While LT.Count>0 do
+  begin
+    TempPath:=LT.Strings[0];
+    LT.Delete(0);
+    try
+      if FindFirst(TempPath+'*.*', faAnyFile, s)=0 then
+        if(s.Name<>'.')and(s.Name<>'..') then
+          if s.Attr=faDirectory
+          then
+          begin
+            LT.Append(TempPath+s.Name+'\');
+            LD.Append(TempPath+s.Name+'\');
+          end
+          else
+            LF.Append(TempPath+s.Name);
+      While FindNext(s)=0 do
+        if(S.Name<>'.')and(s.Name<>'..') then
+          if S.Attr=faDirectory
+          then
+          begin
+            LT.Append(TempPath+s.Name+'\');
+            LD.Append(TempPath+s.Name+'\');
+          end
+          else
+            LF.Append(TempPath+s.Name);
+    finally
+      FindClose(s);
+    end;
+  end;
+finally
+  LT.Free;
+end;
+end;
+
+function TIdFTPDBScan.GetVNN(const V: Variant): string;
+begin
+  Result:='';
+  try  Result:=v;
+  except end;
+end;
+
+function TIdFTPDBScan.GetBLN(AValue :boolean): string;
+begin
+  case AValue of
+  False: Result:='1';
+  True:  Result:='2';
+  end;
+end;
+
+procedure TIdFTPDBScan.GetCr(const ASourceFile, ADestFile: string;
+  const ACanOverwrite: Boolean = False; AResume: Boolean = False);
+var
+  TV, T: string;
+  i:     Integer;
+begin
+  TV:=ADestFile;
+
+  for i:=1 to Length(TV) do
+  if TV[i]='\' then
+  begin
+    T:=Copy(TV, 1, i);
+    if DirectoryExists(T)=False then
+      CreateDir(T);
+  end;
+
+  Get(ASourceFile, ADestFile, ACanOverwrite, AResume);
+end;
+
+procedure TIdFTPDBScan.PutCr(const ASourceFile, ADestFile: string;
+  const AAppend: Boolean);
+var
+  TV, T: string;
+  i:     Integer;
+begin
+  TV:=ADestFile;
+
+  for i:=1 to Length(TV) do
+  if TV[i]='/' then
+  begin
+    T:=Copy(TV, 1, i);
+    try
+      ChDir(T);
+    except
+      MakeDir(T);
+    end;
+  end;
+
+  Put(ASourceFile, ADestFile, AAppend);
+end;
+
+function TIdFTPDBScan.DIRS_AUTO_INSERT: Boolean;
+var Val: Integer;
+begin
+Result:=False;
+with IBQ do
+  if Database.Connected then
+  begin
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select dai from options';
+    Active:=True;
+    Val:=FieldValues['dai'];
+    Active:=False;
+
+    If Val=2 then
+    begin
+      Result:=True;
+      Scan;
+      SetDirectoriesToIB;
+    end;
+  end;
+end;
+
+function TIdFTPDBScan.DIRS_IS_INSERT: Boolean;
+var Val: Integer;
+begin
+with IBQ do
+  if Database.Connected then
+  begin
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select count(login) from ftp_dirs where(login='+IntToStr(IU)+')';
+    Active:=True;
+    Val:=FieldValues['count'];
+    Active:=False;
+
+    If Val=0 then Result:=False else Result:=True;
+    If Result=False then
+    begin
+      LoadOptions;
+      Connect;
+      DIRS_AUTO_INSERT;
+    end;
+  end;
+end;
+
+procedure TIdFTPDBScan.LoadOptions;
+
+  function SetBLN(AValue: Integer): Boolean;
+  begin
+    case AValue of
+    1: Result:=False;
+    2: Result:=True;
+    end;
+  end;
+
+  procedure SetTransferType(AValue: Integer);
+  begin
+    case AValue of
+    1: TransferType:=ftBinary;
+    2: TransferType:=ftASCII;
+    end;
+  end;
+
+  procedure SetPProxyType(AValue: Integer);
+  begin
+    case AValue of
+    1: ProxySettings.ProxyType:=fpcmNone;
+    2: ProxySettings.ProxyType:=fpcmHttpProxyWithFtp;
+    3: ProxySettings.ProxyType:=fpcmOpen;
+    4: ProxySettings.ProxyType:=fpcmSite;
+    5: ProxySettings.ProxyType:=fpcmTransparent;
+    6: ProxySettings.ProxyType:=fpcmUserPass;
+    7: ProxySettings.ProxyType:=fpcmUserSite;
+    end;
+  end;
+
+var
+  login_kod, host_kod: String;
+begin
+  with IBQ do
+  if Database.Connected then
+  begin
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select host from ftp_login where kod='+IntToStr(IU);
+    Active:=True;
+    login_kod:=IntToStr(IU);
+    host_kod:=FieldValues['host'];
+    Active:=False;   
+
+    SQL.Clear;
+    SQL.Text:='select * from ftp_host where kod='+host_kod;
+    Active:=True;
+    if not VarIsNull(FieldValues['host']) then
+    begin
+      Host:=FieldValues['host'];
+      Passive:=SetBLN(FieldValues['Passive']);
+      Port:=FieldValues['Port'];
+      SetTransferType(FieldValues['TransferType']);
+    end;
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select * from ftp_login where kod='+login_kod;
+    Active:=True;
+    if not VarIsNull(FieldValues['Pass']) then
+    begin
+      Password:=FieldValues['PASS'];
+      ProxySettings.UserName:=FieldValues['PLOGIN'];
+      ProxySettings.Password:=FieldValues['PPASS'];
+      Username:=FieldValues['login'];
+      ProxySettings.Host:=FieldValues['PHOST'];
+      ProxySettings.Port:=FieldValues['PPORT'];
+      SetPProxyType(FieldValues['PPROXYTYPE']);
+      ReadTimeout:=FieldValues['READTIMEOUT'];
+    end;
+    Active:=False;
+  end;
+end;
+
+procedure TIdFTPDBScan.SaveOptions;
+
+  function GetTransferType: string;
+  begin
+    case TransferType of
+    ftBinary: Result:='1';
+    ftASCII:  Result:='2';
+    end;
+  end;
+
+  function GetPProxyType: string;
+  begin
+    case ProxySettings.ProxyType of
+    fpcmNone:             Result:='1';
+    fpcmHttpProxyWitHftp: Result:='2';
+    fpcmOpen:             Result:='3';
+    fpcmSite:             Result:='4';
+    fpcmTransparent:      Result:='5';
+    fpcmUserPass:         Result:='6';
+    fpcmUserSite:         Result:='7';
+    end;
+  end;
+
+var
+  login_kod, host_kod: String;
+begin
+//(HOST varchar(50), LOGIN varchar(50), PASS varchar(50), PORT smallint, PASSIVE smallint)
+with IBQ do
+  if Database.Connected then
+  begin
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select kod from getlogin('''+Trim(Host)+''', '''+Username+''', '''+
+              Password+''', '+IntToStr(Port)+', '+GetBLN(Passive)+')';
+    Active:=True;
+    login_kod:=FieldValues['kod'];
+    IU:=StrToInt(login_kod);
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select kod from gethost('''+Trim(Host)+''', '+
+              IntToStr(Port)+', '+GetBLN(Passive)+')';
+    Active:=True;
+    host_kod:=FieldValues['kod'];
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='update ftp_host set '+
+              ', Passive='+       GetBLN(Passive)+
+              ', Port='+          IntToStr(Port)+
+              ', TransferType='+  GetTransferType+
+              '  where kod='+host_kod;
+    ExecSQL;
+
+    SQL.Text:='update ftp_login set '+
+              '    PASS='''+       Password+
+              ''', PLOGIN='''+     ProxySettings.UserName+
+              ''', PPASS='''+      ProxySettings.Password+
+              ''', PHOST='''+      ProxySettings.Host+
+              ''', PPORT='+        IntToStr(ProxySettings.Port)+
+              ',   PPROXYTYPE='+   GetPProxyType+
+              ',   READTIMEOUT='+  IntToStr(ReadTimeout)+
+              '    where kod='+    login_kod;
+    ExecSQL;
+    Transaction.CommitRetaining;
+  end;
+end; 
+
+procedure TIdFTPDBScan.SetDirectoriesToIB;
+var login_kod, i: Integer;
+begin
+with IBQ do
+  if(Database.Connected)and(DirectoriesList.Count>0)then
+  begin
+    Active:=False;
+    SQL.Clear;
+    SQL.Text:='select kod from setlogin('''+Trim(Host)+''', '''+Username+
+      ''', '''+Password+''', '+IntToStr(Port)+', '+GetBLN(Passive)+')';
+    Active:=True;
+    login_kod:=FieldValues['kod'];
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='delete from ftp_dirs where(login='+IntToStr(login_kod)+')';
+    ExecSQL;
+
+    SQL.Clear;
+    SQL.Text:='insert into ftp_dirs '+
+      '( LOGIN, A_ALL, A_PATH, A_ATR, A_USER, A_GROUP, A_SIZE, A_DATE, A_TIME, A_NAME) values'+
+      '(:LOGIN,:A_ALL,:A_PATH,:A_ATR,:A_USER,:A_GROUP,:A_SIZE,:A_DATE,:A_TIME,:A_NAME)';
+    Prepared:=True;
+
+    for i:=0 to DirectoriesList.Count-1 do
+    begin
+      ParamByName('LOGIN').AsInteger:=login_kod;
+      ParamByName('A_ALL').AsString:=DirectoriesList.Strings[i];
+      ParamByName('A_PATH').AsString:=GetDirectoryInfo(i).Path;
+      ParamByName('A_ATR').AsString:=GetDirectoryInfo(i).Atr;
+      ParamByName('A_USER').AsInteger:=GetDirectoryInfo(i).User;
+      ParamByName('A_GROUP').AsInteger:=GetDirectoryInfo(i).Group;
+      ParamByName('A_SIZE').AsInteger:=GetDirectoryInfo(i).Size;
+      ParamByName('A_DATE').AsDate:=GetDirectoryInfo(i).DtTm;
+      ParamByName('A_TIME').AsTime:=GetDirectoryInfo(i).DtTm;
+      ParamByName('A_NAME').AsString:=GetDirectoryInfo(i).Name;
+
+      ExecSQL;
+    end;
+    Prepared:=False;
+
+    SQL.Clear;
+    SQL.Text:='execute procedure ev_gen(''END_SCAN2_'+Trim(Host)+''')';
+    ExecSQL;
+
+    Transaction.CommitRetaining;
+  end;
+end;
+
+procedure TIdFTPDBScan.SetFilesToIB;  
+var host_kod, i: Integer;
+begin
+with IBQ do
+  if Database.Connected then
+  begin
+    Active:=False;
+
+    SQL.Clear;
+    SQL.Text:='select kod from sethost('''+Trim(Host)+''', '+IntToStr(Port)+', '+GetBLN(Passive)+')';
+    Active:=True;
+    host_kod:=FieldValues['kod'];
+    Active:=False; 
+
+    SQL.Clear;
+    SQL.Text:='delete from ftp_files where host='+IntToStr(host_kod);
+    ExecSQL;
+
+    SQL.Clear;
+    SQL.Text:='insert into ftp_files '+
+      '( HOST, A_ALL, A_PATH, A_ATR, A_USER, A_GROUP, A_SIZE, A_DATE, A_TIME, A_NAME) values'+
+      '(:HOST,:A_ALL,:A_PATH,:A_ATR,:A_USER,:A_GROUP,:A_SIZE,:A_DATE,:A_TIME,:A_NAME)';
+    Prepared:=True;
+
+    for i:=0 to FilesList.Count-1 do
+    begin
+      ParamByName('HOST').AsInteger:=host_kod;
+      ParamByName('A_ALL').AsString:=FilesList.Strings[i];
+      ParamByName('A_PATH').AsString:=GetFileInfo(i).Path;
+      ParamByName('A_ATR').AsString:=GetFileInfo(i).Atr;
+      ParamByName('A_USER').AsInteger:=GetFileInfo(i).User;
+      ParamByName('A_GROUP').AsInteger:=GetFileInfo(i).Group;
+      ParamByName('A_SIZE').AsInteger:=GetFileInfo(i).Size;
+      ParamByName('A_DATE').AsDate:=GetFileInfo(i).DtTm;
+      ParamByName('A_TIME').AsTime:=GetFileInfo(i).DtTm;
+      ParamByName('A_NAME').AsString:=GetFileInfo(i).Name;
+
+      ExecSQL;
+    end;
+    Prepared:=False;
+
+    SQL.Clear;
+    SQL.Text:='delete from ftp_directories where host='+IntToStr(host_kod);
+    ExecSQL;
+
+    SQL.Clear;
+    SQL.Text:='insert into ftp_directories '+
+      '( HOST, A_ALL, A_PATH, A_ATR, A_USER, A_GROUP, A_SIZE, A_DATE, A_TIME, A_NAME) values'+
+      '(:HOST,:A_ALL,:A_PATH,:A_ATR,:A_USER,:A_GROUP,:A_SIZE,:A_DATE,:A_TIME,:A_NAME)';
+    Prepared:=True;
+
+    for i:=0 to DirectoriesList.Count-1 do
+    begin
+      ParamByName('HOST').AsInteger:=host_kod;
+      ParamByName('A_ALL').AsString:=DirectoriesList.Strings[i];
+      ParamByName('A_PATH').AsString:=GetDirectoryInfo(i).Path;
+      ParamByName('A_ATR').AsString:=GetDirectoryInfo(i).Atr;
+      ParamByName('A_USER').AsInteger:=GetDirectoryInfo(i).User;
+      ParamByName('A_GROUP').AsInteger:=GetDirectoryInfo(i).Group;
+      ParamByName('A_SIZE').AsInteger:=GetDirectoryInfo(i).Size;
+      ParamByName('A_DATE').AsDate:=GetDirectoryInfo(i).DtTm;
+      ParamByName('A_TIME').AsTime:=GetDirectoryInfo(i).DtTm;
+      ParamByName('A_NAME').AsString:=GetDirectoryInfo(i).Name;
+
+      ExecSQL;
+    end;
+    Prepared:=False;
+
+    SQL.Clear;
+    SQL.Text:='execute procedure ev_gen(''END_SCAN1_'+Trim(Host)+''')';
+    ExecSQL;
+
+    Transaction.CommitRetaining;
+  end;
+end;
+
+procedure TIdFTPDBScan.SetIBQ(AValue: TIBQuery);
+begin
+  SetPrepare;
+  if AValue<>IBQ then
+  begin
+    if AValue<>nil then
+    begin
+      if Assigned(IBQ)and(IBQ.Owner=Self)then IBQ.Free;
+      IBQ:=AValue;
+      IBQ.FreeNotification(self);
+    end else //nil value
+    begin
+      if Assigned(IBQ)and(IBQ.Owner<>Self)then
+      begin
+        IBQ.Name:='IBQ'; //optional bit, but makes result much nicer
+        IBQ.SetSubComponent(True);
+        IBQ.FreeNotification(Self);
+      end;
+    end;
+  end;
+end;
+
+function TIdFTPDBScan.GoSNHR_DirCreate: boolean;
+begin
+  Result:=True;
+  case IBQ.FieldValues['direction'] of
+  1:if(not IBQGet2.Eof)and(IBQGet2.Database.Connected)then
+    try
+      FName:=_GetFileName(AP,LP,IBQGet2.FieldValues['v_path']);
+      if DirectoryExists(FName)=False then
+      begin
+        CreateDir(FName);
+        L_Files.Append(FName);
+      end;
+    finally
+      IBQGet2.Next;
+    end else
+    begin
+      Result:=False;
+    end;
+
+  2:if(j<L_Dirs.Count)and(IBQGet2.Database.Connected)then
+    try
+      FName:=_GetFileNameFTP(AP,LP,L_Dirs.Strings[j]);
+      if not IBQGet2.Locate('v_path',FName,[loCaseInsensitive])then MakeDir(FName);
+    finally
+      Inc(j);
+    end else
+    begin
+      Result:=False;
+    end;
+  end;
+end;
+
+function TIdFTPDBScan.GoSNHR_DirDelete: boolean;
+begin
+  Result:=True;
+  case IBQ.FieldValues['direction'] of
+  1:if(j<L_Dirs.Count)and(IBQGet2.Database.Connected)then
+    try
+      FName:=_GetFileNameFTP(AP,LP,L_Dirs.Strings[j]);
+      if not IBQGet2.Locate('v_path',FName,[loCaseInsensitive])then
+        _DeleteDirLocal(L_Dirs.Strings[j]);
+    finally
+      Inc(j);
+    end else
+    begin
+      Result:=False;
+    end;
+
+  2:if(not IBQGet2.Eof)and(IBQGet2.Database.Connected)then
+    try
+      FName:=_GetFileName(AP,LP,IBQGet2.FieldValues['v_path']);
+      if not DirectoryExists(FName) then SysUtils.RemoveDir(FName);
+    finally
+      IBQ.Next;
+    end else
+    begin
+      Result:=False;
+    end;
+  end;
+end;
+
+function TIdFTPDBScan.GoSNHR_FileDelete: boolean;
+begin
+  Result:=True;
+  case IBQ.FieldValues['direction'] of
+  1:if(j<L_Files.Count)and(IBQGet1.Database.Connected)then
+    try
+      FName:=_GetFileNameFTP(AP,LP,L_Files.Strings[j]);
+      if not IBQGet1.Locate('v_path',FName,[loCaseInsensitive])then
+      begin
+        SysUtils.DeleteFile(L_Files.Strings[j]);
+        L_Files.Delete(j);
+      end;
+    finally
+      Inc(j);
+    end else
+    begin
+      Result:=False;
+    end;
+
+  2:if(not IBQGet1.Eof)and(IBQGet1.Database.Connected)then
+    try
+      FName:=_GetFileName(AP,LP,IBQGet1.FieldValues['v_path']);
+      if not FileExists(FName) then Delete(IBQGet1.FieldValues['v_path']);
+    finally
+      IBQGet1.Next;
+    end else
+    begin
+      Result:=False;
+    end;
+  end;
+end;
+
+function TIdFTPDBScan.GoSNHR_FileCopy: boolean;
+begin
+  Result:=True;
+  case IBQ.FieldValues['direction'] of
+  1:if(not IBQGet1.Eof)and(IBQGet1.Database.Connected)then
+    try
+      FName:=_GetFileName(AP,LP,IBQGet1.FieldValues['v_path']);
+      case IBQ.FieldValues['params'] of
+      0,3:
+        if not FileExists(FName) then
+          GetCr(IBQGet1.FieldValues['v_path'],FName,True,True);
+      1,4:
+        if FileExists(FName) then
+        begin
+          if _GetFileNameDt(FName)<
+            (IBQGet1.FieldValues['v_date']+IBQGet1.FieldValues['v_time'])then
+            GetCr(IBQGet1.FieldValues['v_path'],FName,True,True);
+        end else
+        GetCr(IBQGet1.FieldValues['v_path'],FName,True,True);
+      2,5:
+        begin
+          if FileExists(FName) then DeleteFile(FName);
+            GetCr(IBQGet1.FieldValues['v_path'],FName,True,True);
+        end;
+      end;
+    finally
+      IBQGet1.Next;
+    end else
+    begin
+      Result:=False;
+    end;
+
+  2:if(j<L_Files.Count-1)and(IBQGet1.Database.Connected)then
+    try
+      FName:=_GetFileNameFTP(AP,LP,L_Files.Strings[j]);
+      case IBQ.FieldValues['params'] of
+      0,3:
+        if not IBQGet1.Locate('v_path', FName, [loCaseInsensitive])then
+          PutCr(L_Files.Strings[j],FName,True);
+      1,4:
+        if IBQGet1.Locate('v_path', FName, [loCaseInsensitive])then
+        begin
+          if _GetFileNameDt(L_Files.Strings[j])>
+            (IBQGet1.FieldValues['v_date']+IBQGet1.FieldValues['v_time'])then
+          PutCr(L_Files.Strings[j],FName,True);
+        end else
+          PutCr(L_Files.Strings[j],FName,True);
+      2,5:
+        begin
+          if IBQGet1.Locate('v_path', FName, [loCaseInsensitive])then
+            DeleteFile(IBQGet1.FieldValues['v_path']);
+          PutCr(L_Files.Strings[j],FName,True);
+        end;
+      end;
+    finally
+      Inc(j);
+    end else
+    begin
+      Result:=False;
+    end;
+  end;
+end;
+
+function TIdFTPDBScan.SNHRLoop: Boolean;
+begin
+  //1.0 Prepare process SNHR
+  if(IBQ.Database.Connected)and(Connected)then
+  begin
+    if IBQ.Active=False then
+    begin
+      IBQGet1.Active:=False;
+      IBQGet1.Database:=IBQ.Database;
+      IBQGet1.Transaction:=IBQ.Transaction;
+
+      IBQGet2.Active:=False;
+      IBQGet2.Database:=IBQ.Database;
+      IBQGet2.Transaction:=IBQ.Transaction;
+
+      IBQ.SQL.Text:=
+        'select d.* from dirs_snhr d, ftp_host h where(h.kod=d.host)and(h.host='''+
+        Trim(Host)+''')order by d.kod';
+      IBQ.Active:=True;
+      j:=0;
+      RN_old:=-1;
+    end;
+    Result:=IBQ.Active;
+  end else
+  begin
+    Result:=False;
+    Exit;
+  end;
+
+  //2.0 Directories's analysing
+  if not IBQ.Eof then
+  begin
+    if IBQ.RecNo<>RN_old then
+    begin
+      AP:=GetVNN(IBQ.FieldValues['a_path']);
+      LP:=GetVNN(IBQ.FieldValues['l_path']);
+      if Copy(AP,1,1)<>'/' then AP:='/'+AP;
+      if Copy(AP,Length(AP),1)<>'/' then AP:=AP+'/';
+      if Copy(LP,Length(LP),1)<>'\' then LP:=LP+'\';
+      _GetLocalFiles(LP, L_Files, L_Dirs);
+      RN_old:=IBQ.RecNo;
+
+      IBQGet1.Active:=False;
+      IBQGet1.SQL.Text:=
+        'select * from GETFILES_SNHR('''+Trim(Host)+''', '+
+        IntToStr(IBQ.FieldValues['kod'])+')';
+      IBQGet1.Active:=True;
+
+      IBQGet2.Active:=False;
+      IBQGet2.SQL.Text:=
+        'select * from GETDIRECTORIES_SNHR('''+Trim(Host)+''', '+
+        IntToStr(IBQ.FieldValues['kod'])+')';
+      IBQGet2.Active:=True;
+    end;
+
+    case IBQ.FieldValues['params'] of
+    3,4,5:
+      begin
+        j:=0;
+        IBQGet2.First;
+        While GoSNHR_DirCreate do;
+
+        j:=0;
+        IBQGet1.First;
+        While GoSNHR_FileDelete do;
+
+        j:=0;
+        IBQGet2.First;
+        While GoSNHR_DirDelete do;
+      end;
+    end;
+
+   j:=0;
+   IBQGet1.First;
+   While GoSNHR_FileCopy do;
+
+   //ibq.Next;
+  end else
+  try
+    IBQGet1.Active:=False;
+    IBQGet2.Active:=False;
+
+    IBQ.Active:=False;
+    IBQ.SQL.Clear;
+    IBQ.SQL.Text:='execute procedure ev_gen(''END_SCAN3_'+Trim(Host)+''')';
+    IBQ.ExecSQL;
+  finally
+    Result:=False;
+    IBQ.Transaction.CommitRetaining;
+  end;
+end;
+
+end.

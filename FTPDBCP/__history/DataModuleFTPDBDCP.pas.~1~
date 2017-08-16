@@ -1,0 +1,23 @@
+unit DataModuleFTPDBDCP;
+
+interface
+
+uses
+  SysUtils, Classes;
+
+type
+  TDataModuleFTPDBDaemon = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModuleFTPDBDaemon: TDataModuleFTPDBDaemon;
+
+implementation
+
+{$R *.dfm}
+
+end.

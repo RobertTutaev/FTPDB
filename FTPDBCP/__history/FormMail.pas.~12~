@@ -1,0 +1,69 @@
+unit FormMail;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Buttons, StdCtrls, ComCtrls, ExtCtrls;
+
+type
+  TFormEMail = class(TForm)
+    RichEdit1: TRichEdit;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    EditUsEmail: TEdit;
+    EditUsPassword: TEdit;
+    BitBtn1: TBitBtn;
+    procedure OkClick(Sender: TObject);
+    function GetUs(var UsName, UsHost: String): Boolean;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+Const
+  Mess1='Некорректный Email!'+#13#10+'Хотите завершить ввод?';
+  Mess2='Некорректный пароль!'+#13#10+'Хотите завершить ввод?';
+
+implementation
+
+{$R *.dfm}
+
+function TFormEMail.GetUs(var UsName, UsHost: String): Boolean;
+var
+  UsTemp: String;
+  n: Integer;
+begin
+  Result:=False;
+  UsName:='';
+  UsHost:='';
+  UsTemp:=Trim(EditUsEmail.Text);
+  if length(UsTemp)=0 then Exit;
+
+  Try
+    n:=Pos('@',UsTemp);
+    UsName:=Copy(UsTemp, 1, n-1);
+    UsHost:=Copy(UsTemp, n+1, length(UsTemp));
+    if(Pos('@',UsHost)<>0)or(Pos(' ',UsHost)<>0)or(Pos('.',UsHost)=0)or
+      (UsName='')or(UsHost='')then Exit;
+    Result:=True;
+  except
+    Result:=False;
+  End;
+end;
+
+procedure TFormEMail.OkClick(Sender: TObject);
+var UsName, UsHost: String;
+begin
+  if GetUs(UsName, UsHost)=False then
+    if MessageDlg(Mess1, mtWarning, [mbYes, mbNo],0)=mbNo then Exit;
+  if trim(EditUsPassword.Text)='' then
+    if MessageDlg(Mess2, mtWarning, [mbYes, mbNo],0)=mbNo then Exit;
+  Hide;  
+end;
+
+
+
+end.

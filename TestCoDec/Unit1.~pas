@@ -1,0 +1,132 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Idftpfunctions, StdCtrls, Registry;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Memo1: TMemo;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Edit1.Text:=CoDecModify(Edit1.Text, False)
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Edit1.Text:=CoDecModify(Edit1.Text, True)
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var I: integer;
+begin
+  For i:=1 to 100 do
+  begin
+    Button1Click(Sender);
+    Button2Click(Sender);
+  end;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  Memo1.Lines.Add(GenKey);
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+var Opt: TOpt;
+begin
+  with Opt do
+  begin
+    Lgn:=    'sysdba';
+    Psswrd:= 'masterkey';
+    Hst:=    'localhost';
+    Pth:=    GetCurrentDir+'\FTPDB.GDB';
+    tpPr:=   '2';
+    tmOut:=  '-1';
+    tmDelta:='40';
+    tmSleep:='1000'
+  end;
+  SaveOptions(Opt);
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+var Opt: TOpt;
+begin
+  LoadOptions(Opt);
+  with Opt, memo1.Lines  do
+  begin
+    Clear;
+    add(lgn);
+    add(Psswrd);
+    add(Hst);
+    add(Pth);
+    add(tpPr);
+    add(tmOut);
+    add(tmDelta);
+    add(tmSleep);
+  end;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+var I: integer;
+begin
+  For i:=1 to 100 do
+  begin
+    Button5Click(Sender);
+    Button6Click(Sender);
+  end;
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+var
+  AValue   : TRegistry;
+  KeySecond: String;
+begin
+  AValue:=TRegistry.Create;
+  with AValue do
+  begin
+    RootKey:=HKEY_LOCAL_MACHINE;
+    OpenKey('\Software\FTPDBDaemon\Options\', True);
+    try
+      KeySecond:=ReadString('00');
+      memo1.Lines.Add(KeySecond);
+    finally
+      CloseKey;
+      Free;
+    end;
+  end;
+end;
+
+end.

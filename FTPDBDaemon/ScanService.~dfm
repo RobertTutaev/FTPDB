@@ -1,0 +1,14 @@
+object FTPDBDaemonService: TFTPDBDaemonService
+  OldCreateOrder = False
+  DisplayName = 'FTPDBDaemon'
+  Interactive = True
+  AfterInstall = ServiceAfterInstall
+  OnContinue = ServiceContinue
+  OnPause = ServicePause
+  OnStart = ServiceStart
+  OnStop = ServiceStop
+  Left = 415
+  Top = 109
+  Height = 224
+  Width = 267
+end

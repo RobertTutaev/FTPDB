@@ -1,0 +1,18 @@
+program ttt;
+
+uses
+  Forms,
+  FormFTPDBCP in 'FormFTPDBCP.pas' {FormFTPDBDaemon},
+  FormVKey in 'FormVKey.pas' {FormKey};
+
+{$R *.res}
+
+var
+  FormFTPDBCP1: TFormFTPDBDaemon;
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormFTPDBCP1, FormFTPDBCP1);
+  Application.CreateForm(TFormKey, FormKey);
+  Application.Run;
+end.

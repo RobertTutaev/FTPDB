@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="D:\Проги\FTPDB\FTPDBCP\Applet.dfm" source-language="ru-RU" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="D:\Проги\FTPDB\FTPDBCP\Applet.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">39215.6977083333</prop>
+        <prop prop-type="OrigDateTime">39214.3861574074</prop>
+        <prop prop-type="XlatDateTime">39214.3861574074</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">9</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:AppletModule1.OldCreateOrder" resname="O:AppletModule1.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.OnActivate" resname="O:AppletModule1.OnActivate">
+        <source>AppletModuleActivate</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.Caption" resname="O:AppletModule1.Caption">
+        <source>'FTPDBDaemon Control Panel'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.AppletIcon.Data" resname="O:AppletModule1.AppletIcon.Data">
+        <source>0000010001002020100000000000E802000016000000280000002000000040000000010004000000000080020000000000000000000000000000000000000000000000008000008000000080800080000000800080008080000080808000C0C0C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00000000000000008888000000000000000000000000888888888888000000000000000000888888888888888800000000000000088888888888888888800000000000088888888888888888888880000000008888888888888888888888880000000088888888888888888888888800000008888888888888888888888888800000888888888888888888888888888800008888888888888888888888888888000888DDD88888888DDD8888DDD88888800888DDD88888888DDD8888DDD88888800888DDD88888888DDD8888DDD88888808888DDDDDD88888DDD8888DDDDDD88888888DDDDDD88888DDD8888DDDDDDD8888888DDDDDD88888DDD8888DDDDDDDD888888DDD88888888DDD8888DDD88DDD888888DDD88888888DDD8888DDD88DDD888888DDD88888888DDD8888DDD88DDD880888DDDDDDD8DDDDDDDDD8DDDDDDDD800888DDDDDDD8DDDDDDDDD8DDDDDDD8800888DDDDDDD8DDDDDDDDD8DDDDDD888000888888888888888888888888888800008888888888888888888888888888000008888888888888888888888888800000008888888888888888888888880000000088888888888888888888888800000000088888888888888888888880000000000008888888888888888880000000000000008888888888888888000000000000000000888888888888000000000000000000000000888800000000000000FFFC3FFFFFC003FFFF0000FFFE00007FF800001FF000000FF000000FE0000007C0000003C0000003800000018000000180000001000000000000000000000000000000000000000000000000800000018000000180000001C0000003C0000003E0000007F000000FF000000FF800001FFE00007FFF0000FFFFC003FFFFFC3FFF</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.ResidIcon" resname="O:AppletModule1.ResidIcon">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.ResidName" resname="O:AppletModule1.ResidName">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.ResidInfo" resname="O:AppletModule1.ResidInfo">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.Height" resname="O:AppletModule1.Height">
+        <source>150</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AppletModule1.Width" resname="O:AppletModule1.Width">
+        <source>215</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">39215.6977152662</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TAppletModule1</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

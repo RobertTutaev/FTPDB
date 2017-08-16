@@ -1,0 +1,118 @@
+unit ScanService;
+
+interface
+
+uses
+   Windows, SvcMgr, ScanMain, SysUtils, IDFTPFunctions;
+
+type
+  TFTPDBDaemonService = class(TService)
+    procedure ServiceStart(Sender: TService; var Started: Boolean);
+    procedure ServiceStop(Sender: TService; var Stopped: Boolean);
+    procedure ServiceAfterInstall(Sender: TService);
+    procedure ServiceCreate(Sender: TObject);
+  private
+    { Private declarations }
+    ScanMain: TScanMain;
+    Opt: TOpt;
+  public
+    { Public declarations }
+    function GetServiceController: TServiceController; override;
+  end;
+
+var
+  FTPDBDaemonService: TFTPDBDaemonService;      
+
+implementation
+
+{$R *.DFM}
+
+procedure ServiceController(CtrlCode: DWord); stdcall;
+begin
+  FTPDBDaemonService.Controller(CtrlCode);
+end;
+
+function TFTPDBDaemonService.GetServiceController: TServiceController;
+begin
+  Result:=ServiceController;
+end;
+
+procedure TFTPDBDaemonService.ServiceStart(Sender: TService; var Started: Boolean);
+begin
+  try
+    if Opt.StType<>'0' then Started:=False else
+    begin
+      ScanMain.Resume;
+      Started:=True;
+    end;
+  finally   
+  end;
+end;
+
+procedure TFTPDBDaemonService.ServiceCreate(Sender: TObject);
+begin
+  LoadOptions(Opt);
+  if Opt.StType<>'0' then ScanMain:=TScanMain.Create;
+end;
+
+procedure TFTPDBDaemonService.ServiceStop(Sender: TService;
+  var Stopped: Boolean);
+begin
+  try
+    Stopped:=True;
+    if ScanMain.Suspended then ScanMain.Resume;
+    ScanMain.Terminate;
+  except
+    Raise;
+  end;
+end;
+
+procedure TFTPDBDaemonService.ServiceAfterInstall(Sender: TService);
+var Opt: TOpt;
+    RegMail: TRegMail;
+begin
+  LoadOptions(Opt); 
+  If Opt.Pth<>'' then
+  begin
+    if FileExists(Opt.Pth) then Exit;
+    Opt.Pth:=GetCurrentDir+'\FTPDB.GDB';
+    SaveOptions(Opt);
+    Exit;
+  end;
+
+  with Opt do
+  begin
+    Lgn:=    'sysdba';
+    Psswrd:= 'masterkey';
+    Hst:=    'localhost';
+    Pth:=    GetCurrentDir+'\FTPDB.GDB';
+    tpPr:=   '2';
+    tmOut:=  '10000';
+    tmDelta:='300';
+    tmSleep:='1000';
+    StType:= '0';
+    StType2:='0';
+  end;
+  SaveOptions(Opt);
+
+  with RegMail do
+  begin
+    //f1:='';
+    //f2:='';
+    //f3:='';
+    //dt:=''
+    //firm:='';
+    Subject:='Registration_FTDB';
+    FHost:='mail.ru';
+    FName:='rob_t';
+    //UsHost:='';
+    //UsName:='';
+    //UsPassword:='';
+    UsPortSMTP:=25;
+    //Key:='';
+    //IsRegister:='';
+  end;
+  SaveRegMail(RegMail);
+end;
+
+end.

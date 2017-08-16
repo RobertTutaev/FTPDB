@@ -1,0 +1,585 @@
+object FormMain: TFormMain
+  Left = 188
+  Top = 103
+  Width = 724
+  Height = 687
+  Caption = 'FTPDBClient'
+  Color = 13497844
+  Font.Charset = RUSSIAN_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Arial'
+  Font.Style = []
+  Icon.Data = {
+    0000010001002020100000000000E80200001600000028000000200000004000
+    0000010004000000000080020000000000000000000000000000000000000000
+    000000008000008000000080800080000000800080008080000080808000C0C0
+    C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF000000
+    0000000000EEEE000000000000000000000000EEEEEEEEEEEE00000000000000
+    0000EEEEEEEEEEEEEEEE000000000000000EEEEEEEEEEEEEEEEEE00000000000
+    0EEEEEEEEEEEEEEEEEEEEEE000000000EEEEEEEEEEEEEEEEEEEEEEEE00000000
+    EEEEEEEEEEEEEEEEEEEEEEEE0000000EEEEEEEEEEEEEEEEEEEEEEEEEE00000EE
+    EEEEEEEEEEEEEEEEEEEEEEEEEE0000EEEEEEEEEEEEEEEEEEEEEEEEEEEE000EEE
+    DDDEEEEEEEEDDDEEEEDDDEEEEEE00EEEDDDEEEEEEEEDDDEEEEDDDEEEEEE00EEE
+    DDDEEEEEEEEDDDEEEEDDDEEEEEE0EEEEDDDDDDEEEEEDDDEEEEDDDDDDEEEEEEEE
+    DDDDDDEEEEEDDDEEEEDDDDDDDEEEEEEEDDDDDDEEEEEDDDEEEEDDDDDDDDEEEEEE
+    DDDEEEEEEEEDDDEEEEDDDEEDDDEEEEEEDDDEEEEEEEEDDDEEEEDDDEEDDDEEEEEE
+    DDDEEEEEEEEDDDEEEEDDDEEDDDEE0EEEDDDDDDDEDDDDDDDDDEDDDDDDDDE00EEE
+    DDDDDDDEDDDDDDDDDEDDDDDDDEE00EEEDDDDDDDEDDDDDDDDDEDDDDDDEEE000EE
+    EEEEEEEEEEEEEEEEEEEEEEEEEE0000EEEEEEEEEEEEEEEEEEEEEEEEEEEE00000E
+    EEEEEEEEEEEEEEEEEEEEEEEEE0000000EEEEEEEEEEEEEEEEEEEEEEEE00000000
+    EEEEEEEEEEEEEEEEEEEEEEEE000000000EEEEEEEEEEEEEEEEEEEEEE000000000
+    000EEEEEEEEEEEEEEEEEE000000000000000EEEEEEEEEEEEEEEE000000000000
+    000000EEEEEEEEEEEE000000000000000000000000EEEE00000000000000FFFC
+    3FFFFFC003FFFF0000FFFE00007FF800001FF000000FF000000FE0000007C000
+    0003C00000038000000180000001800000010000000000000000000000000000
+    00000000000000000000800000018000000180000001C0000003C0000003E000
+    0007F000000FF000000FF800001FFE00007FFF0000FFFFC003FFFFFC3FFF}
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 14
+  object Splitter1: TSplitter
+    Left = 185
+    Top = 33
+    Height = 589
+    AutoSnap = False
+    Color = clBtnFace
+    MinSize = 3
+    ParentColor = False
+    ResizeStyle = rsUpdate
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 716
+    Height = 33
+    Align = alTop
+    BevelOuter = bvNone
+    ParentColor = True
+    TabOrder = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 622
+    Width = 716
+    Height = 19
+    Panels = <>
+  end
+  object PageControl1: TPageControl
+    Left = 188
+    Top = 33
+    Width = 528
+    Height = 589
+    ActivePage = TabSheetFiles
+    Align = alClient
+    TabOrder = 2
+    object TabSheetFiles: TTabSheet
+      Caption = #1060#1072#1081#1083#1099
+      object Panel2: TPanel
+        Left = 0
+        Top = 0
+        Width = 520
+        Height = 41
+        Align = alTop
+        BevelOuter = bvLowered
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clMaroon
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentColor = True
+        ParentFont = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 16
+          Top = 12
+          Width = 105
+          Height = 14
+          Caption = #1057#1086#1088#1090#1080#1088#1086#1074#1082#1072' '#1087#1086' '#1087#1086#1083#1102
+        end
+        object ComboBoxSort: TComboBox
+          Left = 128
+          Top = 10
+          Width = 145
+          Height = 22
+          Style = csOwnerDrawFixed
+          ItemHeight = 16
+          ItemIndex = 0
+          ParentColor = True
+          TabOrder = 0
+          Text = #1055#1086#1083#1085#1099#1081' '#1087#1091#1090#1100
+          OnChange = ComboBoxSortChange
+          Items.Strings = (
+            #1055#1086#1083#1085#1099#1081' '#1087#1091#1090#1100
+            #1056#1072#1079#1084#1077#1088
+            #1044#1072#1090#1072' '#1080' '#1074#1088#1077#1084#1103
+            #1060#1072#1081#1083)
+        end
+      end
+      object SubsDBGridFiles: TSubsDBGrid
+        Left = 0
+        Top = 41
+        Width = 520
+        Height = 519
+        Align = alClient
+        Color = clScrollBar
+        DataSource = FTPDB_GDB.DataSource1
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgMultiSelect]
+        TabOrder = 1
+        TitleFont.Charset = RUSSIAN_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Arial'
+        TitleFont.Style = []
+        OnColumnMoved = SubsDBGridFilesColumnMoved
+        OnTitleClick = SubsDBGridFilesTitleClick
+        Columns = <
+          item
+            Color = 13828050
+            Expanded = False
+            FieldName = #1055#1086#1083#1085#1099#1081' '#1087#1091#1090#1100
+            Title.Color = 9830293
+            Width = 7547
+            Visible = True
+          end
+          item
+            Color = 14408667
+            Expanded = False
+            FieldName = #1056#1072#1079#1084#1077#1088', '#1050#1073
+            Title.Color = 12698049
+            Width = 1514
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = #1044#1072#1090#1072
+            Width = 1514
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = #1042#1088#1077#1084#1103
+            Width = 1514
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = #1060#1072#1081#1083
+            Width = 5674
+            Visible = True
+          end>
+      end
+    end
+    object TabSheetLog: TTabSheet
+      Caption = #1051#1086#1075
+      ImageIndex = 1
+      object Panel3: TPanel
+        Left = 0
+        Top = 0
+        Width = 568
+        Height = 41
+        Align = alTop
+        BevelOuter = bvLowered
+        ParentColor = True
+        TabOrder = 0
+      end
+      object SubsDBGridLog: TSubsDBGrid
+        Left = 0
+        Top = 41
+        Width = 568
+        Height = 407
+        Align = alClient
+        DataSource = FTPDB_GDB.DataSource2
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+        ParentColor = True
+        TabOrder = 1
+        TitleFont.Charset = RUSSIAN_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Arial'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = #8470
+            Title.Alignment = taCenter
+            Title.Color = 13497844
+            Width = 134
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = #1061#1086#1089#1090
+            Title.Alignment = taCenter
+            Title.Color = 13497844
+            Width = 241
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Color = 11792623
+            Expanded = False
+            FieldName = #1044#1072#1090#1072
+            Title.Alignment = taCenter
+            Title.Color = 11792623
+            Width = 241
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Color = 11792623
+            Expanded = False
+            FieldName = #1042#1088#1077#1084#1103
+            Title.Alignment = taCenter
+            Title.Color = 11792623
+            Width = 241
+            Visible = True
+          end>
+      end
+    end
+  end
+  object PanelFind: TPanel
+    Left = 0
+    Top = 33
+    Width = 185
+    Height = 589
+    Align = alLeft
+    BevelInner = bvLowered
+    Color = clWhite
+    TabOrder = 3
+    object Animate1: TAnimate
+      Left = 2
+      Top = 473
+      Width = 181
+      Height = 41
+      Align = alTop
+      StopFrame = 29
+    end
+    object Panel4: TPanel
+      Left = 2
+      Top = 2
+      Width = 181
+      Height = 183
+      Align = alTop
+      BevelOuter = bvNone
+      ParentColor = True
+      TabOrder = 1
+      object GroupBox1: TGroupBox
+        Left = 8
+        Top = 8
+        Width = 169
+        Height = 169
+        Align = alCustom
+        Caption = #1055#1086' '#1076#1072#1090#1077
+        TabOrder = 0
+        object Label2: TLabel
+          Left = 24
+          Top = 116
+          Width = 6
+          Height = 14
+          Caption = #1089
+        end
+        object Label3: TLabel
+          Left = 24
+          Top = 140
+          Width = 12
+          Height = 14
+          Caption = #1087#1086
+        end
+        object RadioButton1: TRadioButton
+          Left = 8
+          Top = 24
+          Width = 65
+          Height = 17
+          Caption = #1042#1089#1077
+          Checked = True
+          TabOrder = 0
+          TabStop = True
+        end
+        object RadioButton2: TRadioButton
+          Left = 8
+          Top = 40
+          Width = 73
+          Height = 17
+          Caption = #1047#1072' '#1089#1077#1075#1086#1076#1085#1103
+          TabOrder = 1
+        end
+        object RadioButton3: TRadioButton
+          Left = 8
+          Top = 56
+          Width = 73
+          Height = 17
+          Caption = #1047#1072' '#1085#1077#1076#1077#1083#1102
+          TabOrder = 2
+        end
+        object RadioButton4: TRadioButton
+          Left = 8
+          Top = 72
+          Width = 73
+          Height = 17
+          Caption = #1047#1072' '#1084#1077#1089#1103#1094
+          TabOrder = 3
+        end
+        object RadioButton5: TRadioButton
+          Left = 8
+          Top = 88
+          Width = 81
+          Height = 17
+          Caption = #1044#1088#1091#1075#1072#1103
+          TabOrder = 4
+        end
+        object DateTimePicker1: TDateTimePicker
+          Left = 48
+          Top = 112
+          Width = 89
+          Height = 22
+          Date = 39052.572362187500000000
+          Time = 39052.572362187500000000
+          DateFormat = dfLong
+          TabOrder = 5
+        end
+        object DateTimePicker2: TDateTimePicker
+          Left = 48
+          Top = 136
+          Width = 89
+          Height = 22
+          Date = 39052.572562743060000000
+          Time = 39052.572562743060000000
+          DateFormat = dfLong
+          TabOrder = 6
+        end
+      end
+    end
+    object Panel5: TPanel
+      Left = 2
+      Top = 185
+      Width = 181
+      Height = 192
+      Align = alTop
+      BevelOuter = bvNone
+      ParentColor = True
+      TabOrder = 2
+      object GroupBox2: TGroupBox
+        Left = 8
+        Top = 0
+        Width = 169
+        Height = 185
+        Caption = #1055#1086' '#1088#1072#1079#1084#1077#1088#1091
+        TabOrder = 0
+        object Label4: TLabel
+          Left = 24
+          Top = 132
+          Width = 6
+          Height = 14
+          Caption = #1089
+        end
+        object Label5: TLabel
+          Left = 24
+          Top = 156
+          Width = 12
+          Height = 14
+          Caption = #1087#1086
+        end
+        object RadioButton6: TRadioButton
+          Left = 8
+          Top = 24
+          Width = 49
+          Height = 17
+          Caption = #1042#1089#1077
+          Checked = True
+          TabOrder = 0
+          TabStop = True
+        end
+        object RadioButton7: TRadioButton
+          Left = 8
+          Top = 40
+          Width = 153
+          Height = 17
+          Caption = #1052#1077#1083#1082#1080#1081' ('#1084#1077#1085#1077#1077' 1 '#1050#1073')'
+          TabOrder = 1
+        end
+        object RadioButton8: TRadioButton
+          Left = 8
+          Top = 56
+          Width = 153
+          Height = 17
+          Caption = #1052#1072#1083#1077#1085#1100#1082#1080#1081' ('#1084#1077#1085#1077#1077' 100 '#1050#1073')'
+          TabOrder = 2
+        end
+        object RadioButton9: TRadioButton
+          Left = 8
+          Top = 72
+          Width = 137
+          Height = 17
+          Caption = #1057#1088#1077#1076#1085#1080#1081' ('#1084#1077#1085#1077#1077' 1 '#1052#1073')'
+          TabOrder = 3
+        end
+        object RadioButton10: TRadioButton
+          Left = 8
+          Top = 88
+          Width = 137
+          Height = 17
+          Caption = #1041#1086#1083#1100#1096#1086#1081' ('#1073#1086#1083#1077#1077' 1 '#1052#1073')'
+          TabOrder = 4
+        end
+        object RadioButton11: TRadioButton
+          Left = 8
+          Top = 104
+          Width = 89
+          Height = 17
+          Caption = #1044#1088#1091#1075#1086#1081' ('#1074' '#1050#1073')'
+          TabOrder = 5
+        end
+        object Edit_s: TEdit
+          Left = 48
+          Top = 128
+          Width = 89
+          Height = 22
+          TabOrder = 6
+          Text = '0'
+          OnEnter = Edit_sEnter
+        end
+        object Edit_e: TEdit
+          Left = 48
+          Top = 152
+          Width = 89
+          Height = 22
+          TabOrder = 7
+          Text = '0'
+        end
+      end
+    end
+    object Panel6: TPanel
+      Left = 2
+      Top = 377
+      Width = 181
+      Height = 96
+      Align = alTop
+      BevelOuter = bvNone
+      ParentColor = True
+      TabOrder = 3
+      object GroupBox3: TGroupBox
+        Left = 8
+        Top = 0
+        Width = 169
+        Height = 89
+        TabOrder = 0
+        object SpeedButton1: TSpeedButton
+          Left = 16
+          Top = 24
+          Width = 137
+          Height = 22
+          Caption = #1055#1088#1080#1085#1103#1090#1100'\'#1054#1073#1085#1086#1074#1080#1090#1100
+          Flat = True
+          OnClick = ComboBoxSortChange
+        end
+        object SpeedButton2: TSpeedButton
+          Left = 16
+          Top = 48
+          Width = 137
+          Height = 22
+          Caption = #1054#1087#1088#1077#1076'. '#1086#1073#1083'. '#1074#1080#1076#1080#1084#1086#1089#1090#1080
+          Flat = True
+          OnClick = N7Click
+        end
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 144
+    Top = 8
+    object N5: TMenuItem
+      Caption = #1054#1089#1085#1086#1074#1085#1099#1077
+      object N1: TMenuItem
+        Caption = #1055#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077
+        OnClick = N1Click
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object N8: TMenuItem
+        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
+        OnClick = N8Click
+      end
+      object N10: TMenuItem
+        Caption = '-'
+      end
+      object N3: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = N3Click
+      end
+    end
+    object N4: TMenuItem
+      Caption = 'FTP'
+      object N00: TMenuItem
+        Caption = '0'
+        OnClick = N00Click
+      end
+      object N01: TMenuItem
+        Caption = '1'
+        OnClick = N01Click
+      end
+      object N02: TMenuItem
+        Caption = '2'
+        OnClick = N02Click
+      end
+      object N03: TMenuItem
+        Caption = '3'
+        OnClick = N03Click
+      end
+      object N04: TMenuItem
+        Caption = '4'
+        OnClick = N04Click
+      end
+      object N05: TMenuItem
+        Caption = '5'
+        OnClick = N05Click
+      end
+      object N06: TMenuItem
+        Caption = '6'
+        OnClick = N06Click
+      end
+      object N07: TMenuItem
+        Caption = '7'
+        OnClick = N07Click
+      end
+      object N08: TMenuItem
+        Caption = '8'
+        OnClick = N08Click
+      end
+      object N92: TMenuItem
+        Caption = '9'
+        OnClick = N92Click
+      end
+      object N09: TMenuItem
+        Caption = '-'
+      end
+      object N11: TMenuItem
+        Caption = #1054#1073#1085#1086#1074#1080#1090#1100
+        OnClick = ComboBoxSortChange
+      end
+      object N7: TMenuItem
+        Caption = #1054#1087#1088#1077#1076#1077#1083#1080#1090#1100' '#1086#1073#1083#1072#1089#1090#1100' '#1074#1080#1076#1080#1084#1086#1089#1090#1080
+        OnClick = N7Click
+      end
+      object N9: TMenuItem
+        Caption = '-'
+      end
+      object NModify: TMenuItem
+        Caption = #1056#1077#1076#1072#1082#1090#1080#1088#1086#1074#1072#1090#1100
+        OnClick = NModifyClick
+      end
+    end
+    object N6: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+    end
+  end
+end

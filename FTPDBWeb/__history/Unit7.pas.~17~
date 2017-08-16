@@ -1,0 +1,54 @@
+unit Unit7;
+
+interface
+
+uses
+  SysUtils, Classes, DB, IBCustomDataSet, IBTable, IBDatabase, Dialogs,
+  FTPDBWebFunctions;
+
+type
+  TDataModuleOptions = class(TDataModule)
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    IBTableOptions: TIBTable;
+    procedure IBDatabase1BeforeConnect(Sender: TObject);
+    procedure IBDatabase1AfterConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    constructor Create(Owner: TComponent); override;
+  end;
+
+var
+  DataModuleOptions: TDataModuleOptions;
+
+Const
+  Mess='FTPDBWeb (info): Ошибка подключения к БД!';
+
+implementation
+
+{$R *.dfm}
+
+constructor TDataModuleOptions.Create(Owner: TComponent);
+begin
+  inherited;
+
+  try
+    IBDatabase1.Connected:=True;
+  except
+    ShowMessage(Mess);
+  end;
+end;
+
+procedure TDataModuleOptions.IBDatabase1AfterConnect(Sender: TObject);
+begin
+  IBTableOptions.Active:=True;
+end;
+
+procedure TDataModuleOptions.IBDatabase1BeforeConnect(Sender: TObject);
+begin
+  SetIBDB(IBDatabase1);
+end;
+
+end.

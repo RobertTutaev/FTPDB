@@ -1,0 +1,448 @@
+unit UserSessionUnit;
+
+{
+  This is a DataModule where you can add components or declare fields that are specific to 
+  ONE user. Instead of creating global variables, it is better to use this datamodule. You can then
+  access the it using UserSession.
+}
+interface
+
+uses
+  IWUserSessionBase, SysUtils, Classes, DB, IBCustomDataSet, IBQuery, IBDatabase,
+  IBTable, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
+  IdExplicitTLSClientServerBase, IdFTP, IdFTPScan, IdFTPDBScan, IdFTPFunctions,
+  Variants, FTPDBWebFunctions, Windows;
+
+type
+  TUser=Record
+    IDUser  : Integer;
+    Host    : String;
+    User    : String;
+    Password: String;
+    Port    : String; 
+    Passive : String;
+  end;
+
+type
+  TIWUserSession = class(TIWUserSessionBase)
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    IBQueryFiles: TIBQuery;
+    IBQueryLog: TIBQuery;
+    DataSourceFiles: TDataSource;
+    IBTableHost: TIBTable;
+    DataSourceHost: TDataSource;
+    DataSourceLog: TDataSource;
+    IdFTPDBScan1: TIdFTPDBScan;
+    IBQueryTemp: TIBQuery;
+    IBTableOptions: TIBTable;
+    DataSourceOptions: TDataSource;
+    IBTableFTP_LOGIN: TIBTable;
+    DataSourceFTP_LOGIN: TDataSource;
+    DataSourceFTP_DIRS: TDataSource;
+    IBTableFTP_DIRS: TIBTable;
+    IBTableFTP_HOST: TIBTable;
+    DataSourceFTP_HOST: TDataSource;
+    DataSourceS_PROXYTYPE: TDataSource;
+    IBTableS_PROXYTYPE: TIBTable;
+    IBTableS_TRANSFERTYPE: TIBTable;
+    DataSourceS_TRANSFERTYPE: TDataSource;
+    IBTableS_ROWLIMIT: TIBTable;
+    DataSourceS_ROWLIMIT: TDataSource;
+    IBTableROWLIMIT: TIBTable;
+    DataSourceROWLIMIT: TDataSource;
+    IBTableDIRS_SNHR: TIBTable;
+    DataSourceDIRS_SNHR: TDataSource;
+    IBTableDIRS_HOST: TIBTable;
+    DataSourceDIRS_HOST: TDataSource;
+    IBTableS_PARAMS: TIBTable;
+    DataSourceS_PARAMS: TDataSource;
+    procedure IBQueryFilesBeforeOpen(DataSet: TDataSet);
+    procedure IBQueryLogBeforeOpen(DataSet: TDataSet);
+    function GETLOGIN: Integer;
+    function GETPASSWORD: Boolean;
+    function GETTEXTFILE: String;
+    procedure IBDatabase1AfterConnect(Sender: TObject);
+    procedure IBDatabase1BeforeConnect(Sender: TObject);
+    procedure IBTableFTP_HOSTAfterOpen(DataSet: TDataSet);
+    procedure IBTableFTP_HOSTAfterClose(DataSet: TDataSet);
+    function NewHost: Integer;
+    function NewLogin: Integer;
+    function NewDirs: Integer;
+    function NewDirs_SNHR: Integer;
+    procedure IBTableFTP_HOSTAfterInsert(DataSet: TDataSet);
+    procedure IBTableFTP_LOGINAfterInsert(DataSet: TDataSet);
+    procedure IBTableFTP_DIRSAfterInsert(DataSet: TDataSet);
+    procedure EditFTP_HOST(DataSet: TDataSet);
+    procedure EditFTP_LOGIN(DataSet: TDataSet);
+    procedure IWUserSessionBaseDestroy(Sender: TObject);
+    procedure IBTableHostAfterOpen(DataSet: TDataSet);
+    procedure IBTableHostAfterClose(DataSet: TDataSet);
+    function FScanStop: Boolean;
+    function FScanStart: Boolean; 
+    function FScanRestart: Boolean;
+    function IsNotCorrect(var VHost, VUser: String): Boolean;
+    procedure IBTableDIRS_HOSTAfterOpen(DataSet: TDataSet);
+    procedure IBTableDIRS_HOSTAfterClose(DataSet: TDataSet);
+    procedure IBTableDIRS_SNHRAfterInsert(DataSet: TDataSet);
+    procedure IBTableDIRS_SNHREdit(DataSet: TDataSet);
+    { Private declarations }
+  public
+    { Public declarations }
+    Us : TUser; 
+    RSort:  Integer;
+    RFilters: String;
+  end;
+
+Const
+  SQLTXT= 'select v_all, v_path as "Путь", v_name as "Файл", v_size as "Размер, КБ",'+
+                  'v_date as "Дата", v_time as "Время" from ';
+  SQLTXT2='select s.n as "№", h.host as "Хост", s.dt as "Дата", s.tm as "Время" '+
+                  'from ftp_scan1 s, ftp_host h where(s.host=h.kod)and(h.host=''';
+  F1='Список файлов';
+  F2='Пользователь: ';
+  F3='Сформирован: ';
+  F41='Размер, КБ|';
+  F42='Дата|';
+  F43='Время|  ';
+  F44='Полный путь';
+  F51='Размер, КБ';
+  F52='Дата';
+  F53='Время';
+  C1='[Всего: 0]';
+  C2='[Всего: ';
+
+  SQLTXT3=''')order by n desc';
+  SQLTXT_GETLOGIN=
+          'select kod from GETLOGIN(''';
+  SQLTXT_GETPASSWORD=
+          'select pass from ftp_login where kod=';
+  SQLTXT_NEWHOST=
+          'select * from newhost';
+  SQLTXT_NEWLOGIN=
+          'select * from newlogin';
+  SQLTXT_NEWDIRS=
+          'select * from newdirs';
+  SQLTXT_NEWDIRS_SNHR=
+          'select * from newdirs_snhr';
+  TEXTFILE_NAME=
+          'FileList';
+
+//Форматирование текстового файла
+  LenPar1=13;
+  LenPar2=13;
+  LenPar3=13;
+
+implementation
+
+uses ServerController;
+
+{$R *.dfm}
+
+function TIWUserSession.IsNotCorrect(var VHost, VUser: String): Boolean;
+begin
+  With IBQueryTemp do
+  try
+    Result:=False;
+    Active:=False;
+    SQL.Text:='select l.kod, l.login, h.host from ftp_login l, ftp_host h where(act=2)and(h.kod=l.host)order by host';
+    Active:=True;
+
+    if RecordCount=0 then Exit;
+
+    VHost:=GetValue(FieldValues['host']);
+    VUser:=GetValue(FieldValues['login']);
+    Active:=False;
+
+    if(IWServerController.IsReg=False)and((Us.User<>VUser)or(Us.Host<>VHost))then Result:=True;
+  except
+    Result:=True;
+  end;
+end;
+
+function TIWUserSession.GETLOGIN: Integer;
+begin
+  With IBQueryTemp do
+  try
+    Active:=False;
+    SQL.Text:=SQLTXT_GETLOGIN+Us.Host+''', '''+Us.User+''', '''+
+       Us.Password+''', '+Us.Port+', '+Us.Passive+')';
+    Active:=True;
+    Us.IDUser:=FieldValues['kod'];
+    Active:=False;
+  except
+    Us.IDUser:=0;
+    Active:=False;
+  end;
+  Result:=Us.IDUser;
+end;
+
+function TIWUserSession.GETPASSWORD: Boolean;
+var Pass: string;
+begin
+  GETLOGIN;
+  Pass:='';
+  With IBQueryTemp do
+  try
+    Active:=False;
+    SQL.Text:=SQLTXT_GETPASSWORD+IntToStr(Us.IDUser);
+    Active:=True;
+    if not Varisnull(FieldValues['pass']) then Pass:=FieldValues['pass'];
+    Active:=False;
+    Transaction.CommitRetaining;
+  except
+    Active:=False; 
+  end;
+  if(Pass=Us.Password)and(Us.IDUser<>0)then Result:=True else Result:=False;
+end; 
+
+function TIWUserSession.GETTEXTFILE: String;
+var F: TextFile;
+    RN: Integer;
+    Path, Tmp, TmpAll: String;
+begin
+Result:='';
+if IBQueryFiles.Active then
+If IBQueryFiles.RecordCount>0 then
+begin
+  Path:=GetTemp+TEXTFILE_NAME+'_'+Us.User+'.txt';
+  AssignFile(F, Path);
+  Rewrite(F);
+  Writeln(F, F1);
+  Writeln(F, C2+IntToStr(IBQueryFiles.RecordCount)+']');
+  Writeln(F, '');
+  Writeln(F, 'FTP: '+Us.Host+'');
+  Writeln(F, F2+Us.User);
+  Writeln(F, F3+DateTimeToStr(Now));
+  Writeln(F, '');
+
+  TmpAll:='';
+  //1
+  Tmp:=F41;
+  While Length(Tmp)<LenPar1 do Tmp:=' '+Tmp;
+  TmpAll:=TmpAll+Tmp;
+  //2
+  Tmp:=F42;
+  While Length(Tmp)<LenPar2 do Tmp:=' '+Tmp;
+  TmpAll:=TmpAll+Tmp;
+  //3
+  Tmp:=F43;
+  While Length(Tmp)<LenPar3 do Tmp:=' '+Tmp;
+  TmpAll:=TmpAll+Tmp;
+  //4
+  Tmp:=F44;
+  TmpAll:=TmpAll+Tmp;
+
+  Writeln(F, TmpAll);
+  Writeln(F, '=================================================================================================');
+  With IBQueryFiles do
+  begin
+    RN:=RecNo;
+    First;
+    while not eof do
+    begin
+      TmpAll:='';
+      //1
+      try    Tmp:=IntToStr(FieldValues[F51])+'|';
+      Except Tmp:='...|'; end;
+      While Length(Tmp)<LenPar1 do Tmp:=' '+Tmp;
+      TmpAll:=TmpAll+Tmp;
+      //2
+      try    Tmp:=DateToStr(FieldValues[F52])+'|';
+      Except Tmp:='...|'; end;
+      While Length(Tmp)<LenPar2 do Tmp:=' '+Tmp;
+      TmpAll:=TmpAll+Tmp;
+      //3
+      try    Tmp:=TimeToStr(FieldValues[F53])+'|  ';
+      Except Tmp:='...|  '; end;
+      While Length(Tmp)<LenPar3 do Tmp:=' '+Tmp;
+      TmpAll:=TmpAll+Tmp;
+
+      Writeln(F,TmpAll+FieldValues['V_ALL']);
+      Next;
+    end;
+    RecNo:=RN;
+  end;
+  CloseFile(F);
+  Result:=Path;
+end;
+end;
+
+procedure TIWUserSession.IBDatabase1AfterConnect(Sender: TObject);
+begin
+  IBTableHost.Active:=True;
+end;
+
+procedure TIWUserSession.IBDatabase1BeforeConnect(Sender: TObject);
+begin
+  SetIBDB(IBDatabase1);
+end;
+
+procedure TIWUserSession.IBQueryFilesBeforeOpen(DataSet: TDataSet);
+begin
+  With Us do
+  Case RSort of
+    0: IBQueryFiles.SQL.Text:=SQLTXT+'getfiles('''+Host+''', '''+User+''', '''+Password+''', '+Port+', '+Passive+')'+RFilters+'order by v_path';
+    1: IBQueryFiles.SQL.Text:=SQLTXT+'getfiles('''+Host+''', '''+User+''', '''+Password+''', '+Port+', '+Passive+')'+RFilters+'order by v_size';
+    2: IBQueryFiles.SQL.Text:=SQLTXT+'getfiles('''+Host+''', '''+User+''', '''+Password+''', '+Port+', '+Passive+')'+RFilters+'order by v_date, v_time';
+    3: IBQueryFiles.SQL.Text:=SQLTXT+'getfiles('''+Host+''', '''+User+''', '''+Password+''', '+Port+', '+Passive+')'+RFilters+'order by v_name';
+  end;
+end;
+
+procedure TIWUserSession.IBQueryLogBeforeOpen(DataSet: TDataSet);
+begin
+  IBQueryLog.SQL.Text:=SQLTXT2+Us.Host+SQLTXT3;
+end;
+
+procedure TIWUserSession.IBTableFTP_HOSTAfterOpen(DataSet: TDataSet);
+begin
+  IBTableFTP_LOGIN.Active:=True;
+  IBTableFTP_DIRS.Active:=True;
+  IBTableS_TRANSFERTYPE.Active:=True;
+  IBTableS_PROXYTYPE.Active:=True;
+  IBTableS_ROWLIMIT.Active:=True;
+  if IBTableOptions.Modified=False then IBTableOptions.Edit;
+end;
+
+function TIWUserSession.NewHost: Integer;
+begin
+  With IBQueryTemp do
+  try
+    Active:=False;
+    SQL.Text:=SQLTXT_NEWHOST;
+    Active:=True;
+    Result:=FieldValues['kod'];
+    Active:=False;
+  except
+  end;
+end;
+
+function TIWUserSession.NewLogin: Integer;
+begin
+  With IBQueryTemp do
+  try
+    Active:=False;
+    SQL.Text:=SQLTXT_NEWLOGIN;
+    Active:=True;
+    Result:=FieldValues['kod'];
+    Active:=False;
+  except
+  end;
+end;
+
+function TIWUserSession.NewDirs: Integer;
+begin
+  With IBQueryTemp do
+  try
+    Active:=False;
+    SQL.Text:=SQLTXT_NEWDIRS;
+    Active:=True;
+    Result:=FieldValues['kod'];
+    Active:=False;
+  except
+  end;
+end;
+
+function TIWUserSession.NewDirs_SNHR: Integer;
+begin
+  With IBQueryTemp do
+  try
+    Active:=False;
+    SQL.Text:=SQLTXT_NEWDIRS_SNHR;
+    Active:=True;
+    Result:=FieldValues['kod'];
+    Active:=False;
+  except
+  end;
+end;
+
+procedure TIWUserSession.IBTableFTP_HOSTAfterClose(DataSet: TDataSet);
+begin
+  IBTableFTP_LOGIN.Active:=False;
+  IBTableFTP_DIRS.Active:=False;
+  IBTableS_TRANSFERTYPE.Active:=False;
+  IBTableS_PROXYTYPE.Active:=False;
+  IBTableS_ROWLIMIT.Active:=False;
+end;
+
+procedure TIWUserSession.IBTableFTP_HOSTAfterInsert(DataSet: TDataSet);
+begin
+  DataSet.FieldValues['kod']:=NewHost;
+  DataSet.Refresh;
+  DataSet.Edit;
+end;
+
+procedure TIWUserSession.IBTableFTP_LOGINAfterInsert(DataSet: TDataSet);
+begin
+  DataSet.FieldValues['kod']:=NewLogin;
+  DataSet.FieldValues['host']:=IBTableFTP_HOST.FieldValues['kod'];
+end;
+
+procedure TIWUserSession.IBTableHostAfterClose(DataSet: TDataSet);
+begin
+  IBTableROWLIMIT.Active:=False;
+end;
+
+procedure TIWUserSession.IBTableHostAfterOpen(DataSet: TDataSet);
+begin
+  IBTableROWLIMIT.Active:=True;
+end;
+
+procedure TIWUserSession.IWUserSessionBaseDestroy(Sender: TObject);
+begin
+  IBDatabase1.Connected:=False;
+  FreeOnRelease;
+end;
+
+procedure TIWUserSession.EditFTP_HOST(DataSet: TDataSet);
+begin
+  if(IBTableFTP_HOST.Modified=False)and(IBTableFTP_HOST.RecordCount>0)then IBTableFTP_HOST.Edit;
+end;
+
+procedure TIWUserSession.EditFTP_LOGIN(DataSet: TDataSet);
+begin
+  if(IBTableFTP_HOST.Modified=False)and(IBTableFTP_HOST.RecordCount>0)then IBTableFTP_HOST.Edit;
+  if(IBTableFTP_LOGIN.Modified=False)and(IBTableFTP_LOGIN.RecordCount>0)then IBTableFTP_LOGIN.Edit;
+end;
+
+procedure TIWUserSession.IBTableDIRS_SNHREdit(DataSet: TDataSet);
+begin
+  if(IBTableDIRS_HOST.Modified=False)and(IBTableDIRS_HOST.RecordCount>0)then IBTableDIRS_HOST.Edit;
+end;
+
+procedure TIWUserSession.IBTableDIRS_HOSTAfterClose(DataSet: TDataSet);
+begin
+  IBTableDIRS_SNHR.Active:=False;
+  IBTableS_PARAMS.Active:=False;
+end;
+
+procedure TIWUserSession.IBTableDIRS_HOSTAfterOpen(DataSet: TDataSet);
+begin
+  IBTableDIRS_SNHR.Active:=True; 
+  IBTableS_PARAMS.Active:=True;
+end;
+
+procedure TIWUserSession.IBTableDIRS_SNHRAfterInsert(DataSet: TDataSet);
+begin
+  DataSet.FieldValues['kod']:=NewDirs_SNHR;
+  DataSet.FieldValues['host']:=IBTableDIRS_HOST.FieldValues['kod'];
+end;
+
+procedure TIWUserSession.IBTableFTP_DIRSAfterInsert(DataSet: TDataSet);
+begin
+  DataSet.FieldValues['kod']:=NewDirs;
+  DataSet.FieldValues['login']:=IBTableFTP_login.FieldValues['kod'];
+end;
+
+function TIWUserSession.FScanStop: Boolean;
+begin WinExec(Pchar(GetDBPath+'FTPDBDaemon\FTPDBDaemon.exe /stop'), SW_HIDE); end;
+
+function TIWUserSession.FScanStart: Boolean;
+begin WinExec(Pchar(GetDBPath+'FTPDBDaemon\FTPDBDaemon.exe /start'), SW_HIDE); end; 
+
+function TIWUserSession.FScanRestart: Boolean;
+begin WinExec(Pchar(GetDBPath+'FTPDBDaemon\FTPDBDaemon.exe /stop'), SW_HIDE);
+      WinExec(Pchar(GetDBPath+'FTPDBDaemon\FTPDBDaemon.exe /start'), SW_HIDE); end;
+
+
+end.

@@ -1,0 +1,29 @@
+unit Unit5;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, ServerController,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWHTMLControls,
+  Controls, Forms, IWVCLBaseContainer, IWContainer, IWHTMLContainer, IWRegion;
+
+type
+  TIWFormAdmin = class(TIWAppForm)
+    IWRegion1: TIWRegion;
+    IWLink1: TIWLink;
+    procedure IWLink1Click(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TIWFormAdmin.IWLink1Click(Sender: TObject);
+begin
+  UserSession.IBQuerylog.Active:=False;
+  Hide;
+end;
+
+end.

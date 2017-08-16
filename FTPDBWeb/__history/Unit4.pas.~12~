@@ -1,0 +1,51 @@
+unit Unit4;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, UserSessionUnit,
+  Controls, Forms, IWVCLBaseContainer, IWContainer,
+  IWHTMLContainer, IWRegion, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl,
+  IWControl, IWGrids, IWDBGrids, ServerController, IWDBStdCtrls, IWHTMLControls;
+
+type
+  TIWForm4 = class(TIWAppForm)
+    IWDBGrid1: TIWDBGrid;
+    IWRegion1: TIWRegion;
+    IWRegion4: TIWRegion;
+    IWDBNavigator1: TIWDBNavigator;
+    IWRegion2: TIWRegion;
+    IWLink1: TIWLink;
+    procedure LogClickBack(Sender: TObject);
+    procedure IWDBNavigator1Next(Sender: TObject);
+    procedure IWDBNavigator1Prior(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+procedure TIWForm4.LogClickBack(Sender: TObject);
+begin
+  Hide;
+  UserSession.IBQuerylog.Active:=False;  
+end;
+
+procedure TIWForm4.IWDBNavigator1Next(Sender: TObject);
+begin
+  Try
+    IWDBGrid1.DataSource.DataSet.RecNo:=IWDBGrid1.DataSource.DataSet.RecNo+IWDBGrid1.RowLimit-1;
+  finally
+  End;
+end;
+
+procedure TIWForm4.IWDBNavigator1Prior(Sender: TObject);
+begin
+  Try
+    IWDBGrid1.DataSource.DataSet.RecNo:=IWDBGrid1.DataSource.DataSet.RecNo-IWDBGrid1.RowLimit+1;
+  finally
+  End;
+end;
+
+end.

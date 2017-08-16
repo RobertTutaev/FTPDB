@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<PersonalityInfo>
+		<Option>
+			<Option Name="Personality">Default.Personality</Option>
+			<Option Name="ProjectType"></Option>
+			<Option Name="Version">1.0</Option>
+			<Option Name="GUID">{2C6C42AA-92B1-4EBE-9347-77B7A08EC64B}</Option>
+		</Option>
+	</PersonalityInfo>
+	<Default.Personality>  <Projects>
+      <Projects Name="FTP.bpl">FTP.bdsproj</Projects>
+      <Projects Name="IdHttpDemoVCL.exe">C:\Program Files\Borland\BDS\4.0\Demos\Indy10\HTTP\VCLForm\IdHttpDemoVCL.bdsproj</Projects>
+      <Projects Name="Targets">FTP.bpl IdHttpDemoVCL.exe</Projects>
+    </Projects>
+    <Dependencies/>
+  </Default.Personality>
+</BorlandProject>

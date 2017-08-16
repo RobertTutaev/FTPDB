@@ -1,0 +1,44 @@
+unit TestUnit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ScanMain;
+
+type
+  TFTPDBDaemonTestForm = class(TForm)
+    ButtonStart: TButton;
+    procedure ButtonStartClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    ScanMain: TScanMain;
+  end;
+
+var
+  FTPDBDaemonTestForm: TFTPDBDaemonTestForm;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFTPDBDaemonTestForm.ButtonStartClick(Sender: TObject);
+begin
+  ScanMain.Resume;
+end;
+
+procedure TFTPDBDaemonTestForm.FormCreate(Sender: TObject);
+begin
+  ScanMain:=TScanMain.Create;
+end;
+
+procedure TFTPDBDaemonTestForm.FormDestroy(Sender: TObject);
+begin
+  ScanMain.Terminate;
+end;
+
+end.

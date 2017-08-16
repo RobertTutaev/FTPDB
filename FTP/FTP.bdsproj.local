@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2007.02.20 10:14:37.390.pas,D:\Мелочь\FTPDB\FTP\ServiceManager.pas=</Transaction>
+    <Transaction>2007.02.20 10:17:48.921.pas,C:\Program Files\Borland\Delphi7\Imports\SpeechLib_TLB.pas=</Transaction>
+    <Transaction>2007.04.24 13:53:44.484.pas,D:\Мелочь\FTPDB\FTP\IWIButton.pas=</Transaction>
+    <Transaction>2007.05.22 09:34:09.000.pas,D:\Мелочь\FTPDB\FTP\Unit1.pas=D:\Мелочь\FTPDB\FTP\IPInfo.pas</Transaction>
+  </Transactions>
+</BorlandProject>

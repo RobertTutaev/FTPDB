@@ -1,0 +1,79 @@
+unit Unit5;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, ServerController,
+  IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl, IWControl, IWHTMLControls,
+  Controls, Forms, IWVCLBaseContainer, IWContainer, IWHTMLContainer, IWRegion,
+  IWCompLabel, IWCompButton, IWCompEdit, LibraryWeb, Unit6;
+
+type
+  TIWFormAdmin = class(TIWAppForm)
+    IWRegion1: TIWRegion;
+    IWLink1: TIWLink;
+    IWRegion2: TIWRegion;
+    IWEditUser: TIWEdit;
+    IWEditPassword: TIWEdit;
+    IWButtonEnter: TIWButton;
+    IWLabel1: TIWLabel;
+    IWLabel2: TIWLabel;
+    IWLinkSave: TIWLink;
+    procedure IWLink1Click(Sender: TObject);
+    procedure IWLinkSaveClick(Sender: TObject);
+    procedure IWButtonEnterClick(Sender: TObject);
+    procedure IWAppFormCreate(Sender: TObject);
+  public
+    FormOptions: TIWFormOptions;
+  end;
+
+implementation
+
+uses IWFormDsn, IWBaseForm, UserSessionUnit;
+
+{$R *.dfm}
+
+procedure TIWFormAdmin.IWAppFormCreate(Sender: TObject);
+begin
+  FormOptions:=TIWFormOptions.Create(WebApplication);
+  Try IWEditUser.Text:=GetTextC(WebApplication.Request.CookieFields.Values['UserAdm']);Except end;
+  Try IWEditPassword.Text:=GetTextC(WebApplication.Request.CookieFields.Values['PasswordAdm']);Except end;
+end;
+
+procedure TIWFormAdmin.IWButtonEnterClick(Sender: TObject);
+begin
+  try
+    UserSession.IBTableOptions.Active:=False;
+    UserSession.IBTableOptions.Active:=True;
+
+    if(Trim(IWEditUser.Text)=Trim(UserSession.IBTableOptions.FieldValues['LOGIN']))and
+      (Trim(IWEditPassword.Text)=Trim(UserSession.IBTableOptions.FieldValues['PASS']))then
+    begin
+      With UserSession do
+      begin
+        IBTableS_TRANSFERTYPE.Active:=True;
+        IBTableS_PROXYTYPE.Active:=True;
+        IBTableFTP_HOST.Active:=True;
+      end;
+      FormOptions.Show;
+      Hide;
+      Exit;
+    end;
+  except
+  end;
+  WebApplication.ShowMessage('Запрос отклонен!');
+  UserSession.IBTableOptions.Active:=False;
+end;
+
+procedure TIWFormAdmin.IWLink1Click(Sender: TObject);
+begin
+  Hide;
+end;
+
+procedure TIWFormAdmin.IWLinkSaveClick(Sender: TObject);
+begin
+  CookiesSet(WebApplication,'UserAdm',GetText(LowerCase(IWEditUser.Text)));
+  CookiesSet(WebApplication,'PasswordAdm',GetText(LowerCase(IWEditPassword.Text)));
+end;
+
+end.

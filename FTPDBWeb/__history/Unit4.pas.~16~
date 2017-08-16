@@ -1,0 +1,75 @@
+unit Unit4;
+
+interface
+
+uses
+  Classes, SysUtils, IWAppForm, IWApplication, IWColor, IWTypes, UserSessionUnit,
+  Controls, Forms, IWVCLBaseContainer, IWContainer,
+  IWHTMLContainer, IWRegion, IWVCLBaseControl, IWBaseControl, IWBaseHTMLControl,
+  IWControl, IWGrids, IWDBGrids, ServerController, IWDBStdCtrls, IWHTMLControls,
+  IWCompButton, IWCompListbox;
+
+type
+  TIWFormLog = class(TIWAppForm)
+    IWDBGridLog: TIWDBGrid;
+    IWRegion1: TIWRegion;
+    IWRegion4: TIWRegion;
+    IWRegion2: TIWRegion;
+    IWRegionList: TIWRegion;
+    IWComboBoxList: TIWComboBox;
+    IWButtonList1: TIWButton;
+    IWButtonList2: TIWButton;
+    IWLink1: TIWLink;
+    procedure LogClickBack(Sender: TObject);
+    procedure IWListEnabled(Sender: TObject);
+    procedure IWComboBoxListChange(Sender: TObject);
+    procedure IWButtonList1Click(Sender: TObject);
+    procedure IWButtonList2Click(Sender: TObject);
+  public
+  end;
+
+implementation
+
+{$R *.dfm}
+
+procedure TIWFormLog.IWListEnabled(Sender: TObject);
+begin
+  if(IWComboBoxList.ItemIndex=0)or(IWComboBoxList.ItemIndex=-1)
+    then IWButtonList1.Enabled:=False else IWButtonList1.Enabled:=True;
+  if(IWComboBoxList.ItemIndex=IWComboBoxList.Items.Count-1)or(IWComboBoxList.Items.Count=0)
+    then IWButtonList2.Enabled:=False else IWButtonList2.Enabled:=True;
+end;
+
+procedure TIWFormLog.LogClickBack(Sender: TObject);
+begin
+  Hide;
+  UserSession.IBQuerylog.Active:=False;  
+end;
+
+procedure TIWFormLog.IWButtonList2Click(Sender: TObject);
+begin
+  Try
+    IWComboBoxList.ItemIndex:=IWComboBoxList.ItemIndex+1;
+    IWDBGridLog.DataSource.DataSet.RecNo:=1+IWDBGridLog.RowLimit*IWComboBoxList.ItemIndex;
+    IWListEnabled(Sender);
+  finally
+  End;
+end;
+
+procedure TIWFormLog.IWButtonList1Click(Sender: TObject);
+begin
+  Try
+    IWComboBoxList.ItemIndex:=IWComboBoxList.ItemIndex-1;
+    IWDBGridLog.DataSource.DataSet.RecNo:=1+IWDBGridLog.RowLimit*IWComboBoxList.ItemIndex;
+    IWListEnabled(Sender);
+  finally
+  End;
+end;
+
+procedure TIWFormLog.IWComboBoxListChange(Sender: TObject);
+begin
+  IWDBGridLog.DataSource.DataSet.RecNo:=1+IWDBGridLog.RowLimit*IWComboBoxList.ItemIndex;
+  IWListEnabled(Sender);
+end;
+
+end.

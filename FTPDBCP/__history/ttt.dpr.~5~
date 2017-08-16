@@ -1,0 +1,13 @@
+program ttt;
+
+uses
+  Forms,
+  FormFTPDBCP in 'FormFTPDBCP.pas' {FormFTPDBDaemon};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormFTPDBDaemon, FormFTPDBCP1);
+  Application.Run;
+end.

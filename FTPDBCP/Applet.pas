@@ -1,0 +1,43 @@
+unit Applet;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, CtlPanel, FormFTPDBCP;
+
+type
+  TAppletModule1 = class(TAppletModule)
+    procedure AppletModuleActivate(Sender: TObject; Data: Integer);
+  private
+  { private decTlarations }
+     MainForm: TFormFTPDBDaemon;
+  protected
+  { protected declarations }
+  public
+  { public declarations }
+  end;
+
+var
+  AppletModule1: TAppletModule1;
+
+implementation
+
+{$R *.DFM}
+
+procedure TAppletModule1.AppletModuleActivate(Sender: TObject;
+  Data: Integer);
+var
+  v_par: String;
+begin    
+  MainForm:=TFormFTPDBDaemon.Create(MainForm);
+  try
+    v_par:=Trim(LowerCase(ParamStr(2)));
+    if Copy(v_par, length(v_par)-3,4)='/web'
+    then MainForm.LabelHTTPClick(Sender)
+    else MainForm.ShowModal;
+  finally
+    MainForm.Free;  
+  end;
+end;
+
+end.

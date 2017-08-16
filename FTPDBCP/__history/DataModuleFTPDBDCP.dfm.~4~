@@ -1,0 +1,299 @@
+object DataModuleFTPDBDaemon: TDataModuleFTPDBDaemon
+  OldCreateOrder = False
+  Height = 418
+  Width = 335
+  object IBDatabase1: TIBDatabase
+    AfterConnect = IBDatabase1AfterConnect
+    Left = 14
+    Top = 10
+  end
+  object IdFTPDBScan1: TIdFTPDBScan
+    AutoLogin = True
+    ProxySettings.ProxyType = fpcmNone
+    ProxySettings.Port = 0
+    ReadTimeout = 0
+    IBDataSet = IBQueryGet
+    IdUser = 0
+    Left = 256
+    Top = 350
+  end
+  object IBTable3: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'HOST'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PASSIVE'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'PORT'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'TRANSFERTYPE'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY47'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'RDB$FOREIGN61'
+        Fields = 'MAXLINEACTION'
+      end
+      item
+        Name = 'RDB$FOREIGN62'
+        Fields = 'PASSIVE'
+      end
+      item
+        Name = 'RDB$FOREIGN63'
+        Fields = 'TRANSFERTYPE'
+      end>
+    StoreDefs = True
+    TableName = 'FTP_HOST'
+    Left = 176
+    Top = 14
+  end
+  object DataSource3: TDataSource
+    DataSet = IBTable3
+    Left = 256
+    Top = 14
+  end
+  object IBTable4: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'BLN'
+        DataType = ftString
+        Size = 50
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY59'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end>
+    StoreDefs = True
+    TableName = 'S_BLN'
+    Left = 176
+    Top = 70
+  end
+  object DataSource4: TDataSource
+    DataSet = IBTable4
+    Left = 256
+    Top = 70
+  end
+  object DataSource5: TDataSource
+    DataSet = IBTable5
+    Left = 256
+    Top = 126
+  end
+  object DataSource6: TDataSource
+    DataSet = IBTable6
+    Left = 256
+    Top = 182
+  end
+  object IBTable5: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'MAXLINEACTION'
+        DataType = ftString
+        Size = 50
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY56'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end>
+    StoreDefs = True
+    TableName = 'S_MAXLINEACTION'
+    Left = 176
+    Top = 126
+  end
+  object IBTable6: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'PROXYTYPE'
+        DataType = ftString
+        Size = 50
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY57'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end>
+    StoreDefs = True
+    TableName = 'S_PROXYTYPE'
+    Left = 176
+    Top = 182
+  end
+  object IBTable7: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'TRANSFERTYPE'
+        DataType = ftString
+        Size = 50
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$PRIMARY58'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end>
+    StoreDefs = True
+    TableName = 'S_TRANSFERTYPE'
+    Left = 176
+    Top = 238
+  end
+  object DataSource7: TDataSource
+    DataSet = IBTable7
+    Left = 256
+    Top = 238
+  end
+  object IBTable8: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    DefaultIndex = False
+    FieldDefs = <
+      item
+        Name = 'KOD'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'HOST'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'LOGIN'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PASS'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PLOGIN'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PPASS'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PHOST'
+        DataType = ftString
+        Size = 50
+      end
+      item
+        Name = 'PPORT'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'PPROXYTYPE'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'READTIMEOUT'
+        DataType = ftInteger
+      end
+      item
+        Name = 'ACT'
+        DataType = ftSmallint
+      end>
+    IndexDefs = <
+      item
+        Name = 'RDB$FOREIGN60'
+        Fields = 'PPROXYTYPE'
+      end
+      item
+        Name = 'RDB$PRIMARY51'
+        Fields = 'KOD'
+        Options = [ixPrimary, ixUnique]
+      end
+      item
+        Name = 'RDB$FOREIGN52'
+        Fields = 'HOST'
+      end
+      item
+        Name = 'RDB$FOREIGN65'
+        Fields = 'ACT'
+      end>
+    IndexFieldNames = 'HOST'
+    MasterFields = 'KOD'
+    MasterSource = DataSource3
+    StoreDefs = True
+    TableName = 'FTP_LOGIN'
+    Left = 176
+    Top = 294
+  end
+  object DataSource8: TDataSource
+    DataSet = IBTable8
+    Left = 256
+    Top = 294
+  end
+  object IBQueryGet: TIBQuery
+    Database = IBDatabase1
+    Transaction = IBTransaction2
+    SQL.Strings = (
+      'select kod from getlogin('#39'192.168.11.3'#39','#39'met_uszn'#39')')
+    Left = 176
+    Top = 350
+  end
+  object IBTransaction2: TIBTransaction
+    DefaultDatabase = IBDatabase1
+    DefaultAction = TARollback
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 96
+    Top = 10
+  end
+end
